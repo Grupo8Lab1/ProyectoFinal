@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-11-2022 a las 15:44:14
+-- Tiempo de generación: 15-11-2022 a las 16:02:39
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -68,6 +68,7 @@ INSERT INTO `cliente` (`dni`, `nombre_completo`, `domicilio`, `telefono`) VALUES
 --
 
 CREATE TABLE `itemrepuesto` (
+  `id_itemrepuesto` int(11) NOT NULL,
   `num_serie` int(11) NOT NULL,
   `id_reparacion` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL
@@ -77,8 +78,8 @@ CREATE TABLE `itemrepuesto` (
 -- Volcado de datos para la tabla `itemrepuesto`
 --
 
-INSERT INTO `itemrepuesto` (`num_serie`, `id_reparacion`, `cantidad`) VALUES
-(456, 2, 20);
+INSERT INTO `itemrepuesto` (`id_itemrepuesto`, `num_serie`, `id_reparacion`, `cantidad`) VALUES
+(1, 457, 4, 20);
 
 -- --------------------------------------------------------
 
@@ -93,7 +94,7 @@ CREATE TABLE `reparación` (
   `id_bicicleta` int(11) NOT NULL,
   `id_repuestos` int(11) DEFAULT NULL,
   `fecha_entrada` date NOT NULL,
-  `costo_final` float NOT NULL,
+  `costo_final` float DEFAULT NULL,
   `estado` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -102,7 +103,8 @@ CREATE TABLE `reparación` (
 --
 
 INSERT INTO `reparación` (`id_reparacion`, `id_servicio`, `id_usuario`, `id_bicicleta`, `id_repuestos`, `fecha_entrada`, `costo_final`, `estado`) VALUES
-(2, 1, 11223344, 456, 123, '2022-11-03', 1000, 1);
+(4, 2, 11223344, 456, NULL, '2022-11-03', NULL, 0),
+(5, 2, 11223344, 456, 1, '2022-11-03', 1000, 0);
 
 -- --------------------------------------------------------
 
@@ -121,7 +123,8 @@ CREATE TABLE `repuesto` (
 --
 
 INSERT INTO `repuesto` (`num_serie`, `descripcion`, `precio`) VALUES
-(456, 'Tornillito ', 15);
+(456, 'Tornillito ', 15),
+(457, 'Clavito', 10);
 
 -- --------------------------------------------------------
 
@@ -140,7 +143,8 @@ CREATE TABLE `servicio` (
 --
 
 INSERT INTO `servicio` (`codigo`, `descripcion`, `precio`) VALUES
-(1, 'Reparacion de tornillito', 100);
+(1, 'Reparacion de tornillito', 100),
+(2, 'Reparacion de clavito', 400);
 
 --
 -- Índices para tablas volcadas
@@ -163,17 +167,19 @@ ALTER TABLE `cliente`
 -- Indices de la tabla `itemrepuesto`
 --
 ALTER TABLE `itemrepuesto`
-  ADD PRIMARY KEY (`num_serie`,`id_reparacion`),
-  ADD KEY `id_reparacion` (`id_reparacion`);
+  ADD PRIMARY KEY (`id_itemrepuesto`),
+  ADD UNIQUE KEY `num_serie` (`num_serie`,`id_reparacion`),
+  ADD KEY `id_rep` (`id_reparacion`);
 
 --
 -- Indices de la tabla `reparación`
 --
 ALTER TABLE `reparación`
   ADD PRIMARY KEY (`id_reparacion`),
-  ADD KEY `id_servicio` (`id_servicio`,`id_usuario`,`id_bicicleta`,`id_repuestos`),
+  ADD KEY `id_servicio` (`id_servicio`),
+  ADD KEY `id_usuario` (`id_usuario`),
   ADD KEY `id_bicicleta` (`id_bicicleta`),
-  ADD KEY `id_usuario` (`id_usuario`);
+  ADD KEY `id_repuestos` (`id_repuestos`);
 
 --
 -- Indices de la tabla `repuesto`
@@ -192,16 +198,22 @@ ALTER TABLE `servicio`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `itemrepuesto`
+--
+ALTER TABLE `itemrepuesto`
+  MODIFY `id_itemrepuesto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `reparación`
 --
 ALTER TABLE `reparación`
-  MODIFY `id_reparacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_reparacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `servicio`
 --
 ALTER TABLE `servicio`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
@@ -217,6 +229,7 @@ ALTER TABLE `bicicleta`
 -- Filtros para la tabla `itemrepuesto`
 --
 ALTER TABLE `itemrepuesto`
+  ADD CONSTRAINT `id_rep` FOREIGN KEY (`id_reparacion`) REFERENCES `reparación` (`id_reparacion`),
   ADD CONSTRAINT `itemrepuesto_ibfk_1` FOREIGN KEY (`id_reparacion`) REFERENCES `reparación` (`id_reparacion`),
   ADD CONSTRAINT `itemrepuesto_ibfk_2` FOREIGN KEY (`num_serie`) REFERENCES `repuesto` (`num_serie`);
 
@@ -224,9 +237,10 @@ ALTER TABLE `itemrepuesto`
 -- Filtros para la tabla `reparación`
 --
 ALTER TABLE `reparación`
-  ADD CONSTRAINT `reparación_ibfk_1` FOREIGN KEY (`id_bicicleta`) REFERENCES `bicicleta` (`num_serie`),
-  ADD CONSTRAINT `reparación_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `cliente` (`dni`),
-  ADD CONSTRAINT `reparación_ibfk_3` FOREIGN KEY (`id_servicio`) REFERENCES `servicio` (`codigo`);
+  ADD CONSTRAINT `reparación_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `bicicleta` (`dni_dueño`),
+  ADD CONSTRAINT `reparación_ibfk_2` FOREIGN KEY (`id_bicicleta`) REFERENCES `bicicleta` (`num_serie`),
+  ADD CONSTRAINT `reparación_ibfk_3` FOREIGN KEY (`id_repuestos`) REFERENCES `itemrepuesto` (`id_itemrepuesto`),
+  ADD CONSTRAINT `reparación_ibfk_4` FOREIGN KEY (`id_servicio`) REFERENCES `servicio` (`codigo`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
