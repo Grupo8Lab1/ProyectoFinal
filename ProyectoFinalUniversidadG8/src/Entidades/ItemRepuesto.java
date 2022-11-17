@@ -2,22 +2,29 @@ package Entidades;
 
 public class ItemRepuesto {
 
-    private int idItemRepuesto, numSerie, idReparacion, cantidad;
+    private int idItemRepuesto, cantidad;
+    private Repuesto repuesto;
+    private Reparacion reparacion;
 
     public ItemRepuesto() {
     }
 
-    public ItemRepuesto(int idItemRepuesto, int numSerie, int idReparacion, int cantidad) {
-        this.idItemRepuesto = idItemRepuesto;
-        this.numSerie = numSerie;
-        this.idReparacion = idReparacion;
-        this.cantidad = cantidad;
+    @Override
+    public String toString() {
+        return "ItemRepuesto{" + "idItemRepuesto=" + idItemRepuesto + ", cantidad=" + cantidad + ", repuesto=" + repuesto + ", reparacion=" + reparacion + '}';
     }
 
-    public ItemRepuesto(int numSerie, int idReparacion, int cantidad) {
-        this.numSerie = numSerie;
-        this.idReparacion = idReparacion;
+    public ItemRepuesto(int idItemRepuesto, int cantidad, Repuesto repuesto, Reparacion reparacion) {
+        this.idItemRepuesto = idItemRepuesto;
         this.cantidad = cantidad;
+        this.repuesto = repuesto;
+        this.reparacion = reparacion;
+    }
+
+    public ItemRepuesto(int cantidad, Repuesto repuesto, Reparacion reparacion) {
+        this.cantidad = cantidad;
+        this.repuesto = repuesto;
+        this.reparacion = reparacion;
     }
 
     public int getIdItemRepuesto() {
@@ -28,22 +35,6 @@ public class ItemRepuesto {
         this.idItemRepuesto = idItemRepuesto;
     }
 
-    public int getNumSerie() {
-        return numSerie;
-    }
-
-    public void setNumSerie(int numSerie) {
-        this.numSerie = numSerie;
-    }
-
-    public int getIdReparacion() {
-        return idReparacion;
-    }
-
-    public void setIdReparacion(int idReparacion) {
-        this.idReparacion = idReparacion;
-    }
-
     public int getCantidad() {
         return cantidad;
     }
@@ -52,8 +43,20 @@ public class ItemRepuesto {
         this.cantidad = cantidad;
     }
 
-    @Override
-    public String toString() {
-        return "ItemRepuesto{" + "idItemRepuesto=" + idItemRepuesto + ", numSerie=" + numSerie + ", idReparacion=" + idReparacion + ", cantidad=" + cantidad + '}';
+    public Repuesto getRepuesto() {
+        return repuesto;
     }
+
+    public void setRepuesto(Repuesto repuesto) {
+        this.repuesto = repuesto;
+    }
+
+    public Reparacion getReparacion() {
+        return reparacion;
+    }
+
+    public void setReparacion(Reparacion reparacion) {
+        this.reparacion = reparacion;
+    }
+
 }

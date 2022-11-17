@@ -5,18 +5,19 @@ public class Bicicleta {
     private int numSerie;
     private String tipo, color;
     private Cliente dueño;
+    private boolean activo;
 
     @Override
     public String toString() {
-        return "Bicicleta{" + "num_serie=" + numSerie + ", tipo=" + tipo + ", color=" + color + ", due\u00f1o=" + dueño + '}';
+        return "Bicicleta{" + "numSerie=" + numSerie + ", tipo=" + tipo + ", color=" + color + ", due\u00f1o=" + dueño + ", activo=" + activo + '}';
     }
 
-    public int getNum_serie() {
+    public int getNumSerie() {
         return numSerie;
     }
 
-    public void setNum_serie(int num_serie) {
-        this.numSerie = num_serie;
+    public void setNumSerie(int numSerie) {
+        this.numSerie = numSerie;
     }
 
     public String getTipo() {
@@ -43,14 +44,23 @@ public class Bicicleta {
         this.dueño = dueño;
     }
 
-    public Bicicleta(int num_serie, String tipo, String color, Cliente dueño) {
-        this.numSerie = num_serie;
-        this.tipo = tipo;
-        this.color = color;
-        this.dueño = dueño;
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     public Bicicleta() {
+    }
+
+    public Bicicleta(int numSerie, String tipo, String color, Cliente dueño, boolean activo) {
+        this.numSerie = numSerie;
+        this.tipo = tipo;
+        this.color = color;
+        this.dueño = dueño;
+        this.activo = activo;
     }
 
 }

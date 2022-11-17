@@ -4,7 +4,9 @@ import java.time.LocalDate;
 
 public class Reparacion {
 
-    private int idReparacion, idServicio, idUsuario, idBicicleta, idRepuestos;
+    private int idReparacion;
+    private Servicio servicio;
+    private Bicicleta bicicleta;
     private LocalDate fechaEntrada;
     private float costoFinal;
     private boolean estado;
@@ -12,25 +14,9 @@ public class Reparacion {
     public Reparacion() {
     }
 
-    public Reparacion(int idReparacion, int idServicio, int idUsuario, int idBicicleta, int idRepuestos, LocalDate fechaEntrada, float costoFinal, boolean estado) {
-        this.idReparacion = idReparacion;
-        this.idServicio = idServicio;
-        this.idUsuario = idUsuario;
-        this.idBicicleta = idBicicleta;
-        this.idRepuestos = idRepuestos;
-        this.fechaEntrada = fechaEntrada;
-        this.costoFinal = costoFinal;
-        this.estado = estado;
-    }
-
-    public Reparacion(int idServicio, int idUsuario, int idBicicleta, int idRepuestos, LocalDate fechaEntrada, float costoFinal, boolean estado) {
-        this.idServicio = idServicio;
-        this.idUsuario = idUsuario;
-        this.idBicicleta = idBicicleta;
-        this.idRepuestos = idRepuestos;
-        this.fechaEntrada = fechaEntrada;
-        this.costoFinal = costoFinal;
-        this.estado = estado;
+    @Override
+    public String toString() {
+        return "Reparacion{" + "idReparacion=" + idReparacion + ", servicio=" + servicio + ", bicicleta=" + bicicleta + ", fechaEntrada=" + fechaEntrada + ", costoFinal=" + costoFinal + ", estado=" + estado + '}';
     }
 
     public int getIdReparacion() {
@@ -41,36 +27,20 @@ public class Reparacion {
         this.idReparacion = idReparacion;
     }
 
-    public int getIdServicio() {
-        return idServicio;
+    public Servicio getServicio() {
+        return servicio;
     }
 
-    public void setIdServicio(int idServicio) {
-        this.idServicio = idServicio;
+    public void setServicio(Servicio servicio) {
+        this.servicio = servicio;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public Bicicleta getBicicleta() {
+        return bicicleta;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public int getIdBicicleta() {
-        return idBicicleta;
-    }
-
-    public void setIdBicicleta(int idBicicleta) {
-        this.idBicicleta = idBicicleta;
-    }
-
-    public int getIdRepuestos() {
-        return idRepuestos;
-    }
-
-    public void setIdRepuestos(int idRepuestos) {
-        this.idRepuestos = idRepuestos;
+    public void setBicicleta(Bicicleta bicicleta) {
+        this.bicicleta = bicicleta;
     }
 
     public LocalDate getFechaEntrada() {
@@ -97,9 +67,22 @@ public class Reparacion {
         this.estado = estado;
     }
 
-    @Override
-    public String toString() {
-        return "Reparacion{" + "idReparacion=" + idReparacion + ", idServicio=" + idServicio + ", idUsuario=" + idUsuario + ", idBicicleta=" + idBicicleta + ", idRepuestos=" + idRepuestos + ", fechaEntrada=" + fechaEntrada + ", costoFinal=" + costoFinal + ", estado=" + estado + '}';
+    public Reparacion(int idReparacion, Servicio servicio, Bicicleta bicicleta, LocalDate fechaEntrada, float costoFinal, boolean estado) {
+        this.idReparacion = idReparacion;
+        this.servicio = servicio;
+        this.bicicleta = bicicleta;
+        this.fechaEntrada = fechaEntrada;
+        this.costoFinal = costoFinal;
+        this.estado = estado;
     }
 
+    public Reparacion(Servicio servicio, Bicicleta bicicleta, LocalDate fechaEntrada, float costoFinal, boolean estado) {
+        this.servicio = servicio;
+        this.bicicleta = bicicleta;
+        this.fechaEntrada = fechaEntrada;
+        this.costoFinal = costoFinal;
+        this.estado = estado;
+    }
+
+    
 }

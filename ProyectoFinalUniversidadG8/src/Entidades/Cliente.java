@@ -4,20 +4,22 @@ public class Cliente {
 
     private String nombreCompleto, domicilio;
     private int dni, telefono;
+    private boolean activo;
 
     public Cliente() {
     }
 
-    public Cliente(String nombreCompleto, String domicilio, int dni, int telefono) {
+    @Override
+    public String toString() {
+        return "Cliente{" + "nombreCompleto=" + nombreCompleto + ", domicilio=" + domicilio + ", dni=" + dni + ", telefono=" + telefono + ", activo=" + activo + '}';
+    }
+
+    public Cliente(String nombreCompleto, String domicilio, int dni, int telefono, boolean activo) {
         this.nombreCompleto = nombreCompleto;
         this.domicilio = domicilio;
         this.dni = dni;
         this.telefono = telefono;
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" + "nombreCompleto=" + nombreCompleto + ", domicilio=" + domicilio + ", dni=" + dni + ", telefono=" + telefono + '}';
+        this.activo = activo;
     }
 
     public String getNombreCompleto() {
@@ -50,6 +52,14 @@ public class Cliente {
 
     public void setTelefono(int telefono) {
         this.telefono = telefono;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
 }

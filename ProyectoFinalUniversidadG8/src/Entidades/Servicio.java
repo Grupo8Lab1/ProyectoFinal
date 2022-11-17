@@ -5,19 +5,27 @@ public class Servicio {
     private int codigo;
     private String descripcion;
     private float precio;
+    private boolean activo;
 
-    public Servicio(int codigo, String descripcion, float precio) {
+    @Override
+    public String toString() {
+        return "Servicio{" + "codigo=" + codigo + ", descripcion=" + descripcion + ", precio=" + precio + ", activo=" + activo + '}';
+    }
+
+    public Servicio(int codigo, String descripcion, float precio, boolean activo) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.precio = precio;
+        this.activo = activo;
+    }
+
+    public Servicio(String descripcion, float precio, boolean activo) {
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.activo = activo;
     }
 
     public Servicio() {
-    }
-
-    public Servicio(String descripcion, float precio) {
-        this.descripcion = descripcion;
-        this.precio = precio;
     }
 
     public int getCodigo() {
@@ -44,9 +52,12 @@ public class Servicio {
         this.precio = precio;
     }
 
-    @Override
-    public String toString() {
-        return "Servicio{" + "codigo=" + codigo + ", descripcion=" + descripcion + ", precio=" + precio + '}';
+    public boolean isActivo() {
+        return activo;
     }
-    
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
 }

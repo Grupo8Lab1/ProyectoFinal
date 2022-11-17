@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2022 a las 16:02:39
+-- Tiempo de generación: 17-11-2022 a las 22:46:05
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -31,15 +31,16 @@ CREATE TABLE `bicicleta` (
   `num_serie` int(11) NOT NULL,
   `tipo` varchar(30) NOT NULL,
   `color` varchar(20) NOT NULL,
-  `dni_dueño` int(11) NOT NULL
+  `dni_dueño` int(11) NOT NULL,
+  `activo` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `bicicleta`
 --
 
-INSERT INTO `bicicleta` (`num_serie`, `tipo`, `color`, `dni_dueño`) VALUES
-(456, 'Mountain Bike', 'Verde', 11223344);
+INSERT INTO `bicicleta` (`num_serie`, `tipo`, `color`, `dni_dueño`, `activo`) VALUES
+(456, 'Mountain Bike', 'Verde', 11223344, 0);
 
 -- --------------------------------------------------------
 
@@ -51,15 +52,16 @@ CREATE TABLE `cliente` (
   `dni` int(11) NOT NULL,
   `nombre_completo` varchar(30) NOT NULL,
   `domicilio` varchar(30) NOT NULL,
-  `telefono` int(12) NOT NULL
+  `telefono` int(12) NOT NULL,
+  `activo` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`dni`, `nombre_completo`, `domicilio`, `telefono`) VALUES
-(11223344, 'Cosme fulanito', 'Calle falsa 123', 123456789);
+INSERT INTO `cliente` (`dni`, `nombre_completo`, `domicilio`, `telefono`, `activo`) VALUES
+(11223344, 'Cosme fulanito', 'Calle falsa 123', 123456789, 0);
 
 -- --------------------------------------------------------
 
@@ -90,9 +92,7 @@ INSERT INTO `itemrepuesto` (`id_itemrepuesto`, `num_serie`, `id_reparacion`, `ca
 CREATE TABLE `reparación` (
   `id_reparacion` int(11) NOT NULL,
   `id_servicio` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
   `id_bicicleta` int(11) NOT NULL,
-  `id_repuestos` int(11) DEFAULT NULL,
   `fecha_entrada` date NOT NULL,
   `costo_final` float DEFAULT NULL,
   `estado` tinyint(1) NOT NULL DEFAULT 0
@@ -102,9 +102,9 @@ CREATE TABLE `reparación` (
 -- Volcado de datos para la tabla `reparación`
 --
 
-INSERT INTO `reparación` (`id_reparacion`, `id_servicio`, `id_usuario`, `id_bicicleta`, `id_repuestos`, `fecha_entrada`, `costo_final`, `estado`) VALUES
-(4, 2, 11223344, 456, NULL, '2022-11-03', NULL, 0),
-(5, 2, 11223344, 456, 1, '2022-11-03', 1000, 0);
+INSERT INTO `reparación` (`id_reparacion`, `id_servicio`, `id_bicicleta`, `fecha_entrada`, `costo_final`, `estado`) VALUES
+(4, 2, 456, '2022-11-03', NULL, 0),
+(5, 2, 456, '2022-11-03', 1000, 0);
 
 -- --------------------------------------------------------
 
@@ -115,16 +115,17 @@ INSERT INTO `reparación` (`id_reparacion`, `id_servicio`, `id_usuario`, `id_bic
 CREATE TABLE `repuesto` (
   `num_serie` int(11) NOT NULL,
   `descripcion` varchar(100) NOT NULL,
-  `precio` float NOT NULL
+  `precio` float NOT NULL,
+  `activo` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `repuesto`
 --
 
-INSERT INTO `repuesto` (`num_serie`, `descripcion`, `precio`) VALUES
-(456, 'Tornillito ', 15),
-(457, 'Clavito', 10);
+INSERT INTO `repuesto` (`num_serie`, `descripcion`, `precio`, `activo`) VALUES
+(456, 'Tornillito ', 15, 0),
+(457, 'Clavito', 10, 0);
 
 -- --------------------------------------------------------
 
@@ -135,16 +136,17 @@ INSERT INTO `repuesto` (`num_serie`, `descripcion`, `precio`) VALUES
 CREATE TABLE `servicio` (
   `codigo` int(11) NOT NULL,
   `descripcion` varchar(50) NOT NULL,
-  `precio` float NOT NULL
+  `precio` float NOT NULL,
+  `activo` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `servicio`
 --
 
-INSERT INTO `servicio` (`codigo`, `descripcion`, `precio`) VALUES
-(1, 'Reparacion de tornillito', 100),
-(2, 'Reparacion de clavito', 400);
+INSERT INTO `servicio` (`codigo`, `descripcion`, `precio`, `activo`) VALUES
+(1, 'Reparacion de tornillito', 100, 0),
+(2, 'Reparacion de clavito', 400, 0);
 
 --
 -- Índices para tablas volcadas
@@ -177,9 +179,7 @@ ALTER TABLE `itemrepuesto`
 ALTER TABLE `reparación`
   ADD PRIMARY KEY (`id_reparacion`),
   ADD KEY `id_servicio` (`id_servicio`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_bicicleta` (`id_bicicleta`),
-  ADD KEY `id_repuestos` (`id_repuestos`);
+  ADD KEY `id_bicicleta` (`id_bicicleta`);
 
 --
 -- Indices de la tabla `repuesto`
@@ -237,9 +237,7 @@ ALTER TABLE `itemrepuesto`
 -- Filtros para la tabla `reparación`
 --
 ALTER TABLE `reparación`
-  ADD CONSTRAINT `reparación_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `bicicleta` (`dni_dueño`),
   ADD CONSTRAINT `reparación_ibfk_2` FOREIGN KEY (`id_bicicleta`) REFERENCES `bicicleta` (`num_serie`),
-  ADD CONSTRAINT `reparación_ibfk_3` FOREIGN KEY (`id_repuestos`) REFERENCES `itemrepuesto` (`id_itemrepuesto`),
   ADD CONSTRAINT `reparación_ibfk_4` FOREIGN KEY (`id_servicio`) REFERENCES `servicio` (`codigo`);
 COMMIT;
 
