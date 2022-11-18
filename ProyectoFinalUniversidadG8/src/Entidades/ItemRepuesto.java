@@ -5,23 +5,26 @@ public class ItemRepuesto {
     private int idItemRepuesto, cantidad;
     private boolean activo;
     private Repuesto repuesto;
+    private float precioItem;
     private Reparacion reparacion;
 
     public ItemRepuesto() {
     }
 
-    public ItemRepuesto(int cantidad, boolean activo, Repuesto repuesto, Reparacion reparacion) {
+    public ItemRepuesto(Repuesto repuesto, Reparacion reparacion, int cantidad, float precioItem, boolean activo) {
         this.cantidad = cantidad;
         this.activo = activo;
         this.repuesto = repuesto;
+        this.precioItem = precioItem;
         this.reparacion = reparacion;
     }
 
-    public ItemRepuesto(int idItemRepuesto, int cantidad, boolean activo, Repuesto repuesto, Reparacion reparacion) {
+    public ItemRepuesto(int idItemRepuesto, Repuesto repuesto, Reparacion reparacion, int cantidad, float precioItem, boolean activo) {
         this.idItemRepuesto = idItemRepuesto;
         this.cantidad = cantidad;
         this.activo = activo;
         this.repuesto = repuesto;
+        this.precioItem = precioItem;
         this.reparacion = reparacion;
     }
 
@@ -67,7 +70,7 @@ public class ItemRepuesto {
 
     @Override
     public String toString() {
-        return "ItemRepuesto{" + "idItemRepuesto=" + idItemRepuesto + ", cantidad=" + cantidad + ", activo=" + activo + ", repuesto=" + repuesto + ", reparacion=" + reparacion + '}';
+        return "ItemRepuesto{" + "idItemRepuesto=" + idItemRepuesto + ", cantidad=" + cantidad + ", repuesto=" + repuesto + ", reparacion=" + reparacion + ", activo=" + activo + '}';
     }
 
 }

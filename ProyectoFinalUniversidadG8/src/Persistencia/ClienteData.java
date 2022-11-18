@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Persistencia;
 
 import Entidades.Cliente;
@@ -13,10 +9,6 @@ import static java.sql.Statement.RETURN_GENERATED_KEYS;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author tcnlu
- */
 public class ClienteData {
 
     private Connection con;

@@ -2,7 +2,6 @@ package Persistencia;
 
 import Entidades.Repuesto;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -122,7 +121,7 @@ public class RepuestoData {
             ps.setInt(1, rep.getNumSerie());
             ps.setString(2, rep.getDescripcion());
             ps.setFloat(3, rep.getPrecio());
-            ps.setBoolean(5, rep.isActivo());
+            ps.setBoolean(4, rep.isActivo());
             int actualizo = ps.executeUpdate(); //Update
             String aviso;
             if (actualizo > 0) {
