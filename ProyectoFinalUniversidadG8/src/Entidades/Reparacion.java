@@ -9,14 +9,28 @@ public class Reparacion {
     private Bicicleta bicicleta;
     private LocalDate fechaEntrada;
     private float costoFinal;
-    private boolean estado;
+    private boolean estado, activo;
 
     public Reparacion() {
     }
 
-    @Override
-    public String toString() {
-        return "Reparacion{" + "idReparacion=" + idReparacion + ", servicio=" + servicio + ", bicicleta=" + bicicleta + ", fechaEntrada=" + fechaEntrada + ", costoFinal=" + costoFinal + ", estado=" + estado + '}';
+    public Reparacion(Servicio servicio, Bicicleta bicicleta, LocalDate fechaEntrada, float costoFinal, boolean estado, boolean activo) {
+        this.servicio = servicio;
+        this.bicicleta = bicicleta;
+        this.fechaEntrada = fechaEntrada;
+        this.costoFinal = costoFinal;
+        this.estado = estado;
+        this.activo = activo;
+    }
+
+    public Reparacion(int idReparacion, Servicio servicio, Bicicleta bicicleta, LocalDate fechaEntrada, float costoFinal, boolean estado, boolean activo) {
+        this.idReparacion = idReparacion;
+        this.servicio = servicio;
+        this.bicicleta = bicicleta;
+        this.fechaEntrada = fechaEntrada;
+        this.costoFinal = costoFinal;
+        this.estado = estado;
+        this.activo = activo;
     }
 
     public int getIdReparacion() {
@@ -67,22 +81,17 @@ public class Reparacion {
         this.estado = estado;
     }
 
-    public Reparacion(int idReparacion, Servicio servicio, Bicicleta bicicleta, LocalDate fechaEntrada, float costoFinal, boolean estado) {
-        this.idReparacion = idReparacion;
-        this.servicio = servicio;
-        this.bicicleta = bicicleta;
-        this.fechaEntrada = fechaEntrada;
-        this.costoFinal = costoFinal;
-        this.estado = estado;
+    public boolean isActivo() {
+        return activo;
     }
 
-    public Reparacion(Servicio servicio, Bicicleta bicicleta, LocalDate fechaEntrada, float costoFinal, boolean estado) {
-        this.servicio = servicio;
-        this.bicicleta = bicicleta;
-        this.fechaEntrada = fechaEntrada;
-        this.costoFinal = costoFinal;
-        this.estado = estado;
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Reparacion{" + "idReparacion=" + idReparacion + ", servicio=" + servicio + ", bicicleta=" + bicicleta + ", fechaEntrada=" + fechaEntrada + ", costoFinal=" + costoFinal + ", estado=" + estado + ", activo=" + activo + '}';
+    }
+
 }
