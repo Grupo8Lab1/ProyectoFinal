@@ -14,7 +14,7 @@ public class RepuestoData {
 
     private Connection con;
 
-    public RepuestoData(Connection con) {
+    public RepuestoData() {
         this.con = Conexion.getConexion();
     }
 

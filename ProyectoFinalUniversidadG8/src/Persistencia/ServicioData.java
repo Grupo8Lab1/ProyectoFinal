@@ -14,7 +14,7 @@ public class ServicioData {
     
     private Connection con;
 
-    public ServicioData(Connection con) {
+    public ServicioData() {
         this.con = Conexion.getConexion();
     }
 

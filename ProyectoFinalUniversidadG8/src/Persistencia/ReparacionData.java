@@ -14,7 +14,7 @@ public class ReparacionData {
 
     private Connection con;
 
-    public ReparacionData(Connection con) {
+    public ReparacionData() {
         this.con = Conexion.getConexion();
     }
 
