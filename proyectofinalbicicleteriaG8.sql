@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2022 a las 22:46:05
+-- Tiempo de generación: 18-11-2022 a las 21:08:01
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -32,15 +32,8 @@ CREATE TABLE `bicicleta` (
   `tipo` varchar(30) NOT NULL,
   `color` varchar(20) NOT NULL,
   `dni_dueño` int(11) NOT NULL,
-  `activo` tinyint(1) NOT NULL
+  `activo` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `bicicleta`
---
-
-INSERT INTO `bicicleta` (`num_serie`, `tipo`, `color`, `dni_dueño`, `activo`) VALUES
-(456, 'Mountain Bike', 'Verde', 11223344, 0);
 
 -- --------------------------------------------------------
 
@@ -50,18 +43,12 @@ INSERT INTO `bicicleta` (`num_serie`, `tipo`, `color`, `dni_dueño`, `activo`) V
 
 CREATE TABLE `cliente` (
   `dni` int(11) NOT NULL,
-  `nombre_completo` varchar(30) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `apellido` varchar(30) NOT NULL,
   `domicilio` varchar(30) NOT NULL,
   `telefono` int(12) NOT NULL,
-  `activo` tinyint(1) NOT NULL
+  `activo` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `cliente`
---
-
-INSERT INTO `cliente` (`dni`, `nombre_completo`, `domicilio`, `telefono`, `activo`) VALUES
-(11223344, 'Cosme fulanito', 'Calle falsa 123', 123456789, 0);
 
 -- --------------------------------------------------------
 
@@ -76,13 +63,6 @@ CREATE TABLE `itemrepuesto` (
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `itemrepuesto`
---
-
-INSERT INTO `itemrepuesto` (`id_itemrepuesto`, `num_serie`, `id_reparacion`, `cantidad`) VALUES
-(1, 457, 4, 20);
-
 -- --------------------------------------------------------
 
 --
@@ -95,16 +75,9 @@ CREATE TABLE `reparación` (
   `id_bicicleta` int(11) NOT NULL,
   `fecha_entrada` date NOT NULL,
   `costo_final` float DEFAULT NULL,
-  `estado` tinyint(1) NOT NULL DEFAULT 0
+  `estado` tinyint(1) NOT NULL DEFAULT 0,
+  `activo` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `reparación`
---
-
-INSERT INTO `reparación` (`id_reparacion`, `id_servicio`, `id_bicicleta`, `fecha_entrada`, `costo_final`, `estado`) VALUES
-(4, 2, 456, '2022-11-03', NULL, 0),
-(5, 2, 456, '2022-11-03', 1000, 0);
 
 -- --------------------------------------------------------
 
@@ -116,7 +89,7 @@ CREATE TABLE `repuesto` (
   `num_serie` int(11) NOT NULL,
   `descripcion` varchar(100) NOT NULL,
   `precio` float NOT NULL,
-  `activo` tinyint(1) NOT NULL
+  `activo` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -124,7 +97,6 @@ CREATE TABLE `repuesto` (
 --
 
 INSERT INTO `repuesto` (`num_serie`, `descripcion`, `precio`, `activo`) VALUES
-(456, 'Tornillito ', 15, 0),
 (457, 'Clavito', 10, 0);
 
 -- --------------------------------------------------------
@@ -137,7 +109,7 @@ CREATE TABLE `servicio` (
   `codigo` int(11) NOT NULL,
   `descripcion` varchar(50) NOT NULL,
   `precio` float NOT NULL,
-  `activo` tinyint(1) NOT NULL
+  `activo` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -145,7 +117,6 @@ CREATE TABLE `servicio` (
 --
 
 INSERT INTO `servicio` (`codigo`, `descripcion`, `precio`, `activo`) VALUES
-(1, 'Reparacion de tornillito', 100, 0),
 (2, 'Reparacion de clavito', 400, 0);
 
 --
