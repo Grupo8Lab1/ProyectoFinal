@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-11-2022 a las 21:08:01
+-- Tiempo de generación: 18-11-2022 a las 23:23:49
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -60,7 +60,9 @@ CREATE TABLE `itemrepuesto` (
   `id_itemrepuesto` int(11) NOT NULL,
   `num_serie` int(11) NOT NULL,
   `id_reparacion` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL
+  `cantidad` int(11) NOT NULL,
+  `precio_item` float NOT NULL,
+  `activo` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
