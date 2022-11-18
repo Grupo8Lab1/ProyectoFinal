@@ -40,6 +40,14 @@ public class ItemRepuesto {
         return cantidad;
     }
 
+    public float getPrecioItem() {
+        return precioItem;
+    }
+
+    public void setPrecioItem(float precioItem) {
+        this.precioItem = precioItem;
+    }
+
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
@@ -70,7 +78,8 @@ public class ItemRepuesto {
 
     @Override
     public String toString() {
-        return "ItemRepuesto{" + "idItemRepuesto=" + idItemRepuesto + ", cantidad=" + cantidad + ", repuesto=" + repuesto + ", reparacion=" + reparacion + ", activo=" + activo + '}';
+        return "ItemRepuesto{" + "idItemRepuesto=" + idItemRepuesto + ", cantidad=" + cantidad + ", activo=" + activo + ", repuesto=" + repuesto + ", precioItem=" + precioItem + ", reparacion=" + reparacion + '}';
     }
+
 
 }
