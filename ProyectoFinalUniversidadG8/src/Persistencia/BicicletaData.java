@@ -102,7 +102,7 @@ public class BicicletaData {
     }
 
     public void borrarBicicleta(int numSerie) {
-        String sql = "UPDATE alumno SET activo = 0 WHERE num_serie = ?;";
+        String sql = "UPDATE bicicleta SET activo = 0 WHERE num_serie = ?;";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, numSerie);
@@ -123,7 +123,7 @@ public class BicicletaData {
     }
 
     public void actualizaBicicleta(Bicicleta b) {
-        String sql = "UPDATE alumno SET dni=?, apellido=?, nombre=?, fecha_nacimiento=?, estado=? WHERE id_alumno=?";
+        String sql = "UPDATE bicicleta SET num_serie=?, tipo=?, color=?, dni_dueño=?, activo=? WHERE num_serie=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, b.getNumSerie());
