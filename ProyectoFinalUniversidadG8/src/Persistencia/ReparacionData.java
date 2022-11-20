@@ -2,6 +2,7 @@ package Persistencia;
 
 import Entidades.Reparacion;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,7 +25,7 @@ public class ReparacionData {
             PreparedStatement ps = con.prepareStatement(sql, RETURN_GENERATED_KEYS);
             ps.setInt(1, reparacion.getIdReparacion());
             ps.setBicicleta(2, reparacion.getBicicleta());
-            ps.setLocalDate(3, reparacion.getFechaEntrada());
+            ps.setDate(3,Date.valueOf(reparacion.getFechaEntrada()));
             ps.setFloat(4, reparacion.getCostoFinal());
             ps.setBoolean(5, reparacion.isEstado());
             ps.setBoolean(6, reparacion.isActivo());
@@ -56,8 +57,8 @@ public class ReparacionData {
 
                 Reparacion c = new Reparacion();
                 c.setServicio(rs.getInt("servicio"));
-                c.setBicicleta(rs.getBicicleta("bicicleta"));
-                c.setFechaEntrada(rs.getLocalDate("Fecha"));
+                c.setBicicleta(rs.getString("bicicleta"));
+                c.setFechaEntrada(rs.getDate("Fecha").toLocalDate());
                 c.setCostoFinal(rs.getInt("domicilio"));
                 c.setEstado(rs.getBoolean("activo"));
                 c.setActivo(rs.getBoolean("activo"));
@@ -84,7 +85,7 @@ public class ReparacionData {
             if (rs.next()) {
                 c.setServicio(rs.getInt("servicio"));
                 c.setBicicleta(rs.getString("bicicleta"));
-                c.setFechaEntrada(rs.getDate("Fecha"));
+                c.setFechaEntrada(rs.getDate("Fecha").toLocalDate());
                 c.setCostoFinal(rs.getInt("domicilio"));
                 c.setEstado(rs.getBoolean("activo"));
                 c.setActivo(rs.getBoolean("activo"));
@@ -125,7 +126,7 @@ public class ReparacionData {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, reparacion.getIdReparacion());
             ps.setBicicleta(2, reparacion.getBicicleta());
-            ps.setLocalDate(3, reparacion.getFechaEntrada());
+            ps.setDate(3, Date.valueOf( reparacion.getFechaEntrada()));
             ps.setFloat(4, reparacion.getCostoFinal());
             ps.setBoolean(5, reparacion.isEstado());
             ps.setBoolean(6, reparacion.isActivo());
