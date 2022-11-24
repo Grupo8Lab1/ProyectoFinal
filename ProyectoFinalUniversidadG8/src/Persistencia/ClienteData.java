@@ -99,12 +99,14 @@ public class ClienteData {
         return c;
     }
     
-    public Cliente obtenerClienteConEstado0() {
-        String sql = "SELECT * FROM cliente WHERE activo= 0";
+    public Cliente obtenerClienteConEstado0(int dni) {
+        String sql = "SELECT * FROM cliente WHERE activo= 1 AND dni = ?";
         Cliente c = new Cliente();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, dni);
             ResultSet rs = ps.executeQuery(); //Select
+
             if (rs.next()) {
                 c.setDni(rs.getInt("dni"));
                 c.setApellido(rs.getString("apellido"));
@@ -113,9 +115,11 @@ public class ClienteData {
                 c.setTelefono(rs.getInt("telefono"));
                 c.setActivo(rs.getBoolean("activo"));
             }
+
             ps.close();
+
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-obtenerClienteconEstado0");
+            JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-obtenerClientePorDni");
         }
         return c;
     }
