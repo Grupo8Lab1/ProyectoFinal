@@ -98,6 +98,27 @@ public class ClienteData {
         }
         return c;
     }
+    
+    public Cliente obtenerClienteConEstado0() {
+        String sql = "SELECT * FROM cliente WHERE activo= 0";
+        Cliente c = new Cliente();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery(); //Select
+            if (rs.next()) {
+                c.setDni(rs.getInt("dni"));
+                c.setApellido(rs.getString("apellido"));
+                c.setNombre(rs.getString("nombre"));
+                c.setDomicilio(rs.getString("domicilio"));
+                c.setTelefono(rs.getInt("telefono"));
+                c.setActivo(rs.getBoolean("activo"));
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-obtenerClienteconEstado0");
+        }
+        return c;
+    }
 
     public void borrarCliente(int dni) {
         String sql = "UPDATE cliente SET activo = 0 WHERE dni = ?;";
