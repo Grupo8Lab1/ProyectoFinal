@@ -19,13 +19,13 @@ public class ReparacionData {
     }
 
     public void guardarReparacion(Reparacion reparacion) {
-        String sql = "INSERT INTO cliente (idReparacion, bicicleta, fechaEntrada, costoFinal, estado, activo) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO reparacion (id_reparacion, id_bicicleta, fecha_entrada, costo_final, estado, activo) VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, RETURN_GENERATED_KEYS);
             ps.setInt(1, reparacion.getIdReparacion());
-            ps.setBicicleta(2, reparacion.getBicicleta());
-            ps.setDate(3,Date.valueOf(reparacion.getFechaEntrada()));
+            ps.setInt(2, reparacion.getBicicleta().getNumSerie());
+            ps.setDate(3, Date.valueOf(reparacion.getFechaEntrada()));
             ps.setFloat(4, reparacion.getCostoFinal());
             ps.setBoolean(5, reparacion.isEstado());
             ps.setBoolean(6, reparacion.isActivo());
@@ -34,7 +34,7 @@ public class ReparacionData {
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 reparacion.setIdReparacion(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Reparacion agregado exitosamente");
+                JOptionPane.showMessageDialog(null, "Reparacion agregada exitosamente");
             }
             ps.close();
         } catch (SQLException ex) {
@@ -55,40 +55,46 @@ public class ReparacionData {
 
             while (rs.next()) {
 
-                Reparacion c = new Reparacion();
-                c.setServicio(rs.getInt("servicio"));
-                c.setBicicleta(rs.getString("bicicleta"));
-                c.setFechaEntrada(rs.getDate("Fecha").toLocalDate());
-                c.setCostoFinal(rs.getInt("domicilio"));
-                c.setEstado(rs.getBoolean("activo"));
-                c.setActivo(rs.getBoolean("activo"));
+                BicicletaData bd = new BicicletaData();
+                ServicioData sd = new ServicioData();
 
-                listaTemp.add(c);
+                Reparacion r = new Reparacion();
+
+                r.setServicio(sd.obtenerServicioPorId(rs.getInt("id_servicio")));
+                r.setBicicleta(bd.obtenerBicicletaPorId(rs.getInt("id_bicicleta")));
+                r.setFechaEntrada(rs.getDate("fecha_entrada").toLocalDate());
+                r.setCostoFinal(rs.getInt("costo_final"));
+                r.setEstado(rs.getBoolean("estado"));
+                r.setActivo(rs.getBoolean("activo"));
+
+                listaTemp.add(r);
             }
 
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-ObtenerClientes");
+            JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-ObtenerReparaciones");
         }
         return listaTemp;
     }
 
-    public Reparacion obtenerReparacionPorId(int dni) {
-        String sql = "SELECT * FROM cliente WHERE activo= 1 AND idReparacion = ?";
-        Reparacion c = new Reparacion();
+    public Reparacion obtenerReparacionPorId(int id) {
+        String sql = "SELECT * FROM reparacion WHERE activo= 1 AND id_reparacion = ?";
+        Reparacion r = new Reparacion();
+        BicicletaData bd = new BicicletaData();
+        ServicioData sd = new ServicioData();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, dni);
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery(); //Select
 
             if (rs.next()) {
-                c.setServicio(rs.getInt("servicio"));
-                c.setBicicleta(rs.getString("bicicleta"));
-                c.setFechaEntrada(rs.getDate("Fecha").toLocalDate());
-                c.setCostoFinal(rs.getInt("domicilio"));
-                c.setEstado(rs.getBoolean("activo"));
-                c.setActivo(rs.getBoolean("activo"));
+                r.setServicio(sd.obtenerServicioPorId(rs.getInt("id_servicio")));
+                r.setBicicleta(bd.obtenerBicicletaPorId(rs.getInt("id_bicicleta")));
+                r.setFechaEntrada(rs.getDate("fecha_entrada").toLocalDate());
+                r.setCostoFinal(rs.getInt("costo_final"));
+                r.setEstado(rs.getBoolean("estado"));
+                r.setActivo(rs.getBoolean("activo"));
             }
 
             ps.close();
@@ -96,11 +102,11 @@ public class ReparacionData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-obtenerReparacionPorId");
         }
-        return c;
+        return r;
     }
 
     public void borrarReparacion(int idReparacion) {
-        String sql = "UPDATE reparacion SET activo = 0 WHERE idReparacion = ?;";
+        String sql = "UPDATE reparacion SET activo = 0 WHERE id_reparacion = ?;";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idReparacion);
@@ -120,13 +126,13 @@ public class ReparacionData {
         }
     }
 
-    public void actualizarCliente(Reparacion reparacion) {
-        String sql = "UPDATE Reparacion SET idReparacion=?, bicicleta=?, fecha_entrada=?, costo_final=?, estado=?, activo=? WHERE  idReparacion=?";
+    public void actualizarReparacion(Reparacion reparacion) {
+        String sql = "UPDATE reparacion SET id_reparacion=?, id_bicicleta=?, fecha_entrada=?, costo_final=?, estado=?, activo=? WHERE id_reparacion=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, reparacion.getIdReparacion());
-            ps.setBicicleta(2, reparacion.getBicicleta());
-            ps.setDate(3, Date.valueOf( reparacion.getFechaEntrada()));
+            ps.setInt(2, reparacion.getBicicleta().getNumSerie());
+            ps.setDate(3, Date.valueOf(reparacion.getFechaEntrada()));
             ps.setFloat(4, reparacion.getCostoFinal());
             ps.setBoolean(5, reparacion.isEstado());
             ps.setBoolean(6, reparacion.isActivo());
