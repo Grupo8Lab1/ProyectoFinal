@@ -26,7 +26,7 @@ public class ProyectoFinalUniversidadG8 {
     public static void main(String[] args) {
 //        JfIndex jf = new JfIndex();
 //        jf.setVisible(true);
-        Cliente c = new Cliente("Satiago","Lucero","B Cerro de la Cruz",43072560, 4562767,true);
+        Cliente c = new Cliente("Satiago","Lucero","B Cerro de la Cruz",4, 4,true);
         Repuesto r = new Repuesto(3, "Tornillo 10", 20, true);
         Servicio s = new Servicio(2, "Falta de hardware", 30, true);
         Bicicleta b = new Bicicleta(002, "MTB", "Verde", c, true);
