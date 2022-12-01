@@ -92,6 +92,25 @@ public class RepuestoData {
         }
         return rep;
     }
+    
+    public Repuesto obtenerRepuestoPorDescripcion(String descripcion) {
+        String sql = "SELECT * FROM repuesto WHERE activo = 1 AND descripcion LIKE ?";
+        Repuesto rep = new Repuesto();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, descripcion);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                rep.setDescripcion(rs.getString("descripcion"));
+                rep.setPrecio(rs.getFloat("precio"));
+                rep.setActivo(rs.getBoolean("activo"));
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "RepuestoData Sentencia SQL erronea-obtenerRepuestoPorDescripcion");
+        }
+        return rep;
+    }
 
     public void borrarRepuesto(int numSerie) {
         String sql = "UPDATE repuesto SET activo = 0 WHERE num_serie = ?;";

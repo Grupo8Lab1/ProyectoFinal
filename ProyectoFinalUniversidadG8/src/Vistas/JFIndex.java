@@ -1,9 +1,12 @@
 package Vistas;
 
+import javax.swing.ImageIcon;
+
 public class JFIndex extends javax.swing.JFrame {
 
     public JFIndex() {
         initComponents();
+//        setIconImage(new ImageIcon(getClass().getResource("/Vistas.Iconos/bicicleteriaicono.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")
