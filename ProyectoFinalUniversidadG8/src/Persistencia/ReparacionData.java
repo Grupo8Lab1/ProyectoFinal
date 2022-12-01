@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -101,6 +102,30 @@ public class ReparacionData {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-obtenerReparacionPorId");
+        }
+        return r;
+    }
+    
+    public Reparacion obtenerReparacionPorFecha(LocalDate fechaEntrada ) {
+        String sql = "SELECT * FROM reparacion WHERE activo= 1 AND fecha_entrada = ?";
+        Reparacion r = new Reparacion();
+        BicicletaData bd = new BicicletaData();
+        ServicioData sd = new ServicioData();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDate(1, Date.valueOf(fechaEntrada));
+            ResultSet rs = ps.executeQuery(); 
+            if (rs.next()) {
+                r.setServicio(sd.obtenerServicioPorId(rs.getInt("id_servicio")));
+                r.setBicicleta(bd.obtenerBicicletaPorId(rs.getInt("id_bicicleta")));
+                r.setFechaEntrada(rs.getDate("fecha_entrada").toLocalDate());
+                r.setCostoFinal(rs.getInt("costo_final"));
+                r.setEstado(rs.getBoolean("estado"));
+                r.setActivo(rs.getBoolean("activo"));
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-obtenerReparacionPorFecha");
         }
         return r;
     }
