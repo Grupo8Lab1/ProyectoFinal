@@ -27,13 +27,18 @@ public class ItemRepuestoData {
             ps.setInt(4, irep.getCantidad());
             ps.setFloat(5, irep.getPrecioItem());
             ps.setBoolean(6, irep.isActivo());
-            ps.executeUpdate();//insert, update, delete
-
+            int agrego = ps.executeUpdate();//insert, update, delete
+            String aviso;
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 irep.setIdItemRepuesto(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "ItemRepuesto agregado exitosamente");
             }
+            if (agrego > 0) {
+                aviso = "Se agregó el item correctamente";
+            } else {
+                aviso = "No se pudo agregar el item repuesto";
+            }
+            JOptionPane.showMessageDialog(null, aviso);
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ItemRepuestoData Sentencia SQL erronea-guardarItemRepuesto");
