@@ -12,6 +12,8 @@ import Entidades.Repuesto;
 import Entidades.Servicio;
 import Persistencia.BicicletaData;
 import Persistencia.ClienteData;
+import Persistencia.ItemRepuestoData;
+import Persistencia.ReparacionData;
 import Persistencia.RepuestoData;
 import Persistencia.ServicioData;
 import java.time.LocalDate;
@@ -30,14 +32,18 @@ public class ProyectoFinalUniversidadG8 {
         Cliente c = new Cliente(40000, "Satiago", "Lucero", "B Cerro de la Cruz", 41111, true);
         Repuesto repu = new Repuesto(3, "Tornillo 10", 20f, true);
         Repuesto repu2 = new Repuesto(364, "Aceite de maquina", 200f, true);
-        Servicio s = new Servicio("Falta de hardware", 30f, true);
+        Servicio s = new Servicio("Falta de hardware", 300f, true);
         Bicicleta b = new Bicicleta(002, "MTB", "Verde", c, true);
-        Reparacion repa = new Reparacion(s, b, LocalDate.now(), 30, true, true);
-        ItemRepuesto ir = new ItemRepuesto(repu, repa, 10, 500f, true);
 
         ServicioData sd = new ServicioData();
-        
-        sd.guardarServicio(s);
+        BicicletaData bd = new BicicletaData();
+        RepuestoData repud = new RepuestoData();
+        ReparacionData repad = new ReparacionData();
+
+        System.out.println(repad.obtenerReparaciones());
+        //ItemRepuesto ir = new ItemRepuesto(repu, repa, repa.getIdReparacion(), 500f, true);
+//        ItemRepuestoData ird = new ItemRepuestoData();
+        //      ird.guardarItemRepuesto(ir);
         /*
         
         Funcionan: 
@@ -51,7 +57,12 @@ public class ProyectoFinalUniversidadG8 {
         - RepuestoData:
         Todos
         
+        -ItemRepuestoData:
+        
+        
         - ServicioData:
+        Todos
+        
         
         
          */

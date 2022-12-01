@@ -30,10 +30,9 @@ public class ServicioData {
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 serv.setCodigo(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Servicio agregado exitosamente");
             }
             if (agrego > 0) {
-                aviso = "Se agregó el serviciocorrectamente";
+                aviso = "Se agregó el servicio correctamente";
             } else {
                 aviso = "No se pudo agregar el servicio";
             }
@@ -76,7 +75,7 @@ public class ServicioData {
     }
 
     public Servicio obtenerServicioPorId(int codigo) {
-        String sql = "SELECT * FROM servicio WHERE activo = 1 AND num_serie = ?";
+        String sql = "SELECT * FROM servicio WHERE activo = 1 AND codigo = ?";
         Servicio s = new Servicio();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -85,7 +84,7 @@ public class ServicioData {
 
             if (rs.next()) {
 
-                s.setCodigo(rs.getInt(codigo));
+                s.setCodigo(rs.getInt("codigo"));
                 s.setDescripcion(rs.getString("descripcion"));
                 s.setPrecio(rs.getFloat("precio"));
                 s.setActivo(rs.getBoolean("activo"));
@@ -120,14 +119,15 @@ public class ServicioData {
         }
     }
 
-    public void actualizaServicio(Servicio serv) {
+    public void actualizaServicio(Servicio serv, int codigo) {
         String sql = "UPDATE servicio SET codigo=?, descripcion=?, precio=?, activo=? WHERE codigo=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, serv.getCodigo());
             ps.setString(2, serv.getDescripcion());
             ps.setFloat(3, serv.getPrecio());
-            ps.setBoolean(5, serv.isActivo());
+            ps.setBoolean(4, serv.isActivo());
+            ps.setInt(5, codigo);
             int actualizo = ps.executeUpdate(); //Update
             String aviso;
             if (actualizo > 0) {

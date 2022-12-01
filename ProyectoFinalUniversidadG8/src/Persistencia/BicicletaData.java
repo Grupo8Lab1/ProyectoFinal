@@ -39,7 +39,7 @@ public class BicicletaData {
             if (agrego > 0) {
                 aviso = "Se agregó la bicicleta correctamente";
             } else {
-                aviso = "No se pudo agregar al cliente";
+                aviso = "No se pudo agregar la bicicleta";
             }
             JOptionPane.showMessageDialog(null, aviso);
             ps.close();
