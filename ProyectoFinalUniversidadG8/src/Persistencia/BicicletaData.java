@@ -1,6 +1,7 @@
 package Persistencia;
 
 import Entidades.Bicicleta;
+import Entidades.Cliente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -94,6 +95,31 @@ public class BicicletaData {
                 b.setTipo(rs.getString("tipo"));
                 b.setColor(rs.getString("color"));
                 b.setDueño(c.obtenerClientePorDni(rs.getInt("dni_dueño")));
+                b.setActivo(rs.getBoolean("activo"));
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-obtenerBicicletaPorId");
+        }
+        return b;
+    }
+    
+    public Bicicleta obtenerBicicletaPorCliente(Cliente dueño) {
+        String sql = "SELECT * FROM bicicleta WHERE activo = 1 AND dni_dueño = ?";
+        Bicicleta b = new Bicicleta();
+        ClienteData c = new ClienteData();
+        Cliente c1 = new Cliente();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, c1.getDni());
+            ResultSet rs = ps.executeQuery(); //Select
+            if (rs.next()) {
+                b.setDueño(c.obtenerClientePorDni(rs.getInt("dni_dueño")));
+                b.setNumSerie(rs.getInt("num_serie"));
+                b.setTipo(rs.getString("tipo"));
+                b.setColor(rs.getString("color"));
                 b.setActivo(rs.getBoolean("activo"));
             }
 
