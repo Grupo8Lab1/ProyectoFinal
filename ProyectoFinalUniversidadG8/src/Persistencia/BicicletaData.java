@@ -2,7 +2,6 @@ package Persistencia;
 
 import Entidades.Bicicleta;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,8 +26,8 @@ public class BicicletaData {
             ps.setString(3, bici.getColor());
             ps.setInt(4, bici.getDueño().getDni());
             ps.setBoolean(5, bici.isActivo());
-            ps.executeUpdate();//insert, update, delete
-
+            int agrego = ps.executeUpdate();//insert, update, delete
+            String aviso;
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
 
@@ -36,6 +35,12 @@ public class BicicletaData {
 
                 JOptionPane.showMessageDialog(null, "Bicicleta agregada exitosamente");
             }
+            if (agrego > 0) {
+                aviso = "Se agregó la bicicleta correctamente";
+            } else {
+                aviso = "No se pudo agregar al cliente";
+            }
+            JOptionPane.showMessageDialog(null, aviso);
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-guardarBicicleta");
@@ -46,10 +51,8 @@ public class BicicletaData {
 
         ArrayList<Bicicleta> listaTemp = new ArrayList();
 
-        String sql = "SELECT * FROM bicileta WHERE activo = 1";
-        Bicicleta b = new Bicicleta();
-        ClienteData c = new ClienteData();
-
+        String sql = "SELECT * FROM bicicleta WHERE activo = 1";
+        ClienteData cd = new ClienteData();
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
@@ -58,10 +61,11 @@ public class BicicletaData {
 
             while (rs.next()) {
 
+                Bicicleta b = new Bicicleta();
                 b.setNumSerie(rs.getInt("num_serie"));
                 b.setTipo(rs.getString("tipo"));
                 b.setColor(rs.getString("color"));
-                b.setDueño(c.obtenerClientePorDni(rs.getInt("dni_dueño")));
+                b.setDueño(cd.obtenerClientePorDni(rs.getInt("dni_dueño")));
                 b.setActivo(rs.getBoolean("activo"));
 
                 listaTemp.add(b);
@@ -109,7 +113,7 @@ public class BicicletaData {
             int borro = ps.executeUpdate(); //Update
             String aviso;
             if (borro > 0) {
-                aviso = "Se elimino la bicicletacorrectamente";
+                aviso = "Se elimino la bicicleta correctamente";
             } else {
                 aviso = "No se pudo eliminar la bicicleta";
             }
@@ -122,7 +126,7 @@ public class BicicletaData {
         }
     }
 
-    public void actualizaBicicleta(Bicicleta b) {
+    public void actualizaBicicleta(Bicicleta b, int numSerie) {
         String sql = "UPDATE bicicleta SET num_serie=?, tipo=?, color=?, dni_dueño=?, activo=? WHERE num_serie=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -131,6 +135,8 @@ public class BicicletaData {
             ps.setString(3, b.getColor());
             ps.setInt(4, b.getDueño().getDni());
             ps.setBoolean(5, b.isActivo());
+            ps.setInt(6, numSerie);
+
             ps.executeUpdate();//insert, update, delete
             int actualizo = ps.executeUpdate(); //Update
             String aviso;

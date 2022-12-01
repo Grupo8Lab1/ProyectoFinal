@@ -22,19 +22,25 @@ public class ClienteData {
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, RETURN_GENERATED_KEYS);
-            ps.setLong(1, cliente.getDni());
+            ps.setInt(1, cliente.getDni());
             ps.setString(2, cliente.getNombre());
             ps.setString(3, cliente.getApellido());
             ps.setString(4, cliente.getDomicilio());
             ps.setInt(5, cliente.getTelefono());
             ps.setBoolean(6, cliente.isActivo());
-            ps.executeUpdate();//insert, update, delete
+            int agrego = ps.executeUpdate();//insert, update, delete
 
+            String aviso;
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 cliente.setDni(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Cliente agregado exitosamente");
             }
+            if (agrego > 0) {
+                aviso = "Se agregó el cliente correctamente";
+            } else {
+                aviso = "No se pudo agregar al cliente";
+            }
+            JOptionPane.showMessageDialog(null, aviso);
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-guardarCliente");
@@ -98,9 +104,9 @@ public class ClienteData {
         }
         return c;
     }
-    
+
     public Cliente obtenerClienteConEstado0(int dni) {
-        String sql = "SELECT * FROM cliente WHERE activo= 1 AND dni = ?";
+        String sql = "SELECT * FROM cliente WHERE activo= 0 AND dni = ?";
         Cliente c = new Cliente();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -145,16 +151,17 @@ public class ClienteData {
         }
     }
 
-    public void actualizarCliente(Cliente cliente) {
+    public void actualizarCliente(Cliente cliente, int dni) {
         String sql = "UPDATE cliente SET dni=?, nombre=?, apellido=?, domicilio=?, telefono=?, activo=? WHERE dni=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setLong(1, cliente.getDni());
+            ps.setInt(1, cliente.getDni());
             ps.setString(2, cliente.getNombre());
             ps.setString(3, cliente.getApellido());
             ps.setString(4, cliente.getDomicilio());
             ps.setInt(5, cliente.getTelefono());
             ps.setBoolean(6, cliente.isActivo());
+            ps.setInt(7, dni);
             int agrego = ps.executeUpdate(); //Update
             String aviso;
             if (agrego > 0) {

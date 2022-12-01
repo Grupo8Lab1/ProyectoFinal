@@ -24,14 +24,20 @@ public class ServicioData {
             ps.setInt(1, serv.getCodigo());
             ps.setString(2, serv.getDescripcion());
             ps.setFloat(3, serv.getPrecio());
-            ps.setBoolean(5, serv.isActivo());
-            ps.executeUpdate();//insert, update, delete
-
+            ps.setBoolean(4, serv.isActivo());
+            int agrego = ps.executeUpdate();//insert, update, delete
+            String aviso;
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 serv.setCodigo(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Servicio agregado exitosamente");
             }
+            if (agrego > 0) {
+                aviso = "Se agregó el serviciocorrectamente";
+            } else {
+                aviso = "No se pudo agregar el servicio";
+            }
+            JOptionPane.showMessageDialog(null, aviso);
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ServicioData Sentencia SQL erronea-guardarServicio");

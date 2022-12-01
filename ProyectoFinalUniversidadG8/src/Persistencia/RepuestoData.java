@@ -24,14 +24,20 @@ public class RepuestoData {
             ps.setInt(1, rep.getNumSerie());
             ps.setString(2, rep.getDescripcion());
             ps.setFloat(3, rep.getPrecio());
-            ps.setBoolean(5, rep.isActivo());
-            ps.executeUpdate();//insert, update, delete
-
+            ps.setBoolean(4, rep.isActivo());
+            int agrego = ps.executeUpdate();//insert, update, delete
+            String aviso;
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 rep.setNumSerie(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Repuesto agregado exitosamente");
             }
+            if (agrego > 0) {
+                aviso = "Se agregó el repuesto correctamente";
+            } else {
+                aviso = "No se pudo agregar el repuesto";
+            }
+            JOptionPane.showMessageDialog(null, aviso);
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "RepuestoData Sentencia SQL erronea-guardarRepuesto");
@@ -133,7 +139,7 @@ public class RepuestoData {
         }
     }
 
-    public void actualizaRepuesto(Repuesto rep) {
+    public void actualizaRepuesto(Repuesto rep, int numSerie) {
         String sql = "UPDATE repuesto SET num_serie=?, descripcion=?, precio=?, activo=? WHERE num_serie=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -141,6 +147,7 @@ public class RepuestoData {
             ps.setString(2, rep.getDescripcion());
             ps.setFloat(3, rep.getPrecio());
             ps.setBoolean(4, rep.isActivo());
+            ps.setInt(5, numSerie);
             int actualizo = ps.executeUpdate(); //Update
             String aviso;
             if (actualizo > 0) {
