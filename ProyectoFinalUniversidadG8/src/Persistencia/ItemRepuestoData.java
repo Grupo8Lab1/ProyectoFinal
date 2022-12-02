@@ -62,7 +62,7 @@ public class ItemRepuestoData {
                 ItemRepuesto ir = new ItemRepuesto();
 
                 ir.setIdItemRepuesto(rs.getInt("id_itemrepuesto"));
-                ir.setRepuesto(rsd.obtenerRepuestoPorId(rs.getInt("id_repuesto")));
+                ir.setRepuesto(rsd.obtenerRepuestoPorId(rs.getInt("num_serie")));
                 ir.setReparacion(rpd.obtenerReparacionPorId(rs.getInt("id_reparacion")));
                 ir.setCantidad(rs.getInt("cantidad"));
                 ir.setPrecioItem(rs.getFloat("precio_item"));
@@ -79,7 +79,7 @@ public class ItemRepuestoData {
         return listaTemp;
     }
 
-    public ItemRepuesto obtenerItemRepuestoPorId(int idItemRepuesto) {
+    public ItemRepuesto obtenerItemRepuestoPorId(int id) {
         String sql = "SELECT * FROM itemrepuesto WHERE activo = 1 AND id_itemrepuesto = ?";
         ItemRepuesto ir = new ItemRepuesto();
         RepuestoData rsd = new RepuestoData();
@@ -87,18 +87,16 @@ public class ItemRepuestoData {
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, idItemRepuesto);
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery(); //Select
 
             if (rs.next()) {
-
                 ir.setIdItemRepuesto(rs.getInt("id_itemrepuesto"));
-                ir.setRepuesto(rsd.obtenerRepuestoPorId(rs.getInt("id_repuesto")));
+                ir.setRepuesto(rsd.obtenerRepuestoPorId(rs.getInt("num_serie")));
                 ir.setReparacion(rpd.obtenerReparacionPorId(rs.getInt("id_reparacion")));
                 ir.setCantidad(rs.getInt("cantidad"));
                 ir.setPrecioItem(rs.getFloat("precio_item"));
                 ir.setActivo(rs.getBoolean("activo"));
-
             }
 
             ps.close();
@@ -130,7 +128,7 @@ public class ItemRepuestoData {
         }
     }
 
-    public void actualizaItemRepuesto(ItemRepuesto irep) {
+    public void actualizaItemRepuesto(ItemRepuesto irep, int id) {
         String sql = "UPDATE itemrepuesto SET id_itemrepuesto=?, num_serie=?, id_reparacion=?, cantidad =?, precio_item = ?, activo = ? WHERE id_itemrepuesto=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -140,6 +138,8 @@ public class ItemRepuestoData {
             ps.setInt(4, irep.getCantidad());
             ps.setFloat(5, irep.getPrecioItem());
             ps.setBoolean(6, irep.isActivo());
+            ps.setInt(7, id);
+
             int actualizo = ps.executeUpdate(); //Update
             String aviso;
             if (actualizo > 0) {

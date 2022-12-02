@@ -81,5 +81,4 @@ public class ItemRepuesto {
         return "ItemRepuesto{" + "idItemRepuesto=" + idItemRepuesto + ", cantidad=" + cantidad + ", activo=" + activo + ", repuesto=" + repuesto + ", precioItem=" + precioItem + ", reparacion=" + reparacion + '}';
     }
 
-
 }
