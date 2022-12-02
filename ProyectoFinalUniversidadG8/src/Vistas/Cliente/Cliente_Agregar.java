@@ -44,7 +44,7 @@ public class Cliente_Agregar extends javax.swing.JPanel {
         Limpiar = new java.awt.Button();
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
-        jLabel1.setText("Cliente Agregar");
+        jLabel1.setText("Agregar Cliente");
 
         jLabel3.setText("DNI :");
 
