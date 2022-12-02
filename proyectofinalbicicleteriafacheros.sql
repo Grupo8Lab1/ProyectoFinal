@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-11-2022 a las 23:23:49
+-- Tiempo de generación: 02-12-2022 a las 01:23:26
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -35,6 +35,14 @@ CREATE TABLE `bicicleta` (
   `activo` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `bicicleta`
+--
+
+INSERT INTO `bicicleta` (`num_serie`, `tipo`, `color`, `dni_dueño`, `activo`) VALUES
+(2, 'MTB', 'Rojo', 40000, 1),
+(3, 'Playera', 'Negro', 40000, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +57,13 @@ CREATE TABLE `cliente` (
   `telefono` int(12) NOT NULL,
   `activo` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`dni`, `nombre`, `apellido`, `domicilio`, `telefono`, `activo`) VALUES
+(40000, 'Satiago', 'Lucero', 'B Cerro de la Cruz', 41111, 1);
 
 -- --------------------------------------------------------
 
@@ -65,6 +80,14 @@ CREATE TABLE `itemrepuesto` (
   `activo` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `itemrepuesto`
+--
+
+INSERT INTO `itemrepuesto` (`id_itemrepuesto`, `num_serie`, `id_reparacion`, `cantidad`, `precio_item`, `activo`) VALUES
+(2, 364, 1, 100, 2000, 1),
+(8, 364, 6, 10, 1000, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -80,6 +103,15 @@ CREATE TABLE `reparación` (
   `estado` tinyint(1) NOT NULL DEFAULT 0,
   `activo` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `reparación`
+--
+
+INSERT INTO `reparación` (`id_reparacion`, `id_servicio`, `id_bicicleta`, `fecha_entrada`, `costo_final`, `estado`, `activo`) VALUES
+(1, 4, 2, '2022-12-01', 3000, 1, 1),
+(6, 4, 2, '2022-12-01', 450, 1, 1),
+(7, 4, 2, '2022-12-01', 800, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -99,6 +131,8 @@ CREATE TABLE `repuesto` (
 --
 
 INSERT INTO `repuesto` (`num_serie`, `descripcion`, `precio`, `activo`) VALUES
+(3, 'Tornillo 10', 30, 1),
+(364, 'Aceite de maquina', 200, 1),
 (457, 'Clavito', 10, 0);
 
 -- --------------------------------------------------------
@@ -119,7 +153,10 @@ CREATE TABLE `servicio` (
 --
 
 INSERT INTO `servicio` (`codigo`, `descripcion`, `precio`, `activo`) VALUES
-(2, 'Reparacion de clavito', 400, 0);
+(0, 'Emparchado', 300, 1),
+(2, 'Reparacion de clavito', 400, 0),
+(4, 'Calibrado de cambios', 800, 1),
+(5, 'Cambio de rueda', 2000, 1);
 
 --
 -- Índices para tablas volcadas
@@ -174,19 +211,19 @@ ALTER TABLE `servicio`
 -- AUTO_INCREMENT de la tabla `itemrepuesto`
 --
 ALTER TABLE `itemrepuesto`
-  MODIFY `id_itemrepuesto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_itemrepuesto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `reparación`
 --
 ALTER TABLE `reparación`
-  MODIFY `id_reparacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_reparacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `servicio`
 --
 ALTER TABLE `servicio`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
