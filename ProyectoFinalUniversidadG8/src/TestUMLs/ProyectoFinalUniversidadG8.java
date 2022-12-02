@@ -16,7 +16,12 @@ import Persistencia.ItemRepuestoData;
 import Persistencia.ReparacionData;
 import Persistencia.RepuestoData;
 import Persistencia.ServicioData;
+<<<<<<< Updated upstream
 import java.util.ArrayList;
+=======
+import java.sql.Date;
+import java.time.LocalDate;
+>>>>>>> Stashed changes
 
 public class ProyectoFinalUniversidadG8 {
 
@@ -35,15 +40,28 @@ public class ProyectoFinalUniversidadG8 {
     public static void main(String[] args) {
         
 
-        //NOTA: AGREGAR LA LIBRERIA DE mariadb-java-client.2.3.0.jar
-       
 
-        System.out.println(cd.obtenerClientes());
+        //NOTA: AGREGAR LA LIBRERIA DE mariadb-java-client.2.3.0.jar
+<<<<<<< Updated upstream
+       
+=======
+        /*  ClienteData cd = new ClienteData();
+        BicicletaData bd = new BicicletaData();
+        RepuestoData repud = new RepuestoData();
+        ServicioData sd = new ServicioData();
+        ItemRepuestoData irepud = new ItemRepuestoData();
+         */ ReparacionData repad = new ReparacionData();
+>>>>>>> Stashed changes
+
+        /*System.out.println(cd.obtenerClientes());
         System.out.println(bd.obtenerBicicletas());
         System.out.println(repud.obtenerRepuestos());
         System.out.println(irepud.obtenerItemRepuestos());
         System.out.println(sd.obtenerServicios());
         System.out.println(repad.obtenerReparaciones());
+         */
+        LocalDate fecha = LocalDate.now();
+        repad.obtenerReparacionesPorFecha(fecha.minusDays(5), fecha);
 
         /*
         

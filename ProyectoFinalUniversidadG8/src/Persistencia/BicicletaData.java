@@ -105,22 +105,23 @@ public class BicicletaData {
         }
         return b;
     }
-    
-    public Bicicleta obtenerBicicletaPorCliente(Cliente dueño) {
+
+    public ArrayList<Bicicleta> obtenerBicicletasPorCliente(Cliente dueño) {
         String sql = "SELECT * FROM bicicleta WHERE activo = 1 AND dni_dueño = ?";
-        Bicicleta b = new Bicicleta();
-        ClienteData c = new ClienteData();
-        Cliente c1 = new Cliente();
+
+        ArrayList<Bicicleta> listaTemp = new ArrayList();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, c1.getDni());
+            ps.setInt(1, dueño.getDni());
             ResultSet rs = ps.executeQuery(); //Select
-            if (rs.next()) {
-                b.setDueño(c.obtenerClientePorDni(rs.getInt("dni_dueño")));
+            while (rs.next()) {
+                Bicicleta b = new Bicicleta();
+                b.setDueño(dueño);
                 b.setNumSerie(rs.getInt("num_serie"));
                 b.setTipo(rs.getString("tipo"));
                 b.setColor(rs.getString("color"));
                 b.setActivo(rs.getBoolean("activo"));
+                listaTemp.add(b);
             }
 
             ps.close();
@@ -128,7 +129,7 @@ public class BicicletaData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-obtenerBicicletaPorId");
         }
-        return b;
+        return listaTemp;
     }
 
     public void borrarBicicleta(int numSerie) {

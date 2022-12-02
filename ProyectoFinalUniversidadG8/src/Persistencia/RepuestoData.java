@@ -98,24 +98,27 @@ public class RepuestoData {
         }
         return rep;
     }
-    
-    public Repuesto obtenerRepuestoPorDescripcion(String descripcion) {
+
+    public ArrayList<Repuesto> obtenerRepuestoPorDescripcion(String descripcion) {
         String sql = "SELECT * FROM repuesto WHERE activo = 1 AND descripcion LIKE ?";
-        Repuesto rep = new Repuesto();
+        ArrayList<Repuesto> listaTemp = new ArrayList();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, descripcion);
+            ps.setString(1, "%" + descripcion + "%");
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
+                Repuesto rep = new Repuesto();
+                rep.setNumSerie(rs.getInt("num_serie"));
                 rep.setDescripcion(rs.getString("descripcion"));
                 rep.setPrecio(rs.getFloat("precio"));
                 rep.setActivo(rs.getBoolean("activo"));
+                listaTemp.add(rep);
             }
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "RepuestoData Sentencia SQL erronea-obtenerRepuestoPorDescripcion");
         }
-        return rep;
+        return listaTemp;
     }
 
     public void borrarRepuesto(int numSerie) {
