@@ -39,7 +39,15 @@ public class ProyectoFinalUniversidadG8 {
 
         //NOTA: AGREGAR LA LIBRERIA DE mariadb-java-client.2.3.0.jar
         LocalDate fecha = LocalDate.now();
-        repad.obtenerReparacionesPorFecha(fecha.minusDays(5), fecha);
+        System.out.println(repad.obtenerReparacionesPorFecha(fecha.minusDays(5), fecha));
+
+        Reparacion r = new Reparacion(sd.obtenerServicioPorId(5), bd.obtenerBicicletaPorId(131325), fecha.minusDays(7), 5000, false, true);
+
+        repad.guardarReparacion(r);
+
+        System.out.println(repad.obtenerReparaciones());
+
+        System.out.println(repad.obtenerReparacionesPorFecha(fecha.minusDays(5), fecha));
 
         /*
         

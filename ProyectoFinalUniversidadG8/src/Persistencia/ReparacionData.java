@@ -119,18 +119,16 @@ public class ReparacionData {
     }
 
     public ArrayList<Reparacion> obtenerReparacionesPorFecha(LocalDate fecha1, LocalDate fecha2) {
-        String sql = "SELECT * FROM reparación WHERE activo= 1 AND (fecha_entrada BETWEEN '? 00:00:00' AND '? 00:00:00');";
+        String sql = "SELECT * FROM reparación WHERE activo= 1 AND (fecha_entrada BETWEEN ? AND ?);";
         ArrayList<Reparacion> listaTemp = new ArrayList();
-        System.out.println(sql);
         BicicletaData bd = new BicicletaData();
         ServicioData sd = new ServicioData();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            System.out.println(fecha1);
-            System.out.println(fecha2);
-            ps.setDate(1, Date.valueOf(fecha1));
-            ps.setDate(2, Date.valueOf(fecha2));
-            System.out.println(ps);
+            String f1 = fecha1 + " 00:00:00";
+            String f2 = fecha2 + " 00:00:00";
+            ps.setString(1, f1);
+            ps.setString(2, f2);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Reparacion r = new Reparacion();

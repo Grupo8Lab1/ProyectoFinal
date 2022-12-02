@@ -22,6 +22,10 @@ public class Cliente_Agregar extends javax.swing.JPanel {
      */
     public Cliente_Agregar() {
          initComponents();
+<<<<<<< Updated upstream
+=======
+    //    listaClientes = cdata.obtenerClientes();
+>>>>>>> Stashed changes
     }
 
     
@@ -183,7 +187,12 @@ public class Cliente_Agregar extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Llene todos los campos por favor");
         } else {
             try {
+<<<<<<< Updated upstream
                 cd.guardarCliente(new Cliente(Integer.parseInt(JTFDNI.getText()), JTFNombre.getText(), JTFApellido.getText(), JTFDomicilio.getText(),Integer.parseInt(JTFTelefono.getText()), true));
+=======
+                Integer.parseInt(JTFDNI.getText());
+          //      cd.guardarAlumno(new Cliente(Long.parseLong(JTFDNI.getText()), JTFNombre.getText(), JTFApellido.getText(), JTFDomicilio.getText(),JTFTelefono.getText(), true));
+>>>>>>> Stashed changes
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Error, verifique haber ingresado todos los datos correctamente.");
             }
