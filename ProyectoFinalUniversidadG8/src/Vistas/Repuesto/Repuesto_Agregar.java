@@ -28,23 +28,23 @@ public class Repuesto_Agregar extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("Repuesto Agregar");
+        jLabel1.setText("Agregar Repuesto");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(163, 163, 163)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(299, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(137, 137, 137)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

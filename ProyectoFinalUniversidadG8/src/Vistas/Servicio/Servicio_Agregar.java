@@ -28,23 +28,23 @@ public class Servicio_Agregar extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("Servicio Agregar");
+        jLabel1.setText("Agregar Servicio");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(171, 171, 171)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(125, 125, 125)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

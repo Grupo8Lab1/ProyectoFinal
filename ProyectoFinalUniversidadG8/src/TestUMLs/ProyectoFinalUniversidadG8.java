@@ -4,9 +4,9 @@
  */
 package TestUMLs;
 
+
 import Entidades.Bicicleta;
 import Entidades.Cliente;
-import Entidades.ItemRepuesto;
 import Entidades.Reparacion;
 import Entidades.Repuesto;
 import Entidades.Servicio;
@@ -16,19 +16,27 @@ import Persistencia.ItemRepuestoData;
 import Persistencia.ReparacionData;
 import Persistencia.RepuestoData;
 import Persistencia.ServicioData;
-import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class ProyectoFinalUniversidadG8 {
 
+        public static ClienteData cd = new ClienteData();
+        public static BicicletaData bd = new BicicletaData();
+        public static RepuestoData repud = new RepuestoData();
+        public static ServicioData sd = new ServicioData();
+        public static ItemRepuestoData irepud = new ItemRepuestoData();
+        public static ReparacionData repad = new ReparacionData();
+        public static ArrayList<Cliente> listaClientes;
+        public static ArrayList<Bicicleta> listaBicicleta;
+        public static ArrayList<Repuesto> listaRepuesto;
+        public static ArrayList<Servicio> listaServicio;
+        public static ArrayList<Reparacion> listaReparacion;
+        
     public static void main(String[] args) {
+        
 
         //NOTA: AGREGAR LA LIBRERIA DE mariadb-java-client.2.3.0.jar
-        ClienteData cd = new ClienteData();
-        BicicletaData bd = new BicicletaData();
-        RepuestoData repud = new RepuestoData();
-        ServicioData sd = new ServicioData();
-        ItemRepuestoData irepud = new ItemRepuestoData();
-        ReparacionData repad = new ReparacionData();
+       
 
         System.out.println(cd.obtenerClientes());
         System.out.println(bd.obtenerBicicletas());

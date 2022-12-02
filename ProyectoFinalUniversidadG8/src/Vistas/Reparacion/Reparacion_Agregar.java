@@ -35,16 +35,16 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(145, 145, 145)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(290, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(138, 138, 138)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

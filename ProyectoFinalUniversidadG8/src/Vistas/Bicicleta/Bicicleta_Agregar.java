@@ -28,23 +28,23 @@ public class Bicicleta_Agregar extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("Bicicleta Agregar");
+        jLabel1.setText("Agregar Bicicleta");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(157, 157, 157)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(305, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(140, 140, 140))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
