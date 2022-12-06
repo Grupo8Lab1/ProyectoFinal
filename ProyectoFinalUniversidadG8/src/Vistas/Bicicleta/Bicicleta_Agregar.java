@@ -6,6 +6,7 @@ package Vistas.Bicicleta;
 
 import Entidades.Bicicleta;
 import static TestUMLs.ProyectoFinalUniversidadG8.bd;
+import static TestUMLs.ProyectoFinalUniversidadG8.cd;
 import javax.swing.JOptionPane;
 
 /**
@@ -168,11 +169,11 @@ public class Bicicleta_Agregar extends javax.swing.JPanel {
     }//GEN-LAST:event_LimpiarActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
-        if (JTFTipo.getText().isEmpty() || JTFColor.getText().isEmpty() || JTFNumeroDeSerie.getText().isEmpty()|| JTFDNIDueño.getText().isEmpty()) {
+        if (JTFTipo.getText().isEmpty() || JTFColor.getText().isEmpty() || JTFNumeroDeSerie.getText().isEmpty() || JTFDNIDueño.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Llene todos los campos por favor");
         } else {
             try {
-                bd.guardarBicicleta(new Bicicleta(Integer.parseInt(JTFNumeroDeSerie.getText()), JTFTipo.getText(), JTFColor.getText(), Integer.getInteger(JTFDNIDueño.getText()), true));
+                bd.guardarBicicleta(new Bicicleta(Integer.parseInt(JTFNumeroDeSerie.getText()), JTFTipo.getText(), JTFColor.getText(), cd.obtenerClientePorDni(Integer.getInteger(JTFDNIDueño.getText())), true));
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Error, verifique haber ingresado todos los datos correctamente.");
             }
