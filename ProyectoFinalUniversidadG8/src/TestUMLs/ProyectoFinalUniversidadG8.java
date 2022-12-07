@@ -38,7 +38,15 @@ public class ProyectoFinalUniversidadG8 {
     public static void main(String[] args) {
 
         //NOTA: AGREGAR LA LIBRERIA DE mariadb-java-client.2.3.0.jar
-        LocalDate fecha = LocalDate.now();
+        //    ClienteData cd = new ClienteData();
+        //cd.borrarCliente(11223355);
+         Cliente c = new Cliente(11223355, "Firu", "Lais", "La Cucha 700", 987654321, true);
+        //Cliente c = new Cliente();
+    cd.guardarCliente(c);
+
+        //  System.out.println(cd.obtenerClientePorDni(11223355));
+
+        /*   LocalDate fecha = LocalDate.now();
         System.out.println(repad.obtenerReparacionesPorFecha(fecha.minusDays(5), fecha));
 
         Reparacion r = new Reparacion(sd.obtenerServicioPorId(5), bd.obtenerBicicletaPorId(131325), fecha.minusDays(7), 5000, false, true);
@@ -48,7 +56,6 @@ public class ProyectoFinalUniversidadG8 {
         System.out.println(repad.obtenerReparaciones());
 
         System.out.println(repad.obtenerReparacionesPorFecha(fecha.minusDays(5), fecha));
-
         /*
         
         Testing realizado con anterioridad, falta chequear la implementación de los ultimos metodos

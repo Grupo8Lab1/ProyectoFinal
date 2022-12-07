@@ -43,7 +43,14 @@ public class ClienteData {
             JOptionPane.showMessageDialog(null, aviso);
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-guardarCliente");
+            if (ex.getLocalizedMessage().contains("Duplicate entry") && ex.getLocalizedMessage().contains("for key 'PRIMARY'")) {
+                JOptionPane.showMessageDialog(null, "Error: Ya hay otro cliente registrado con este DNI.");
+                JOptionPane.showMessageDialog(null, "Para actualizar datos o recuperar clientes borrados vaya a Actualizar Cliente.");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-guardarCliente");
+            }
+
         }
     }
 
@@ -85,6 +92,14 @@ public class ClienteData {
         Cliente c = new Cliente();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
+            if (obtenerClienteConEstado0(dni).getNombre() != null) {
+                JOptionPane.showMessageDialog(null, "Este n° de documento pertenece a un cliente previamente borrado de nombre: " + obtenerClienteConEstado0(dni).getNombre() + " " + obtenerClienteConEstado0(dni).getApellido());
+                if (JOptionPane.showConfirmDialog(null, "¿Desea recuperar los datos de este cliente?") == 0) {
+                    Cliente aux = obtenerClienteConEstado0(dni);
+                    aux.setActivo(true);
+                    actualizarCliente(aux, dni);
+                }
+            }
             ps.setInt(1, dni);
             ResultSet rs = ps.executeQuery(); //Select
 

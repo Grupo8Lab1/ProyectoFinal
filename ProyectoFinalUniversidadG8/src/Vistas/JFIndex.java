@@ -6,7 +6,7 @@ public class JFIndex extends javax.swing.JFrame {
 
     public JFIndex() {
         initComponents();
-//        setIconImage(new ImageIcon(getClass().getResource("/Vistas.Iconos/bicicleteriaicono.png")).getImage());
+    //    setIconImage(new ImageIcon(getClass().getResource("/Vistas.Iconos/bicicleteriaicono.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -431,7 +431,6 @@ public class JFIndex extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
