@@ -47,6 +47,10 @@ public class Reparacion_Actualizar extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         JBBuscarActualizarCliente = new java.awt.Button();
 
+        setMaximumSize(new java.awt.Dimension(398, 600));
+        setMinimumSize(new java.awt.Dimension(398, 600));
+        setPreferredSize(new java.awt.Dimension(398, 600));
+
         jPanel1.setMinimumSize(new java.awt.Dimension(398, 600));
 
         JTFTelefono.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +197,7 @@ public class Reparacion_Actualizar extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 411, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)

@@ -28,6 +28,10 @@ public class Repuesto_BuscarPorID extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         JBLimpiarBuscarRepuesto = new java.awt.Button();
 
+        setMaximumSize(new java.awt.Dimension(398, 600));
+        setMinimumSize(new java.awt.Dimension(398, 600));
+        setPreferredSize(new java.awt.Dimension(398, 600));
+
         jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
         jLabel1.setText("Buscar Repuesto");
 
@@ -119,7 +123,7 @@ public class Repuesto_BuscarPorID extends javax.swing.JPanel {
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JBLimpiarBuscarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(336, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

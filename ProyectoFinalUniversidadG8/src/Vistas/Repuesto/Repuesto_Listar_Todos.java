@@ -66,6 +66,10 @@ public class Repuesto_Listar_Todos extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         JTRepuestosListar = new javax.swing.JTable();
 
+        setMaximumSize(new java.awt.Dimension(398, 600));
+        setMinimumSize(new java.awt.Dimension(398, 600));
+        setPreferredSize(new java.awt.Dimension(398, 600));
+
         jLabel.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
         jLabel.setText("Lista de Repuestos");
 
@@ -99,7 +103,7 @@ public class Repuesto_Listar_Todos extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
