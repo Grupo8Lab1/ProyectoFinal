@@ -2,6 +2,8 @@ package Vistas;
 
 import Vistas.Cliente.Cliente_Actualizar;
 import Vistas.Cliente.Cliente_Agregar;
+import Vistas.Cliente.Cliente_BuscarPorID;
+import Vistas.Cliente.Cliente_Listar_Todos;
 import Vistas.Cliente.Cliente_Quitar;
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
@@ -63,9 +65,19 @@ public class JFIndex extends javax.swing.JFrame {
 
         BMostrarTodosCliente.setBackground(java.awt.Color.gray);
         BMostrarTodosCliente.setLabel("Mostrar Todos");
+        BMostrarTodosCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BMostrarTodosClienteActionPerformed(evt);
+            }
+        });
 
         BBuscarPorIDCliente.setBackground(java.awt.Color.gray);
         BBuscarPorIDCliente.setLabel("Buscar (ID)");
+        BBuscarPorIDCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BBuscarPorIDClienteActionPerformed(evt);
+            }
+        });
 
         BActualizarCliente.setBackground(java.awt.Color.gray);
         BActualizarCliente.setLabel("Actualizar");
@@ -466,6 +478,16 @@ public class JFIndex extends javax.swing.JFrame {
         Cliente_Quitar p = new Cliente_Quitar();
         presentarVistasCliente(p);
     }//GEN-LAST:event_BQuitarClienteActionPerformed
+
+    private void BBuscarPorIDClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBuscarPorIDClienteActionPerformed
+        Cliente_BuscarPorID p = new Cliente_BuscarPorID();
+        presentarVistasCliente(p);
+    }//GEN-LAST:event_BBuscarPorIDClienteActionPerformed
+
+    private void BMostrarTodosClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BMostrarTodosClienteActionPerformed
+        Cliente_Listar_Todos p = new Cliente_Listar_Todos();
+        presentarVistasCliente(p);
+    }//GEN-LAST:event_BMostrarTodosClienteActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
