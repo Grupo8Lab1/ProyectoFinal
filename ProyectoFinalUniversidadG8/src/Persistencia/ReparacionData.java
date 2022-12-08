@@ -53,7 +53,79 @@ public class ReparacionData {
         }
     }
 
-    public ArrayList<Reparacion> obtenerReparaciones() {
+    public ArrayList<Reparacion> obtenerReparacionesConEstado1() {
+
+        ArrayList<Reparacion> listaTemp = new ArrayList();
+
+        String sql = "SELECT * FROM reparación WHERE activo= 1 AND estado = 1";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();//select
+
+            while (rs.next()) {
+
+                BicicletaData bd = new BicicletaData();
+                ServicioData sd = new ServicioData();
+
+                Reparacion r = new Reparacion();
+                r.setIdReparacion(rs.getInt("id_reparacion"));
+                r.setServicio(sd.obtenerServicioPorId(rs.getInt("id_servicio")));
+                r.setBicicleta(bd.obtenerBicicletaPorId(rs.getInt("id_bicicleta")));
+                r.setFechaEntrada(rs.getDate("fecha_entrada").toLocalDate());
+                r.setCostoFinal(rs.getInt("costo_final"));
+                r.setEstado(rs.getBoolean("estado"));
+                r.setActivo(rs.getBoolean("activo"));
+
+                listaTemp.add(r);
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-ObtenerReparaciones");
+        }
+        return listaTemp;
+    }
+
+    public ArrayList<Reparacion> obtenerReparacionesConEstado0() {
+
+        ArrayList<Reparacion> listaTemp = new ArrayList();
+
+        String sql = "SELECT * FROM reparación WHERE activo= 1 AND estado = 0";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();//select
+
+            while (rs.next()) {
+
+                BicicletaData bd = new BicicletaData();
+                ServicioData sd = new ServicioData();
+
+                Reparacion r = new Reparacion();
+                r.setIdReparacion(rs.getInt("id_reparacion"));
+                r.setServicio(sd.obtenerServicioPorId(rs.getInt("id_servicio")));
+                r.setBicicleta(bd.obtenerBicicletaPorId(rs.getInt("id_bicicleta")));
+                r.setFechaEntrada(rs.getDate("fecha_entrada").toLocalDate());
+                r.setCostoFinal(rs.getInt("costo_final"));
+                r.setEstado(rs.getBoolean("estado"));
+                r.setActivo(rs.getBoolean("activo"));
+
+                listaTemp.add(r);
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-ObtenerReparaciones");
+        }
+        return listaTemp;
+    }
+
+    public ArrayList<Reparacion> obtenerTodasLasReparaciones() {
 
         ArrayList<Reparacion> listaTemp = new ArrayList();
 
