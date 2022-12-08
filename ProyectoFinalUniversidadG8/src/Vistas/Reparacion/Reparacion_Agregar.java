@@ -6,12 +6,15 @@ package Vistas.Reparacion;
 
 import Entidades.Bicicleta;
 import Entidades.Cliente;
+import Entidades.Reparacion;
 import Entidades.Repuesto;
 import Entidades.Servicio;
 import static TestUMLs.ProyectoFinalUniversidadG8.bd;
 import static TestUMLs.ProyectoFinalUniversidadG8.cd;
+import static TestUMLs.ProyectoFinalUniversidadG8.repad;
 import static TestUMLs.ProyectoFinalUniversidadG8.repud;
 import static TestUMLs.ProyectoFinalUniversidadG8.sd;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -26,7 +29,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
      * Creates new form Reparacion_Agregar
      */
     private final DefaultTableModel modelo;
-
+    
     public Reparacion_Agregar() {
         initComponents();
         this.modelo = new DefaultTableModel() {
@@ -46,28 +49,28 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
         JTFTelefono.setEnabled(false);
         JTItemRepuestoAgregarReparacion.getTableHeader().setReorderingAllowed(false);
     }
-
+    
     private void actualizarListaBicis() {
         JCBBicicletasAgregarReparacion.removeAllItems();
         for (Bicicleta lista : bd.obtenerBicicletas()) {
             JCBBicicletasAgregarReparacion.addItem(lista.getTipo() + " " + lista.getColor() + " " + lista.getNumSerie());
         }
     }
-
+    
     private void actualizarListaServicios() {
         JCBServiciosAgregarReparacion.removeAllItems();
         for (Servicio lista : sd.obtenerServicios()) {
             JCBServiciosAgregarReparacion.addItem(lista.getDescripcion());
         }
     }
-
+    
     private void actualizarListaRepuestos() {
         JCBRepuestosAgregarReparacion.removeAllItems();
         for (Repuesto lista : repud.obtenerRepuestos()) {
             JCBRepuestosAgregarReparacion.addItem(lista.getDescripcion());
         }
     }
-
+    
     private void armarCabeceraTabla() {
         ArrayList<Object> columnas = new ArrayList<>();
         columnas.add("N°Serie");
@@ -79,7 +82,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
         }
         JTItemRepuestoAgregarReparacion.setModel(modelo);
     }
-
+    
     private void borrarFilasTabla() {
         if (modelo != null) {
             int a = modelo.getRowCount() - 1;
@@ -88,7 +91,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
             }
         }
     }
-
+    
     private void cargarItem(Repuesto r, int cant) {
         modelo.addRow(new Object[]{r.getNumSerie(), r.getDescripcion(), r.getPrecio(), cant});
     }
@@ -401,19 +404,25 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
     }//GEN-LAST:event_JCBRepuestosAgregarReparacionActionPerformed
 
     private void JBGuardarAgregarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGuardarAgregarReparacionActionPerformed
-        /* try {
-            cd.borrarCliente(Integer.parseInt(JTFDNI.getText()));
-            JBLimpiarBorrarClienteActionPerformed(evt);
-            actualizarLista();
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null, "Error eliminando el cliente.");
-        }*/
+        try {
+            Reparacion r = new Reparacion();
+            r.setBicicleta(bd.obtenerBicicletas().get(JCBBicicletasAgregarReparacion.getSelectedIndex()));
+            r.setServicio(sd.obtenerServicios().get(JCBServiciosAgregarReparacion.getSelectedIndex()));
+            JBCalcularCostoAgregarReparacionActionPerformed(evt);
+            r.setCostoFinal(Float.valueOf(JTFCostoTotalAgregarReparacion.getText()));
+            r.setFechaEntrada(LocalDate.now());
+            r.setActivo(true);
+            r.setEstado(false);
+            repad.guardarReparacion(r);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error creando nueva reparacion.");
+        }
     }//GEN-LAST:event_JBGuardarAgregarReparacionActionPerformed
 
     private void JBAgregarRepuestoAgregarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAgregarRepuestoAgregarReparacionActionPerformed
         Repuesto r = new Repuesto();
         try {
-
+            
             if (JCBRepuestosAgregarReparacion.getSelectedIndex() >= 0) {
                 JCBRepuestosAgregarReparacion.setSelectedIndex(JCBRepuestosAgregarReparacion.getSelectedIndex());
                 r.setNumSerie(repud.obtenerRepuestos().get(JCBRepuestosAgregarReparacion.getSelectedIndex()).getNumSerie());
@@ -437,10 +446,10 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
     }//GEN-LAST:event_JBLimpiarAgregarReparacionActionPerformed
 
     private void JBCalcularCostoAgregarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCalcularCostoAgregarReparacionActionPerformed
-
+        
         float suma = 0;
         suma += Float.valueOf(JTFCostoServicioAgregarReparacion.getText());
-
+        
         for (int i = 0; i < JTItemRepuestoAgregarReparacion.getRowCount(); i++) {
             suma += Float.valueOf(JTItemRepuestoAgregarReparacion.getValueAt(i, 2).toString()) * Float.valueOf(JTItemRepuestoAgregarReparacion.getValueAt(i, 3).toString());
         }
