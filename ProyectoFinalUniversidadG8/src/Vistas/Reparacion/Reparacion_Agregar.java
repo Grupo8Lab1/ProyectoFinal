@@ -410,13 +410,15 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFIDReparacionActionPerformed
 
-    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        if (JTFIDReparacion.getText().isEmpty() || JTFCostoFinal.getText().isEmpty()) {
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {
+        /*   if (JTFIDReparacion.getText().isEmpty() || JTFCostoFinal.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Llene todos los campos por favor");
         } else {
             try {
                 repad.guardarReparacion(new Reparacion(Integer.parseInt(JTFNumeroDeSerie.getText()), JTFTipo.getTexJTFIDReparaciontText(), repad.obtenerClientePorDni(Integer.getInteger(JTFDNIDueño.getText())), true));
-
+            } catch(){}
+        }*/
+    }
     private void JTFNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFNombreActionPerformed
@@ -425,7 +427,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFTelefonoActionPerformed
 
-    private void JBGuardarActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void JBGuardarActionPerformed(java.awt.event.ActionEvent evt) {
         if (JTFNombre.getText().isEmpty() || JTFApellido.getText().isEmpty() || JTFDNI.getText().isEmpty() || JTFDomicilio.getText().isEmpty() || JTFTelefono.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Llene todos los campos por favor");
         } else {
@@ -438,7 +440,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
             }
         }
 
-    }                                       
+    }
 
     private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
         // TODO add your handling code here:
@@ -451,7 +453,6 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
-
 
     // Variables declaration - do not modify                     
     private java.awt.Button Guardar;
@@ -468,7 +469,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
 
-    }                                         
+}
 
     private void JBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarActionPerformed
         JTFNombre.setText("");
@@ -477,7 +478,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
         JTFDomicilio.setText("");
         JTFTelefono.setText("");
     }//GEN-LAST:event_JBLimpiarActionPerformed
-
+}
     private void JCBBicicletasAgregarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBBicicletasAgregarReparacionActionPerformed
         if (JCBClientesBorrarCliente.getSelectedIndex() >= 0) {
             JCBClientesBorrarCliente.setSelectedIndex(JCBClientesBorrarCliente.getSelectedIndex());
@@ -540,4 +541,4 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
-}
+       
