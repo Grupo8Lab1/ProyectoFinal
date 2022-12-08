@@ -84,7 +84,7 @@ public class ReparacionData {
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-ObtenerReparaciones");
+            JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-ObtenerReparacionesEstado1");
         }
         return listaTemp;
     }
@@ -120,7 +120,7 @@ public class ReparacionData {
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-ObtenerReparaciones");
+            JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-ObtenerReparacionesEstado0");
         }
         return listaTemp;
     }
@@ -156,7 +156,7 @@ public class ReparacionData {
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-ObtenerReparaciones");
+            JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-ObtenerTodasLasReparaciones");
         }
         return listaTemp;
     }
