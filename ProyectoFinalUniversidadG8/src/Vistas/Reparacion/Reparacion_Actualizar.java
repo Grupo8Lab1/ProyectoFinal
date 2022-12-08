@@ -212,12 +212,12 @@ public class Reparacion_Actualizar extends javax.swing.JPanel {
         } else {
             try {
                 Reparacion aux = repad.obtenerReparacionPorId(Integer.parseInt(JTFDNI.getText()));
-                aux.setNombre(JTFNombre.getText());
+                /*       aux.setNombre(JTFNombre.getText());
                 aux.setApellido(JTFApellido.getText());
                 aux.setDomicilio(JTFDomicilio.getText());
                 aux.setDni(Integer.parseInt(JTFDNI.getText()));
                 aux.setTelefono(Integer.parseInt(JTFTelefono.getText()));
-                repad.actualizarReparacion(aux, Integer.parseInt(JTFDNI.getText()));
+                 */ repad.actualizarReparacion(aux, Integer.parseInt(JTFDNI.getText()));
                 JBLimpiarActualizarClienteActionPerformed(evt);
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Error, verifique haber ingresado todos los datos correctamente.");
@@ -246,12 +246,13 @@ public class Reparacion_Actualizar extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Ingrese un N° DNI por favor");
         } else {
             try {
-                Cliente aux = cd.obtenerClientePorDni(Integer.parseInt(JTFDNI.getText()));
+                /*     Cliente aux = cd.obtenerClientePorDni(Integer.parseInt(JTFDNI.getText()));
                 JTFNombre.setText(aux.getNombre());
                 JTFApellido.setText(aux.getApellido());
                 JTFDNI.setText(String.valueOf(aux.getDni()));
                 JTFDomicilio.setText(aux.getDomicilio());
                 JTFTelefono.setText(String.valueOf(aux.getTelefono()));
+                 */
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Error, DNI invalido.");
             }

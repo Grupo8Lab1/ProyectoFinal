@@ -44,7 +44,9 @@ public class Cliente_Agregar extends javax.swing.JPanel {
         JBGuardar = new java.awt.Button();
         JBLimpiar = new java.awt.Button();
 
+        setMaximumSize(new java.awt.Dimension(398, 600));
         setMinimumSize(new java.awt.Dimension(398, 600));
+        setPreferredSize(new java.awt.Dimension(398, 600));
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
         jLabel1.setText("Agregar Cliente");

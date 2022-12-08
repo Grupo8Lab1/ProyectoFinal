@@ -74,7 +74,9 @@ public class Cliente_Listar_Todos extends javax.swing.JPanel {
         JTClientesListar = new javax.swing.JTable();
         jLabel = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(398, 600));
         setMinimumSize(new java.awt.Dimension(398, 600));
+        setPreferredSize(new java.awt.Dimension(398, 600));
 
         JTClientesListar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,8 +111,8 @@ public class Cliente_Listar_Todos extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 

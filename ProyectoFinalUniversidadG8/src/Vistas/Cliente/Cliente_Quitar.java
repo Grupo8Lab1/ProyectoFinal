@@ -60,8 +60,10 @@ public class Cliente_Quitar extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(398, 600));
         setMinimumSize(new java.awt.Dimension(398, 600));
         setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(398, 600));
 
         jLabel7.setText("Telefono :");
 

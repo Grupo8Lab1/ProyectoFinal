@@ -48,7 +48,9 @@ public class Cliente_BuscarPorID extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(398, 600));
         setMinimumSize(new java.awt.Dimension(398, 600));
+        setPreferredSize(new java.awt.Dimension(398, 600));
 
         jLabel7.setText("Telefono :");
 
