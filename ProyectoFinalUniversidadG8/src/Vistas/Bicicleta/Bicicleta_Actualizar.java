@@ -6,6 +6,7 @@ package Vistas.Bicicleta;
 
 import Entidades.Bicicleta;
 import static TestUMLs.ProyectoFinalUniversidadG8.bd;
+import static TestUMLs.ProyectoFinalUniversidadG8.cd;
 import javax.swing.JOptionPane;
 
 public class Bicicleta_Actualizar extends javax.swing.JPanel {
@@ -203,7 +204,6 @@ public class Bicicleta_Actualizar extends javax.swing.JPanel {
     private void JBLimpiarActualizarBicicletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarActualizarBicicletaActionPerformed
         JTFTipo.setText("");
         JTFColor.setText("");
-        
         JTFDNIDueño.setText("");
     }//GEN-LAST:event_JBLimpiarActualizarBicicletaActionPerformed
 
@@ -215,7 +215,7 @@ public class Bicicleta_Actualizar extends javax.swing.JPanel {
                 Bicicleta aux = bd.obtenerBicicletaPorId(Integer.parseInt(JTFNumSerie.getText()));
                 aux.setTipo(JTFTipo.getText());
                 aux.setColor(JTFColor.getText());
-                aux.setDueño(Integer.parseInt(JTFDNIDueño.getText()));
+                aux.setDueño(cd.obtenerClientePorDni(Integer.getInteger(JTFDNIDueño.getText())));
                 bd.actualizarBicicleta(aux, Integer.parseInt(JTFNumSerie.getText()));
                 JBLimpiarActualizarBicicletaActionPerformed(evt);
             } catch (NumberFormatException ex) {

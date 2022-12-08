@@ -35,7 +35,7 @@ public class Repuesto_Agregar extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        JTFNumeSerie = new javax.swing.JTextField();
+        JTFNumSerie = new javax.swing.JTextField();
         JTFDescripcion = new javax.swing.JTextField();
         JTFPrecio = new javax.swing.JTextField();
         Guardar = new java.awt.Button();
@@ -50,9 +50,9 @@ public class Repuesto_Agregar extends javax.swing.JPanel {
 
         jLabel7.setText("Precio :");
 
-        JTFNumeSerie.addActionListener(new java.awt.event.ActionListener() {
+        JTFNumSerie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFNumeSerieActionPerformed(evt);
+                JTFNumSerieActionPerformed(evt);
             }
         });
 
@@ -107,7 +107,7 @@ public class Repuesto_Agregar extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(JTFDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                                    .addComponent(JTFNumeSerie))
+                                    .addComponent(JTFNumSerie))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -124,7 +124,7 @@ public class Repuesto_Agregar extends javax.swing.JPanel {
                         .addGap(28, 28, 28)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(JTFNumeSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JTFNumSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
@@ -160,9 +160,9 @@ public class Repuesto_Agregar extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JTFNumeSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNumeSerieActionPerformed
+    private void JTFNumSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNumSerieActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTFNumeSerieActionPerformed
+    }//GEN-LAST:event_JTFNumSerieActionPerformed
 
     private void JTFDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFDescripcionActionPerformed
         // TODO add your handling code here:
@@ -173,11 +173,11 @@ public class Repuesto_Agregar extends javax.swing.JPanel {
     }//GEN-LAST:event_JTFPrecioActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
-        if (JTFDescripcion.getText().isEmpty() || JTFNumeSerie.getText().isEmpty()|| JTFPrecio.getText().isEmpty()) {
+        if (JTFDescripcion.getText().isEmpty() || JTFNumSerie.getText().isEmpty()|| JTFPrecio.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Llene todos los campos por favor");
         } else {
             try {
-                repud.guardarRepuesto(new Repuesto(Integer.parseInt(JTFNumeSerie.getText()), JTFDescripcion.getText(),Integer.parseInt(JTFPrecio.getText()), true));
+                repud.guardarRepuesto(new Repuesto(Integer.parseInt(JTFNumSerie.getText()), JTFDescripcion.getText(),Integer.parseInt(JTFPrecio.getText()), true));
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Error, verifique haber ingresado todos los datos correctamente.");
             }
@@ -192,7 +192,7 @@ public class Repuesto_Agregar extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button Guardar;
     private javax.swing.JTextField JTFDescripcion;
-    private javax.swing.JTextField JTFNumeSerie;
+    private javax.swing.JTextField JTFNumSerie;
     private javax.swing.JTextField JTFPrecio;
     private java.awt.Button Limpiar;
     private javax.swing.JLabel jLabel1;
