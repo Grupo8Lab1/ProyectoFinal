@@ -12,6 +12,7 @@ import Vistas.Cliente.Cliente_BuscarPorID;
 import Vistas.Cliente.Cliente_Listar_Todos;
 import Vistas.Cliente.Cliente_Quitar;
 import Vistas.Reparacion.Reparacion_Actualizar;
+import Vistas.Reparacion.Reparacion_Agregar;
 import Vistas.Reparacion.Reparacion_BuscarPorBicicleta;
 import Vistas.Reparacion.Reparacion_BuscarPorCliente;
 import Vistas.Reparacion.Reparacion_BuscarPorFecha;
@@ -704,8 +705,8 @@ public class JFIndex extends javax.swing.JFrame {
     }//GEN-LAST:event_BMostrarTodosServicioActionPerformed
 
     private void BAgregarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BAgregarReparacionActionPerformed
-        //Reparacion_Agregar p = new       Reparacion_Agregar();
-        // presentarVistasReparacion(p);
+        Reparacion_Agregar p = new Reparacion_Agregar();
+        presentarVistasReparacion(p);
     }//GEN-LAST:event_BAgregarReparacionActionPerformed
 
     private void BQuitarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BQuitarReparacionActionPerformed

@@ -9,9 +9,8 @@ import static TestUMLs.ProyectoFinalUniversidadG8.bd;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
-
 public class Bicicleta_Listar_Todos extends javax.swing.JPanel {
-   
+
     private final DefaultTableModel modelo;
 
     public Bicicleta_Listar_Todos() {
@@ -50,10 +49,10 @@ public class Bicicleta_Listar_Todos extends javax.swing.JPanel {
     private void cargarBicicletas() {
         borrarFilasTabla();
         for (Bicicleta aux : bd.obtenerBicicletas()) {
-            modelo.addRow(new Object[]{aux.getTipo(), aux.getColor(), aux.getNumSerie(), aux.getDueño()});
+            modelo.addRow(new Object[]{aux.getTipo(), aux.getColor(), aux.getNumSerie(), aux.getDueño().getDni()});
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
