@@ -80,7 +80,7 @@ public class Servicio_Agregar extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setText("Descripcion  :");
+        jLabel4.setText("Descripcion :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
