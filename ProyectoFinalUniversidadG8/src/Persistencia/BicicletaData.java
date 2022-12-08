@@ -44,7 +44,12 @@ public class BicicletaData {
             JOptionPane.showMessageDialog(null, aviso);
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-guardarBicicleta");
+            if (ex.getLocalizedMessage().contains("Duplicate entry") && ex.getLocalizedMessage().contains("for key 'PRIMARY'")) {
+                JOptionPane.showMessageDialog(null, "Error: Ya hay otra bicicleta registrada bajo este n° de serie.");
+                JOptionPane.showMessageDialog(null, "Para actualizar datos o recuperar una bicicleta borrada vaya a Actualizar Datos.");
+            } else {
+                JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-guardarBicicleta");
+            }
         }
     }
 
@@ -87,6 +92,14 @@ public class BicicletaData {
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
+            if (obtenerBicicletaConEstado0(numSerie).getTipo() != null) {
+                JOptionPane.showMessageDialog(null, "Este n° de serie pertenece a una bicicleta previamente borrada, perteneciente a: " + obtenerBicicletaConEstado0(numSerie).getDueño().getNombre() + " " + obtenerBicicletaConEstado0(numSerie).getDueño().getApellido());
+                if (JOptionPane.showConfirmDialog(null, "¿Desea recuperar los datos de esta bicicleta?") == 0) {
+                    Bicicleta aux = obtenerBicicletaConEstado0(numSerie);
+                    aux.setActivo(true);
+                    actualizarBicicleta(aux, numSerie);
+                }
+            }
             ps.setInt(1, numSerie);
             ResultSet rs = ps.executeQuery(); //Select
 
@@ -101,7 +114,33 @@ public class BicicletaData {
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-obtenerBicicletaPorId");
+            JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-obtenerBicicletaBorrada");
+        }
+        return b;
+    }
+
+    public Bicicleta obtenerBicicletaConEstado0(int numSerie) {
+        String sql = "SELECT * FROM bicicleta WHERE activo = 0 AND num_serie = ?";
+        Bicicleta b = new Bicicleta();
+        ClienteData c = new ClienteData();
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, numSerie);
+            ResultSet rs = ps.executeQuery(); //Select
+
+            if (rs.next()) {
+                b.setNumSerie(rs.getInt("num_serie"));
+                b.setTipo(rs.getString("tipo"));
+                b.setColor(rs.getString("color"));
+                b.setDueño(c.obtenerClientePorDni(rs.getInt("dni_dueño")));
+                b.setActivo(rs.getBoolean("activo"));
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-obtenerBicicletaEstado0");
         }
         return b;
     }
@@ -153,7 +192,7 @@ public class BicicletaData {
         }
     }
 
-    public void actualizaBicicleta(Bicicleta b, int numSerie) {
+    public void actualizarBicicleta(Bicicleta b, int numSerie) {
         String sql = "UPDATE bicicleta SET num_serie=?, tipo=?, color=?, dni_dueño=?, activo=? WHERE num_serie=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);

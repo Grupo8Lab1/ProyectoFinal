@@ -45,8 +45,7 @@ public class ClienteData {
         } catch (SQLException ex) {
             if (ex.getLocalizedMessage().contains("Duplicate entry") && ex.getLocalizedMessage().contains("for key 'PRIMARY'")) {
                 JOptionPane.showMessageDialog(null, "Error: Ya hay otro cliente registrado con este DNI.");
-                JOptionPane.showMessageDialog(null, "Para actualizar datos o recuperar clientes borrados vaya a Actualizar Cliente.");
-
+                JOptionPane.showMessageDialog(null, "Para actualizar datos o recuperar clientes borrados vaya a Actualizar datos.");
             } else {
                 JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-guardarCliente");
             }
@@ -140,7 +139,7 @@ public class ClienteData {
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-obtenerClientePorDni");
+            JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-obtenerClienteBorrado");
         }
         return c;
     }

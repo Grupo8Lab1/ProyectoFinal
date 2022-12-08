@@ -38,13 +38,9 @@ public class ProyectoFinalUniversidadG8 {
     public static void main(String[] args) {
 
         //NOTA: AGREGAR LA LIBRERIA DE mariadb-java-client.2.3.0.jar
-        //    ClienteData cd = new ClienteData();
-        //cd.borrarCliente(11223355);
-         Cliente c = new Cliente(11223355, "Firu", "Lais", "La Cucha 700", 987654321, true);
-        //Cliente c = new Cliente();
-    cd.guardarCliente(c);
+        System.out.println(bd.obtenerBicicletaPorId(3));
+        System.out.println(bd.obtenerBicicletaPorId(3));
 
-        //  System.out.println(cd.obtenerClientePorDni(11223355));
 
         /*   LocalDate fecha = LocalDate.now();
         System.out.println(repad.obtenerReparacionesPorFecha(fecha.minusDays(5), fecha));
