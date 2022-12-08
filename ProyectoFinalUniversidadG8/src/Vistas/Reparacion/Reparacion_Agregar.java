@@ -440,7 +440,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
             }
         }
 
-    }
+    };
 
     private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
         // TODO add your handling code here:
