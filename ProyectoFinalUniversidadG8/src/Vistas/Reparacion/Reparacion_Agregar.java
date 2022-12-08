@@ -96,6 +96,173 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        JTFNombre = new javax.swing.JTextField();
+        JTFTelefono = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        JBGuardar = new java.awt.Button();
+        JBLimpiar = new java.awt.Button();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        JCBBicicletasAgregarReparacion = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        JCBServiciosAgregarReparacion = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        JCBRepuestosAgregarReparacion = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        JBAgregarRepuestoNuevaReparacion = new java.awt.Button();
+        jLabel12 = new javax.swing.JLabel();
+        JTFTelefono1 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JTClientesListar1 = new javax.swing.JTable();
+        jLabel13 = new javax.swing.JLabel();
+        JBGuardar1 = new java.awt.Button();
+        jLabel14 = new javax.swing.JLabel();
+        JTFTelefono2 = new javax.swing.JTextField();
+
+        setMaximumSize(new java.awt.Dimension(398, 600));
+        setMinimumSize(new java.awt.Dimension(398, 600));
+        setPreferredSize(new java.awt.Dimension(398, 600));
+
+        JTFNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFNombreActionPerformed(evt);
+            }
+        });
+
+        JTFTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFTelefonoActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
+        jLabel1.setText("Nueva Reparación");
+
+        JBGuardar.setLabel("Guardar");
+        JBGuardar.setName(""); // NOI18N
+        JBGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBGuardarActionPerformed(evt);
+            }
+        });
+
+        JBLimpiar.setLabel("Limpiar");
+        JBLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBLimpiarActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Nombre :");
+
+        jLabel7.setText("Telefono :");
+
+        JCBBicicletasAgregarReparacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JCBBicicletasAgregarReparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBBicicletasAgregarReparacionActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
+        jLabel8.setText("Datos Cliente");
+
+        JCBServiciosAgregarReparacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JCBServiciosAgregarReparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBServiciosAgregarReparacionActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
+        jLabel9.setText("Servicio:");
+
+        jLabel10.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
+        jLabel10.setText("Bicicleta:");
+
+        JCBRepuestosAgregarReparacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JCBRepuestosAgregarReparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBRepuestosAgregarReparacionActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Yu Gothic Medium", 0, 12)); // NOI18N
+        jLabel11.setText("Cant:");
+
+        JBAgregarRepuestoNuevaReparacion.setActionCommand("Agregar");
+        JBAgregarRepuestoNuevaReparacion.setLabel("Agregar");
+        JBAgregarRepuestoNuevaReparacion.setName(""); // NOI18N
+        JBAgregarRepuestoNuevaReparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBAgregarRepuestoNuevaReparacionActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
+        jLabel12.setText("Repuestos:");
+
+        JTFTelefono1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFTelefono1ActionPerformed(evt);
+            }
+        });
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        JTClientesListar1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(JTClientesListar1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jLabel13.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
+        jLabel13.setText("Item Repuesto:");
+
+        JBGuardar1.setActionCommand("Costo");
+        JBGuardar1.setLabel("Calcular Costo");
+        JBGuardar1.setName(""); // NOI18N
+        JBGuardar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBGuardar1ActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setFont(new java.awt.Font("Yu Gothic Medium", 0, 14)); // NOI18N
+        jLabel14.setText("Costo Final:");
+
+        JTFTelefono2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFTelefono2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,6 +290,45 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
                             .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JCBBicicletasAgregarReparacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JCBServiciosAgregarReparacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(17, 17, 17)
+                        .addComponent(JTFTelefono))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(JCBRepuestosAgregarReparacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(JTFTelefono1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JBAgregarRepuestoNuevaReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(JBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JBGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(129, 129, 129)
+                        .addComponent(JBGuardar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(23, 23, 23)
+                        .addComponent(JTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel12)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(JTFTelefono2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap();)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,6 +357,51 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Limpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Guardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JCBBicicletasAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JCBServiciosAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(JTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(JTFTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel12)
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JCBRepuestosAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JTFTelefono1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JBAgregarRepuestoNuevaReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(JTFTelefono2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JBLimpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JBGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(JBGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -159,17 +410,39 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFIDReparacionActionPerformed
 
-    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
-        if (JTFIDReparacion.getText().isEmpty() || JTFCostoFinal.getText().isEmpty()) {
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {
+        /*   if (JTFIDReparacion.getText().isEmpty() || JTFCostoFinal.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Llene todos los campos por favor");
         } else {
             try {
                 repad.guardarReparacion(new Reparacion(Integer.parseInt(JTFNumeroDeSerie.getText()), JTFTipo.getTexJTFIDReparaciontText(), repad.obtenerClientePorDni(Integer.getInteger(JTFDNIDueño.getText())), true));
+            } catch(){}
+        }*/
+    }
+    private void JTFNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFNombreActionPerformed
+
+    private void JTFTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFTelefonoActionPerformed
+
+    private void JBGuardarActionPerformed(java.awt.event.ActionEvent evt) {
+        if (JTFNombre.getText().isEmpty() || JTFApellido.getText().isEmpty() || JTFDNI.getText().isEmpty() || JTFDomicilio.getText().isEmpty() || JTFTelefono.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Llene todos los campos por favor");
+        } else {
+            try {
+                cd.guardarCliente(new Cliente(Integer.parseInt(JTFDNI.getText()), JTFNombre.getText(), JTFApellido.getText(), JTFDomicilio.getText(), Integer.parseInt(JTFTelefono.getText()), true));
+                JBLimpiarActionPerformed(evt);
+
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Error, verifique haber ingresado todos los datos correctamente.");
             }
         }
-    }//GEN-LAST:event_GuardarActionPerformed
+
+    }
+
+    ;
 
     private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
         // TODO add your handling code here:
@@ -183,8 +456,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private java.awt.Button Guardar;
     private javax.swing.JTextField JTFCostoFinal;
     private javax.swing.JTextField JTFIDReparacion;
@@ -198,5 +470,77 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    // End of variables declaration//GEN-END:variables
+
 }
+
+    private void JBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarActionPerformed
+        JTFNombre.setText("");
+        JTFApellido.setText("");
+        JTFDNI.setText("");
+        JTFDomicilio.setText("");
+        JTFTelefono.setText("");
+    }//GEN-LAST:event_JBLimpiarActionPerformed
+}
+    private void JCBBicicletasAgregarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBBicicletasAgregarReparacionActionPerformed
+        if (JCBClientesBorrarCliente.getSelectedIndex() >= 0) {
+            JCBClientesBorrarCliente.setSelectedIndex(JCBClientesBorrarCliente.getSelectedIndex());
+            JTFNombre.setText(cd.obtenerClientes().get(JCBClientesBorrarCliente.getSelectedIndex()).getNombre());
+            JTFApellido.setText(cd.obtenerClientes().get(JCBClientesBorrarCliente.getSelectedIndex()).getApellido());
+            JTFDomicilio.setText(cd.obtenerClientes().get(JCBClientesBorrarCliente.getSelectedIndex()).getDomicilio());
+            JTFTelefono.setText(String.valueOf(cd.obtenerClientes().get(JCBClientesBorrarCliente.getSelectedIndex()).getTelefono()));
+            JTFDNI.setText(String.valueOf(cd.obtenerClientes().get(JCBClientesBorrarCliente.getSelectedIndex()).getDni()));
+        }
+    }//GEN-LAST:event_JCBBicicletasAgregarReparacionActionPerformed
+
+    private void JCBServiciosAgregarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBServiciosAgregarReparacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCBServiciosAgregarReparacionActionPerformed
+
+    private void JCBRepuestosAgregarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBRepuestosAgregarReparacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCBRepuestosAgregarReparacionActionPerformed
+
+    private void JBAgregarRepuestoNuevaReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAgregarRepuestoNuevaReparacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBAgregarRepuestoNuevaReparacionActionPerformed
+
+    private void JTFTelefono1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFTelefono1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFTelefono1ActionPerformed
+
+    private void JBGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGuardar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBGuardar1ActionPerformed
+
+    private void JTFTelefono2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFTelefono2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFTelefono2ActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button JBAgregarRepuestoNuevaReparacion;
+    private java.awt.Button JBGuardar;
+    private java.awt.Button JBGuardar1;
+    private java.awt.Button JBLimpiar;
+    private javax.swing.JComboBox<String> JCBBicicletasAgregarReparacion;
+    private javax.swing.JComboBox<String> JCBRepuestosAgregarReparacion;
+    private javax.swing.JComboBox<String> JCBServiciosAgregarReparacion;
+    private javax.swing.JTable JTClientesListar1;
+    private javax.swing.JTextField JTFNombre;
+    private javax.swing.JTextField JTFTelefono;
+    private javax.swing.JTextField JTFTelefono1;
+    private javax.swing.JTextField JTFTelefono2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    // End of variables declaration//GEN-END:variables
+       
