@@ -13,6 +13,7 @@ import static TestUMLs.ProyectoFinalUniversidadG8.cd;
 import static TestUMLs.ProyectoFinalUniversidadG8.repud;
 import static TestUMLs.ProyectoFinalUniversidadG8.sd;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -43,6 +44,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
         JTFCostoServicioAgregarReparacion.setEnabled(false);
         JTFDNI.setEnabled(false);
         JTFTelefono.setEnabled(false);
+        JTItemRepuestoAgregarReparacion.getTableHeader().setReorderingAllowed(false);
     }
 
     private void actualizarListaBicis() {
@@ -87,8 +89,8 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
         }
     }
 
-    private void cargarItem(Repuesto r) {
-        modelo.addRow(new Object[]{r.getNumSerie(), r.getDescripcion(), r.getPrecio()});
+    private void cargarItem(Repuesto r, int cant) {
+        modelo.addRow(new Object[]{r.getNumSerie(), r.getDescripcion(), r.getPrecio(), cant});
     }
 
     /**
@@ -161,6 +163,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
             }
         });
 
+        JTFNombreCompleto.setEnabled(false);
         JTFNombreCompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTFNombreCompletoActionPerformed(evt);
@@ -229,6 +232,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        JTItemRepuestoAgregarReparacion.setEnabled(false);
         jScrollPane1.setViewportView(JTItemRepuestoAgregarReparacion);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -407,20 +411,41 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
     }//GEN-LAST:event_JBGuardarAgregarReparacionActionPerformed
 
     private void JBAgregarRepuestoAgregarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAgregarRepuestoAgregarReparacionActionPerformed
-        /*     JTFNombre.setText("");
-        JTFApellido.setText("");
-        JTFDNI.setText("");
-        JTFDomicilio.setText("");
-        JTFTelefono.setText("");
-        actualizarLista();*/
+        Repuesto r = new Repuesto();
+        try {
+
+            if (JCBRepuestosAgregarReparacion.getSelectedIndex() >= 0) {
+                JCBRepuestosAgregarReparacion.setSelectedIndex(JCBRepuestosAgregarReparacion.getSelectedIndex());
+                r.setNumSerie(repud.obtenerRepuestos().get(JCBRepuestosAgregarReparacion.getSelectedIndex()).getNumSerie());
+                r.setDescripcion(repud.obtenerRepuestos().get(JCBRepuestosAgregarReparacion.getSelectedIndex()).getDescripcion());
+                r.setPrecio(repud.obtenerRepuestos().get(JCBRepuestosAgregarReparacion.getSelectedIndex()).getPrecio());
+                r.setActivo(true);
+            }
+            cargarItem(r, Integer.valueOf(JTFCantRepuestoAgregarReparacion.getText()));
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Ingrese un n° valido de cantidad para repuesto.");
+        }
     }//GEN-LAST:event_JBAgregarRepuestoAgregarReparacionActionPerformed
 
     private void JBLimpiarAgregarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarAgregarReparacionActionPerformed
-        // TODO add your handling code here:
+        JCBRepuestosAgregarReparacion.setSelectedIndex(0);
+        JCBServiciosAgregarReparacion.setSelectedIndex(0);
+        JCBBicicletasAgregarReparacion.setSelectedIndex(0);
+        borrarFilasTabla();
+        JTFCostoTotalAgregarReparacion.setText("");
+        JTFCantRepuestoAgregarReparacion.setText("");
     }//GEN-LAST:event_JBLimpiarAgregarReparacionActionPerformed
 
     private void JBCalcularCostoAgregarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCalcularCostoAgregarReparacionActionPerformed
-        // TODO add your handling code here:
+
+        float suma = 0;
+        suma += Float.valueOf(JTFCostoServicioAgregarReparacion.getText());
+
+        for (int i = 0; i < JTItemRepuestoAgregarReparacion.getRowCount(); i++) {
+            suma += Float.valueOf(JTItemRepuestoAgregarReparacion.getValueAt(i, 2).toString()) * Float.valueOf(JTItemRepuestoAgregarReparacion.getValueAt(i, 3).toString());
+        }
+        suma += suma * 0.1;
+        JTFCostoTotalAgregarReparacion.setText(String.valueOf(suma));
     }//GEN-LAST:event_JBCalcularCostoAgregarReparacionActionPerformed
 
 
