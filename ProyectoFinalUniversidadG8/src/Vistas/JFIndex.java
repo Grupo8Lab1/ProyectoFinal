@@ -1,5 +1,8 @@
 package Vistas;
 
+import Vistas.Cliente.Cliente_Actualizar;
+import Vistas.Cliente.Cliente_Agregar;
+import Vistas.Cliente.Cliente_Quitar;
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 
@@ -16,64 +19,80 @@ public class JFIndex extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         JPCliente = new javax.swing.JPanel();
-        BMostrarTodos0 = new java.awt.Button();
-        BBuscarPorID0 = new java.awt.Button();
-        BActualizar0 = new java.awt.Button();
-        BQuitar0 = new java.awt.Button();
-        BAgregar0 = new java.awt.Button();
+        BMostrarTodosCliente = new java.awt.Button();
+        BBuscarPorIDCliente = new java.awt.Button();
+        BActualizarCliente = new java.awt.Button();
+        BQuitarCliente = new java.awt.Button();
+        BAgregarCliente = new java.awt.Button();
         jPanelCliente = new javax.swing.JPanel();
         JPBicicleta = new javax.swing.JPanel();
-        BMostrarTodos1 = new java.awt.Button();
-        BAgregar1 = new java.awt.Button();
-        BBuscarPorID1 = new java.awt.Button();
-        BActualizar1 = new java.awt.Button();
-        BQuitar1 = new java.awt.Button();
+        BMostrarTodosBicicleta = new java.awt.Button();
+        BAgregarBicicleta = new java.awt.Button();
+        BBuscarPorIDBicicleta = new java.awt.Button();
+        BActualizarBicicleta = new java.awt.Button();
+        BQuitarBicicleta = new java.awt.Button();
         jPanelBicicleta = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         JPRepuesto = new javax.swing.JPanel();
-        BMostrarTodos2 = new java.awt.Button();
-        BAgregar2 = new java.awt.Button();
-        BBuscarPorID2 = new java.awt.Button();
-        BActualizar2 = new java.awt.Button();
-        BQuitar2 = new java.awt.Button();
+        BMostrarTodosRepuesto = new java.awt.Button();
+        BAgregarRepuesto = new java.awt.Button();
+        BBuscarPorIDRepuesto = new java.awt.Button();
+        BActualizarRepuesto = new java.awt.Button();
+        BQuitarRepuesto = new java.awt.Button();
         jPanelRepuesto = new javax.swing.JPanel();
         JPServicio = new javax.swing.JPanel();
-        BMostrarTodos3 = new java.awt.Button();
-        BAgregar3 = new java.awt.Button();
-        BBuscarPorID3 = new java.awt.Button();
-        BQuitar3 = new java.awt.Button();
+        BMostrarTodosServicio = new java.awt.Button();
+        BAgregarServicio = new java.awt.Button();
+        BBuscarPorIDServicio = new java.awt.Button();
+        BQuitarServicio = new java.awt.Button();
         jPanelServicio = new javax.swing.JPanel();
         JPReparacion = new javax.swing.JPanel();
-        BMostrarTodos4 = new java.awt.Button();
-        BAgregar4 = new java.awt.Button();
-        BBuscarPorCliente4 = new java.awt.Button();
-        BActualizar4 = new java.awt.Button();
-        BQuitar4 = new java.awt.Button();
-        BBuscarPorBicicleta4 = new java.awt.Button();
-        BBuscarPorID4 = new java.awt.Button();
-        BBuscarPorFecha4 = new java.awt.Button();
+        BMostrarTodosReparacion = new java.awt.Button();
+        BAgregarReparacion = new java.awt.Button();
+        BBuscarPorClienteReparacion = new java.awt.Button();
+        BActualizarReparacion = new java.awt.Button();
+        BQuitarReparacion = new java.awt.Button();
+        BBuscarPorBicicletaReparacion = new java.awt.Button();
+        BBuscarPorIDReparacion = new java.awt.Button();
+        BBuscarPorFechaReparacion = new java.awt.Button();
         jPanelReparacion = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTabbedPane1.setBackground(java.awt.Color.gray);
 
-        BMostrarTodos0.setBackground(java.awt.Color.gray);
-        BMostrarTodos0.setLabel("Mostrar Todos");
+        BMostrarTodosCliente.setBackground(java.awt.Color.gray);
+        BMostrarTodosCliente.setLabel("Mostrar Todos");
 
-        BBuscarPorID0.setBackground(java.awt.Color.gray);
-        BBuscarPorID0.setLabel("Buscar (ID)");
+        BBuscarPorIDCliente.setBackground(java.awt.Color.gray);
+        BBuscarPorIDCliente.setLabel("Buscar (ID)");
 
-        BActualizar0.setBackground(java.awt.Color.gray);
-        BActualizar0.setLabel("Actualizar");
+        BActualizarCliente.setBackground(java.awt.Color.gray);
+        BActualizarCliente.setLabel("Actualizar");
+        BActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BActualizarClienteActionPerformed(evt);
+            }
+        });
 
-        BQuitar0.setBackground(java.awt.Color.gray);
-        BQuitar0.setLabel("Quitar");
+        BQuitarCliente.setBackground(java.awt.Color.gray);
+        BQuitarCliente.setLabel("Quitar");
+        BQuitarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BQuitarClienteActionPerformed(evt);
+            }
+        });
 
-        BAgregar0.setBackground(java.awt.Color.gray);
-        BAgregar0.setLabel("Agregar");
+        BAgregarCliente.setBackground(java.awt.Color.gray);
+        BAgregarCliente.setLabel("Agregar");
+        BAgregarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BAgregarClienteActionPerformed(evt);
+            }
+        });
 
         jPanelCliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanelCliente.setPreferredSize(new java.awt.Dimension(398, 600));
 
         javax.swing.GroupLayout jPanelClienteLayout = new javax.swing.GroupLayout(jPanelCliente);
         jPanelCliente.setLayout(jPanelClienteLayout);
@@ -95,11 +114,11 @@ public class JFIndex extends javax.swing.JFrame {
                 .addComponent(jPanelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BActualizar0, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BMostrarTodos0, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BAgregar0, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BBuscarPorID0, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BQuitar0, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BMostrarTodosCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BAgregarCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BBuscarPorIDCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BQuitarCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         JPClienteLayout.setVerticalGroup(
@@ -109,37 +128,38 @@ public class JFIndex extends javax.swing.JFrame {
                 .addGroup(JPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(JPClienteLayout.createSequentialGroup()
-                        .addComponent(BAgregar0, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BAgregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BQuitar0, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BQuitarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BActualizar0, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BBuscarPorID0, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BBuscarPorIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BMostrarTodos0, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BMostrarTodosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 265, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Cliente", new javax.swing.ImageIcon(getClass().getResource("/Vistas/Iconos/usuario.png")), JPCliente); // NOI18N
 
-        BMostrarTodos1.setBackground(java.awt.Color.gray);
-        BMostrarTodos1.setLabel("Mostrar Todos");
+        BMostrarTodosBicicleta.setBackground(java.awt.Color.gray);
+        BMostrarTodosBicicleta.setLabel("Mostrar Todos");
 
-        BAgregar1.setBackground(java.awt.Color.gray);
-        BAgregar1.setLabel("Agregar");
+        BAgregarBicicleta.setBackground(java.awt.Color.gray);
+        BAgregarBicicleta.setLabel("Agregar");
 
-        BBuscarPorID1.setBackground(java.awt.Color.gray);
-        BBuscarPorID1.setLabel("Buscar (ID)");
+        BBuscarPorIDBicicleta.setBackground(java.awt.Color.gray);
+        BBuscarPorIDBicicleta.setLabel("Buscar (ID)");
 
-        BActualizar1.setBackground(java.awt.Color.gray);
-        BActualizar1.setLabel("Actualizar");
+        BActualizarBicicleta.setBackground(java.awt.Color.gray);
+        BActualizarBicicleta.setLabel("Actualizar");
 
-        BQuitar1.setBackground(java.awt.Color.gray);
-        BQuitar1.setLabel("Quitar");
+        BQuitarBicicleta.setBackground(java.awt.Color.gray);
+        BQuitarBicicleta.setLabel("Quitar");
 
         jPanelBicicleta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanelBicicleta.setPreferredSize(new java.awt.Dimension(398, 600));
 
         javax.swing.GroupLayout jPanelBicicletaLayout = new javax.swing.GroupLayout(jPanelBicicleta);
         jPanelBicicleta.setLayout(jPanelBicicletaLayout);
@@ -162,15 +182,15 @@ public class JFIndex extends javax.swing.JFrame {
                 .addGroup(JPBicicletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPBicicletaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BMostrarTodos1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BMostrarTodosBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(540, 540, 540))
                     .addGroup(JPBicicletaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(JPBicicletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BQuitar1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BActualizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BBuscarPorID1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BQuitarBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BAgregarBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BActualizarBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BBuscarPorIDBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         JPBicicletaLayout.setVerticalGroup(
@@ -180,15 +200,15 @@ public class JFIndex extends javax.swing.JFrame {
                 .addGroup(JPBicicletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanelBicicleta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(JPBicicletaLayout.createSequentialGroup()
-                        .addComponent(BAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BAgregarBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BQuitar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BQuitarBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BActualizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BActualizarBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BBuscarPorID1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BBuscarPorIDBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BMostrarTodos1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BMostrarTodosBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 265, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -198,20 +218,20 @@ public class JFIndex extends javax.swing.JFrame {
         jTabbedPane2.setBackground(java.awt.Color.gray);
         jTabbedPane2.setToolTipText("");
 
-        BMostrarTodos2.setBackground(java.awt.Color.gray);
-        BMostrarTodos2.setLabel("Mostrar Todos");
+        BMostrarTodosRepuesto.setBackground(java.awt.Color.gray);
+        BMostrarTodosRepuesto.setLabel("Mostrar Todos");
 
-        BAgregar2.setBackground(java.awt.Color.gray);
-        BAgregar2.setLabel("Agregar");
+        BAgregarRepuesto.setBackground(java.awt.Color.gray);
+        BAgregarRepuesto.setLabel("Agregar");
 
-        BBuscarPorID2.setBackground(java.awt.Color.gray);
-        BBuscarPorID2.setLabel("Buscar (ID)");
+        BBuscarPorIDRepuesto.setBackground(java.awt.Color.gray);
+        BBuscarPorIDRepuesto.setLabel("Buscar (ID)");
 
-        BActualizar2.setBackground(java.awt.Color.gray);
-        BActualizar2.setLabel("Actualizar (Precio)");
+        BActualizarRepuesto.setBackground(java.awt.Color.gray);
+        BActualizarRepuesto.setLabel("Actualizar (Precio)");
 
-        BQuitar2.setBackground(java.awt.Color.gray);
-        BQuitar2.setLabel("Quitar");
+        BQuitarRepuesto.setBackground(java.awt.Color.gray);
+        BQuitarRepuesto.setLabel("Quitar");
 
         jPanelRepuesto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -235,11 +255,11 @@ public class JFIndex extends javax.swing.JFrame {
                 .addComponent(jPanelRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(JPRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BMostrarTodos2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BAgregar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BBuscarPorID2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BQuitar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BActualizar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BMostrarTodosRepuesto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BAgregarRepuesto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BBuscarPorIDRepuesto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BQuitarRepuesto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BActualizarRepuesto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(616, 616, 616))
         );
         JPRepuestoLayout.setVerticalGroup(
@@ -249,32 +269,32 @@ public class JFIndex extends javax.swing.JFrame {
                 .addGroup(JPRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelRepuesto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(JPRepuestoLayout.createSequentialGroup()
-                        .addComponent(BAgregar2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BAgregarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BQuitar2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BQuitarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BActualizar2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BActualizarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BBuscarPorID2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BBuscarPorIDRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BMostrarTodos2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BMostrarTodosRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         jTabbedPane2.addTab("Repuesto", new javax.swing.ImageIcon(getClass().getResource("/Vistas/Iconos/engranaje.png")), JPRepuesto); // NOI18N
 
-        BMostrarTodos3.setBackground(java.awt.Color.gray);
-        BMostrarTodos3.setLabel("Mostrar Todos");
+        BMostrarTodosServicio.setBackground(java.awt.Color.gray);
+        BMostrarTodosServicio.setLabel("Mostrar Todos");
 
-        BAgregar3.setBackground(java.awt.Color.gray);
-        BAgregar3.setLabel("Agregar");
+        BAgregarServicio.setBackground(java.awt.Color.gray);
+        BAgregarServicio.setLabel("Agregar");
 
-        BBuscarPorID3.setBackground(java.awt.Color.gray);
-        BBuscarPorID3.setLabel("Buscar (ID)");
+        BBuscarPorIDServicio.setBackground(java.awt.Color.gray);
+        BBuscarPorIDServicio.setLabel("Buscar (ID)");
 
-        BQuitar3.setBackground(java.awt.Color.gray);
-        BQuitar3.setLabel("Quitar");
+        BQuitarServicio.setBackground(java.awt.Color.gray);
+        BQuitarServicio.setLabel("Quitar");
 
         jPanelServicio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -298,10 +318,10 @@ public class JFIndex extends javax.swing.JFrame {
                 .addComponent(jPanelServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(JPServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BMostrarTodos3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BAgregar3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BBuscarPorID3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BQuitar3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BMostrarTodosServicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BAgregarServicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BBuscarPorIDServicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BQuitarServicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1146, 1146, 1146))
         );
         JPServicioLayout.setVerticalGroup(
@@ -311,42 +331,42 @@ public class JFIndex extends javax.swing.JFrame {
                 .addGroup(JPServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelServicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(JPServicioLayout.createSequentialGroup()
-                        .addComponent(BAgregar3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BAgregarServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BQuitar3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BQuitarServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BBuscarPorID3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BBuscarPorIDServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BMostrarTodos3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BMostrarTodosServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         jTabbedPane2.addTab("Servicio", new javax.swing.ImageIcon(getClass().getResource("/Vistas/Iconos/ingeniero.png")), JPServicio); // NOI18N
 
-        BMostrarTodos4.setBackground(java.awt.Color.gray);
-        BMostrarTodos4.setLabel("Mostrar Todos");
+        BMostrarTodosReparacion.setBackground(java.awt.Color.gray);
+        BMostrarTodosReparacion.setLabel("Mostrar Todos");
 
-        BAgregar4.setBackground(java.awt.Color.gray);
-        BAgregar4.setLabel("Agregar");
+        BAgregarReparacion.setBackground(java.awt.Color.gray);
+        BAgregarReparacion.setLabel("Agregar");
 
-        BBuscarPorCliente4.setBackground(java.awt.Color.gray);
-        BBuscarPorCliente4.setLabel("Buscar (Cliente)");
+        BBuscarPorClienteReparacion.setBackground(java.awt.Color.gray);
+        BBuscarPorClienteReparacion.setLabel("Buscar (Cliente)");
 
-        BActualizar4.setBackground(java.awt.Color.gray);
-        BActualizar4.setLabel("Actualizar ");
+        BActualizarReparacion.setBackground(java.awt.Color.gray);
+        BActualizarReparacion.setLabel("Actualizar ");
 
-        BQuitar4.setBackground(java.awt.Color.gray);
-        BQuitar4.setLabel("Quitar");
+        BQuitarReparacion.setBackground(java.awt.Color.gray);
+        BQuitarReparacion.setLabel("Quitar");
 
-        BBuscarPorBicicleta4.setBackground(java.awt.Color.gray);
-        BBuscarPorBicicleta4.setLabel("Buscar (Bicicleta)");
+        BBuscarPorBicicletaReparacion.setBackground(java.awt.Color.gray);
+        BBuscarPorBicicletaReparacion.setLabel("Buscar (Bicicleta)");
 
-        BBuscarPorID4.setBackground(java.awt.Color.gray);
-        BBuscarPorID4.setLabel("Buscar (ID)");
+        BBuscarPorIDReparacion.setBackground(java.awt.Color.gray);
+        BBuscarPorIDReparacion.setLabel("Buscar (ID)");
 
-        BBuscarPorFecha4.setBackground(java.awt.Color.gray);
-        BBuscarPorFecha4.setLabel("Buscar (Fecha)");
+        BBuscarPorFechaReparacion.setBackground(java.awt.Color.gray);
+        BBuscarPorFechaReparacion.setLabel("Buscar (Fecha)");
 
         jPanelReparacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -370,14 +390,14 @@ public class JFIndex extends javax.swing.JFrame {
                 .addComponent(jPanelReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPReparacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BBuscarPorID4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BMostrarTodos4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BAgregar4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BQuitar4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BActualizar4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BBuscarPorCliente4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BBuscarPorBicicleta4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BBuscarPorFecha4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BBuscarPorIDReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BMostrarTodosReparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BAgregarReparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BQuitarReparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BActualizarReparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BBuscarPorClienteReparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BBuscarPorBicicletaReparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BBuscarPorFechaReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         JPReparacionLayout.setVerticalGroup(
@@ -387,21 +407,21 @@ public class JFIndex extends javax.swing.JFrame {
                 .addGroup(JPReparacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(JPReparacionLayout.createSequentialGroup()
-                        .addComponent(BAgregar4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BQuitar4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BQuitarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BActualizar4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BActualizarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BBuscarPorID4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BBuscarPorIDReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BBuscarPorCliente4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BBuscarPorClienteReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BBuscarPorBicicleta4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BBuscarPorBicicletaReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BBuscarPorFecha4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BBuscarPorFechaReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BMostrarTodos4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BMostrarTodosReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -431,6 +451,21 @@ public class JFIndex extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BAgregarClienteActionPerformed
+        Cliente_Agregar p = new Cliente_Agregar();
+        presentarVistasCliente(p);
+    }//GEN-LAST:event_BAgregarClienteActionPerformed
+
+    private void BActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BActualizarClienteActionPerformed
+        Cliente_Actualizar p = new Cliente_Actualizar();
+        presentarVistasCliente(p);
+    }//GEN-LAST:event_BActualizarClienteActionPerformed
+
+    private void BQuitarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BQuitarClienteActionPerformed
+        Cliente_Quitar p = new Cliente_Quitar();
+        presentarVistasCliente(p);
+    }//GEN-LAST:event_BQuitarClienteActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -474,33 +509,33 @@ public class JFIndex extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button BActualizar0;
-    private java.awt.Button BActualizar1;
-    private java.awt.Button BActualizar2;
-    private java.awt.Button BActualizar4;
-    private java.awt.Button BAgregar0;
-    private java.awt.Button BAgregar1;
-    private java.awt.Button BAgregar2;
-    private java.awt.Button BAgregar3;
-    private java.awt.Button BAgregar4;
-    private java.awt.Button BBuscarPorBicicleta4;
-    private java.awt.Button BBuscarPorCliente4;
-    private java.awt.Button BBuscarPorFecha4;
-    private java.awt.Button BBuscarPorID0;
-    private java.awt.Button BBuscarPorID1;
-    private java.awt.Button BBuscarPorID2;
-    private java.awt.Button BBuscarPorID3;
-    private java.awt.Button BBuscarPorID4;
-    private java.awt.Button BMostrarTodos0;
-    private java.awt.Button BMostrarTodos1;
-    private java.awt.Button BMostrarTodos2;
-    private java.awt.Button BMostrarTodos3;
-    private java.awt.Button BMostrarTodos4;
-    private java.awt.Button BQuitar0;
-    private java.awt.Button BQuitar1;
-    private java.awt.Button BQuitar2;
-    private java.awt.Button BQuitar3;
-    private java.awt.Button BQuitar4;
+    private java.awt.Button BActualizarBicicleta;
+    private java.awt.Button BActualizarCliente;
+    private java.awt.Button BActualizarReparacion;
+    private java.awt.Button BActualizarRepuesto;
+    private java.awt.Button BAgregarBicicleta;
+    private java.awt.Button BAgregarCliente;
+    private java.awt.Button BAgregarReparacion;
+    private java.awt.Button BAgregarRepuesto;
+    private java.awt.Button BAgregarServicio;
+    private java.awt.Button BBuscarPorBicicletaReparacion;
+    private java.awt.Button BBuscarPorClienteReparacion;
+    private java.awt.Button BBuscarPorFechaReparacion;
+    private java.awt.Button BBuscarPorIDBicicleta;
+    private java.awt.Button BBuscarPorIDCliente;
+    private java.awt.Button BBuscarPorIDReparacion;
+    private java.awt.Button BBuscarPorIDRepuesto;
+    private java.awt.Button BBuscarPorIDServicio;
+    private java.awt.Button BMostrarTodosBicicleta;
+    private java.awt.Button BMostrarTodosCliente;
+    private java.awt.Button BMostrarTodosReparacion;
+    private java.awt.Button BMostrarTodosRepuesto;
+    private java.awt.Button BMostrarTodosServicio;
+    private java.awt.Button BQuitarBicicleta;
+    private java.awt.Button BQuitarCliente;
+    private java.awt.Button BQuitarReparacion;
+    private java.awt.Button BQuitarRepuesto;
+    private java.awt.Button BQuitarServicio;
     private javax.swing.JPanel JPBicicleta;
     private javax.swing.JPanel JPCliente;
     private javax.swing.JPanel JPReparacion;

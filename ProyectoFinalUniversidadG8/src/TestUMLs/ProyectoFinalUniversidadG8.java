@@ -29,18 +29,10 @@ public class ProyectoFinalUniversidadG8 {
     public static ServicioData sd = new ServicioData();
     public static ItemRepuestoData irepud = new ItemRepuestoData();
     public static ReparacionData repad = new ReparacionData();
-    public static ArrayList<Cliente> listaClientes;
-    public static ArrayList<Bicicleta> listaBicicleta;
-    public static ArrayList<Repuesto> listaRepuesto;
-    public static ArrayList<Servicio> listaServicio;
-    public static ArrayList<Reparacion> listaReparacion;
 
     public static void main(String[] args) {
 
         //NOTA: AGREGAR LA LIBRERIA DE mariadb-java-client.2.3.0.jar
-
-
-
         /*   LocalDate fecha = LocalDate.now();
         System.out.println(repad.obtenerReparacionesPorFecha(fecha.minusDays(5), fecha));
 
