@@ -1,12 +1,13 @@
 package Vistas;
 
+import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 
 public class JFIndex extends javax.swing.JFrame {
 
     public JFIndex() {
         initComponents();
-    //    setIconImage(new ImageIcon(getClass().getResource("/Vistas.Iconos/bicicleteriaicono.png")).getImage());
+        //    setIconImage(new ImageIcon(getClass().getResource("/Vistas.Iconos/bicicleteriaicono.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -461,6 +462,15 @@ public class JFIndex extends javax.swing.JFrame {
                 new JFIndex().setVisible(true);
             }
         });
+    }
+
+    private void presentarVistasCliente(javax.swing.JPanel p) {
+        p.setSize(398, 600);
+        p.setLocation(0, 0);
+        jPanelCliente.removeAll();
+        jPanelCliente.add(p, BorderLayout.CENTER);
+        jPanelCliente.revalidate();
+        jPanelCliente.repaint();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

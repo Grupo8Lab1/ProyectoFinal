@@ -21,13 +21,11 @@ public class Cliente_Agregar extends javax.swing.JPanel {
      * Creates new form Cliente_Agregar
      */
     public Cliente_Agregar() {
-         initComponents();
+        initComponents();
 
-    //    listaClientes = cdata.obtenerClientes();
-
+        //    listaClientes = cdata.obtenerClientes();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -43,8 +41,8 @@ public class Cliente_Agregar extends javax.swing.JPanel {
         JTFApellido = new javax.swing.JTextField();
         JTFDomicilio = new javax.swing.JTextField();
         JTFTelefono = new javax.swing.JTextField();
-        Guardar = new java.awt.Button();
-        Limpiar = new java.awt.Button();
+        JBGuardar = new java.awt.Button();
+        JBLimpiar = new java.awt.Button();
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
         jLabel1.setText("Agregar Cliente");
@@ -77,18 +75,18 @@ public class Cliente_Agregar extends javax.swing.JPanel {
             }
         });
 
-        Guardar.setLabel("Guardar");
-        Guardar.setName(""); // NOI18N
-        Guardar.addActionListener(new java.awt.event.ActionListener() {
+        JBGuardar.setLabel("Guardar");
+        JBGuardar.setName(""); // NOI18N
+        JBGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarActionPerformed(evt);
+                JBGuardarActionPerformed(evt);
             }
         });
 
-        Limpiar.setLabel("Limpiar");
-        Limpiar.addActionListener(new java.awt.event.ActionListener() {
+        JBLimpiar.setLabel("Limpiar");
+        JBLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LimpiarActionPerformed(evt);
+                JBLimpiarActionPerformed(evt);
             }
         });
 
@@ -101,32 +99,31 @@ public class Cliente_Agregar extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JBGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(JTFDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel7)
-                            .addGap(17, 17, 17)
-                            .addComponent(JTFTelefono))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel5))
-                                    .addGap(22, 22, 22)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(JTFDNI)
-                                        .addComponent(JTFNombre)
-                                        .addComponent(JTFApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))))
-                            .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(17, 17, 17)
+                        .addComponent(JTFTelefono))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addGap(22, 22, 22)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(JTFDNI)
+                                    .addComponent(JTFNombre)
+                                    .addComponent(JTFApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -136,7 +133,7 @@ public class Cliente_Agregar extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(28, 28, 28)
@@ -160,7 +157,7 @@ public class Cliente_Agregar extends javax.swing.JPanel {
                             .addComponent(jLabel7)
                             .addComponent(JTFTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                        .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JBGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -169,9 +166,13 @@ public class Cliente_Agregar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFDNIActionPerformed
 
-    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LimpiarActionPerformed
+    private void JBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarActionPerformed
+        JTFNombre.setText("");
+        JTFApellido.setText("");
+        JTFDNI.setText("");
+        JTFDomicilio.setText("");
+        JTFTelefono.setText("");
+    }//GEN-LAST:event_JBLimpiarActionPerformed
 
     private void JTFNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNombreActionPerformed
         // TODO add your handling code here:
@@ -181,27 +182,27 @@ public class Cliente_Agregar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFTelefonoActionPerformed
 
-    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
- if (JTFNombre.getText().isEmpty() || JTFApellido.getText().isEmpty() || JTFDNI.getText().isEmpty()|| JTFDomicilio.getText().isEmpty()|| JTFTelefono.getText().isEmpty()) {
+    private void JBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGuardarActionPerformed
+        if (JTFNombre.getText().isEmpty() || JTFApellido.getText().isEmpty() || JTFDNI.getText().isEmpty() || JTFDomicilio.getText().isEmpty() || JTFTelefono.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Llene todos los campos por favor");
         } else {
             try {
-                cd.guardarCliente(new Cliente(Integer.parseInt(JTFDNI.getText()), JTFNombre.getText(), JTFApellido.getText(), JTFDomicilio.getText(),Integer.parseInt(JTFTelefono.getText()), true));                
+                cd.guardarCliente(new Cliente(Integer.parseInt(JTFDNI.getText()), JTFNombre.getText(), JTFApellido.getText(), JTFDomicilio.getText(), Integer.parseInt(JTFTelefono.getText()), true));
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Error, verifique haber ingresado todos los datos correctamente.");
             }
-        }       
-    }//GEN-LAST:event_GuardarActionPerformed
+        }
+    }//GEN-LAST:event_JBGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button Guardar;
+    private java.awt.Button JBGuardar;
+    private java.awt.Button JBLimpiar;
     private javax.swing.JTextField JTFApellido;
     private javax.swing.JTextField JTFDNI;
     private javax.swing.JTextField JTFDomicilio;
     private javax.swing.JTextField JTFNombre;
     private javax.swing.JTextField JTFTelefono;
-    private java.awt.Button Limpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

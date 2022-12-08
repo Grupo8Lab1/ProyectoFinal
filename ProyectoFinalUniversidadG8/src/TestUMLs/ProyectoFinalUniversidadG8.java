@@ -38,8 +38,7 @@ public class ProyectoFinalUniversidadG8 {
     public static void main(String[] args) {
 
         //NOTA: AGREGAR LA LIBRERIA DE mariadb-java-client.2.3.0.jar
-        System.out.println(bd.obtenerBicicletaPorId(3));
-        System.out.println(bd.obtenerBicicletaPorId(3));
+
 
 
         /*   LocalDate fecha = LocalDate.now();
