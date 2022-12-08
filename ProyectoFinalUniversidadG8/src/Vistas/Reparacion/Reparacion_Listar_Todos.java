@@ -29,6 +29,8 @@ public class Reparacion_Listar_Todos extends javax.swing.JPanel {
                 return false;
             }
         };
+        armarCabeceraTabla();
+        cargarReparacionesActivas();
     }
 
     private void armarCabeceraTabla() {
@@ -42,7 +44,7 @@ public class Reparacion_Listar_Todos extends javax.swing.JPanel {
         for (Object it : columnas) {
             modelo.addColumn(it);
         }
-        JTClientesListar.setModel(modelo);
+        JTReparacionesListar.setModel(modelo);
     }
 
     private void borrarFilasTabla() {
@@ -56,14 +58,14 @@ public class Reparacion_Listar_Todos extends javax.swing.JPanel {
 
     private void cargarReparacionesActivas() {
         borrarFilasTabla();
-        for (Reparacion aux : repad.obtenerReparaciones()) {
+        for (Reparacion aux : repad.obtenerReparacionesConEstado0()) {
             modelo.addRow(new Object[]{aux.getIdReparacion(), aux.getBicicleta().getNumSerie(), aux.getServicio().getDescripcion(), aux.getFechaEntrada(), aux.getBicicleta().getDueño().getTelefono(), aux.getCostoFinal()});
         }
     }
 
     private void cargarReparacionesTerminadas() {
         borrarFilasTabla();
-        for (Reparacion aux : repad.obtenerReparaciones()) {
+        for (Reparacion aux : repad.obtenerReparacionesConEstado1()) {
             modelo.addRow(new Object[]{aux.getIdReparacion(), aux.getBicicleta().getNumSerie(), aux.getServicio().getDescripcion(), aux.getFechaEntrada(), aux.getBicicleta().getDueño().getTelefono(), aux.getCostoFinal()});
         }
     }
@@ -79,7 +81,7 @@ public class Reparacion_Listar_Todos extends javax.swing.JPanel {
 
         jLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        JTClientesListar = new javax.swing.JTable();
+        JTReparacionesListar = new javax.swing.JTable();
         JRBFinalizadas = new javax.swing.JRadioButton();
         JRBPendientes = new javax.swing.JRadioButton();
 
@@ -90,7 +92,7 @@ public class Reparacion_Listar_Todos extends javax.swing.JPanel {
         jLabel.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
         jLabel.setText("Lista de Reparaciones");
 
-        JTClientesListar.setModel(new javax.swing.table.DefaultTableModel(
+        JTReparacionesListar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -101,9 +103,14 @@ public class Reparacion_Listar_Todos extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(JTClientesListar);
+        jScrollPane1.setViewportView(JTReparacionesListar);
 
         JRBFinalizadas.setText("Finalizadas");
+        JRBFinalizadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JRBFinalizadasActionPerformed(evt);
+            }
+        });
 
         JRBPendientes.setSelected(true);
         JRBPendientes.setText("Pendientes");
@@ -144,14 +151,20 @@ public class Reparacion_Listar_Todos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JRBPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBPendientesActionPerformed
-        // TODO add your handling code here:
+        JRBFinalizadas.setSelected(false);
+        cargarReparacionesActivas();
     }//GEN-LAST:event_JRBPendientesActionPerformed
+
+    private void JRBFinalizadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBFinalizadasActionPerformed
+        JRBPendientes.setSelected(false);
+        cargarReparacionesTerminadas();
+    }//GEN-LAST:event_JRBFinalizadasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton JRBFinalizadas;
     private javax.swing.JRadioButton JRBPendientes;
-    private javax.swing.JTable JTClientesListar;
+    private javax.swing.JTable JTReparacionesListar;
     private javax.swing.JLabel jLabel;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
