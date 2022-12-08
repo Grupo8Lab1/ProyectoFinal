@@ -215,7 +215,7 @@ public class Bicicleta_Actualizar extends javax.swing.JPanel {
                 Bicicleta aux = bd.obtenerBicicletaPorId(Integer.parseInt(JTFNumSerie.getText()));
                 aux.setTipo(JTFTipo.getText());
                 aux.setColor(JTFColor.getText());
-                aux.setDueño(JTFDNIDueño.getText());
+                aux.setDueño(Integer.parseInt(JTFDNIDueño.getText()));
                 bd.actualizarBicicleta(aux, Integer.parseInt(JTFNumSerie.getText()));
                 JBLimpiarActualizarBicicletaActionPerformed(evt);
             } catch (NumberFormatException ex) {
