@@ -414,18 +414,17 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< Updated upstream
     private void JTFIDReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFIDReparacionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFIDReparacionActionPerformed
 
-    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {                                        
         if (JTFIDReparacion.getText().isEmpty() || JTFCostoFinal.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Llene todos los campos por favor");
         } else {
             try {
                 repad.guardarReparacion(new Reparacion(Integer.parseInt(JTFNumeroDeSerie.getText()), JTFTipo.getTexJTFIDReparaciontText(), repad.obtenerClientePorDni(Integer.getInteger(JTFDNIDueño.getText())), true));
-=======
+
     private void JTFNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFNombreActionPerformed
@@ -434,20 +433,20 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFTelefonoActionPerformed
 
-    private void JBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGuardarActionPerformed
+    private void JBGuardarActionPerformed(java.awt.event.ActionEvent evt) {                                          
         if (JTFNombre.getText().isEmpty() || JTFApellido.getText().isEmpty() || JTFDNI.getText().isEmpty() || JTFDomicilio.getText().isEmpty() || JTFTelefono.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Llene todos los campos por favor");
         } else {
             try {
                 cd.guardarCliente(new Cliente(Integer.parseInt(JTFDNI.getText()), JTFNombre.getText(), JTFApellido.getText(), JTFDomicilio.getText(), Integer.parseInt(JTFTelefono.getText()), true));
                 JBLimpiarActionPerformed(evt);
->>>>>>> Stashed changes
+
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Error, verifique haber ingresado todos los datos correctamente.");
             }
         }
-<<<<<<< Updated upstream
-    }//GEN-LAST:event_GuardarActionPerformed
+
+    }                                       
 
     private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
         // TODO add your handling code here:
@@ -462,7 +461,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private java.awt.Button Guardar;
     private javax.swing.JTextField JTFCostoFinal;
     private javax.swing.JTextField JTFIDReparacion;
@@ -476,8 +475,8 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-=======
-    }//GEN-LAST:event_JBGuardarActionPerformed
+
+    }                                         
 
     private void JBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarActionPerformed
         JTFNombre.setText("");
