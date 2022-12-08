@@ -4,7 +4,11 @@
  */
 package Vistas.Reparacion;
 
+import Entidades.Reparacion;
+import static TestUMLs.ProyectoFinalUniversidadG8.repad;
 import Vistas.Cliente.*;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -12,11 +16,56 @@ import Vistas.Cliente.*;
  */
 public class Reparacion_Listar_Todos extends javax.swing.JPanel {
 
+    private final DefaultTableModel modelo;
+
     /**
      * Creates new form Cliente_Listar_Todos
      */
     public Reparacion_Listar_Todos() {
         initComponents();
+        this.modelo = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+    }
+
+    private void armarCabeceraTabla() {
+        ArrayList<Object> columnas = new ArrayList<>();
+        columnas.add("ID");
+        columnas.add("ID_Bicicleta");
+        columnas.add("Servicio");
+        columnas.add("Fecha entrada");
+        columnas.add("Telefono dueño");
+        columnas.add("Costo");
+        for (Object it : columnas) {
+            modelo.addColumn(it);
+        }
+        JTClientesListar.setModel(modelo);
+    }
+
+    private void borrarFilasTabla() {
+        if (modelo != null) {
+            int a = modelo.getRowCount() - 1;
+            for (int i = a; i >= 0; i--) {
+                modelo.removeRow(i);
+            }
+        }
+    }
+
+    private void cargarReparacionesActivas() {
+        borrarFilasTabla();
+        for (Reparacion aux : repad.obtenerReparaciones()) {
+            modelo.addRow(new Object[]{aux.getIdReparacion(), aux.getBicicleta().getNumSerie(), aux.getServicio().getDescripcion(), aux.getFechaEntrada(), aux.getBicicleta().getDueño().getTelefono(), aux.getCostoFinal()});
+        }
+    }
+
+    private void cargarReparacionesTerminadas() {
+        borrarFilasTabla();
+        for (Reparacion aux : repad.obtenerReparaciones()) {
+            modelo.addRow(new Object[]{aux.getIdReparacion(), aux.getBicicleta().getNumSerie(), aux.getServicio().getDescripcion(), aux.getFechaEntrada(), aux.getBicicleta().getDueño().getTelefono(), aux.getCostoFinal()});
+        }
     }
 
     /**
@@ -28,23 +77,82 @@ public class Reparacion_Listar_Todos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTClientesListar = new javax.swing.JTable();
+        JRBFinalizadas = new javax.swing.JRadioButton();
+        JRBPendientes = new javax.swing.JRadioButton();
+
         setMaximumSize(new java.awt.Dimension(398, 600));
         setMinimumSize(new java.awt.Dimension(398, 600));
         setPreferredSize(new java.awt.Dimension(398, 600));
+
+        jLabel.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
+        jLabel.setText("Lista de Reparaciones");
+
+        JTClientesListar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(JTClientesListar);
+
+        JRBFinalizadas.setText("Finalizadas");
+
+        JRBPendientes.setSelected(true);
+        JRBPendientes.setText("Pendientes");
+        JRBPendientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JRBPendientesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(JRBFinalizadas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JRBPendientes))
+                    .addComponent(jLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JRBFinalizadas)
+                    .addComponent(JRBPendientes))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JRBPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBPendientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JRBPendientesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton JRBFinalizadas;
+    private javax.swing.JRadioButton JRBPendientes;
+    private javax.swing.JTable JTClientesListar;
+    private javax.swing.JLabel jLabel;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
