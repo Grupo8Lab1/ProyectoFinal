@@ -4,6 +4,17 @@
  */
 package Vistas.Reparacion;
 
+import Entidades.Bicicleta;
+import Entidades.Cliente;
+import Entidades.Repuesto;
+import Entidades.Servicio;
+import static TestUMLs.ProyectoFinalUniversidadG8.bd;
+import static TestUMLs.ProyectoFinalUniversidadG8.cd;
+import static TestUMLs.ProyectoFinalUniversidadG8.repud;
+import static TestUMLs.ProyectoFinalUniversidadG8.sd;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author tcnlu
@@ -13,8 +24,71 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
     /**
      * Creates new form Reparacion_Agregar
      */
+    private final DefaultTableModel modelo;
+
     public Reparacion_Agregar() {
         initComponents();
+        this.modelo = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        armarCabeceraTabla();
+        actualizarListaBicis();
+        actualizarListaRepuestos();
+        actualizarListaServicios();
+        JTFNombreCompleto.setEnabled(false);
+        JTFCostoTotalAgregarReparacion.setEnabled(false);
+        JTFCostoServicioAgregarReparacion.setEnabled(false);
+        JTFDNI.setEnabled(false);
+        JTFTelefono.setEnabled(false);
+    }
+
+    private void actualizarListaBicis() {
+        JCBBicicletasAgregarReparacion.removeAllItems();
+        for (Bicicleta lista : bd.obtenerBicicletas()) {
+            JCBBicicletasAgregarReparacion.addItem(lista.getTipo() + " " + lista.getColor() + " " + lista.getNumSerie());
+        }
+    }
+
+    private void actualizarListaServicios() {
+        JCBServiciosAgregarReparacion.removeAllItems();
+        for (Servicio lista : sd.obtenerServicios()) {
+            JCBServiciosAgregarReparacion.addItem(lista.getDescripcion());
+        }
+    }
+
+    private void actualizarListaRepuestos() {
+        JCBRepuestosAgregarReparacion.removeAllItems();
+        for (Repuesto lista : repud.obtenerRepuestos()) {
+            JCBRepuestosAgregarReparacion.addItem(lista.getDescripcion());
+        }
+    }
+
+    private void armarCabeceraTabla() {
+        ArrayList<Object> columnas = new ArrayList<>();
+        columnas.add("N°Serie");
+        columnas.add("Descripción");
+        columnas.add("Costo u.");
+        columnas.add("Cantidad");
+        for (Object it : columnas) {
+            modelo.addColumn(it);
+        }
+        JTItemRepuestoAgregarReparacion.setModel(modelo);
+    }
+
+    private void borrarFilasTabla() {
+        if (modelo != null) {
+            int a = modelo.getRowCount() - 1;
+            for (int i = a; i >= 0; i--) {
+                modelo.removeRow(i);
+            }
+        }
+    }
+
+    private void cargarItem(Repuesto r) {
+        modelo.addRow(new Object[]{r.getNumSerie(), r.getDescripcion(), r.getPrecio()});
     }
 
     /**
@@ -49,9 +123,10 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
         JTFCostoTotalAgregarReparacion = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        JTItemRepuestoAgregarReparacion = new javax.swing.JTable();
         JTFCostoServicioAgregarReparacion = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        JBCalcularCostoAgregarReparacion = new java.awt.Button();
 
         setMaximumSize(new java.awt.Dimension(398, 600));
         setMinimumSize(new java.awt.Dimension(398, 600));
@@ -143,7 +218,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("ItemRepuesto"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JTItemRepuestoAgregarReparacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -154,26 +229,28 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(JTItemRepuestoAgregarReparacion);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
         );
 
         jLabel7.setText("Costo:");
+
+        JBCalcularCostoAgregarReparacion.setActionCommand("Calcular");
+        JBCalcularCostoAgregarReparacion.setLabel("Calcular");
+        JBCalcularCostoAgregarReparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBCalcularCostoAgregarReparacionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -185,54 +262,55 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JCBBicicletasAgregarReparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(JTFTelefono)
-                                    .addComponent(JTFNombreCompleto)
-                                    .addComponent(JTFDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel9))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(JTFTelefono)
+                            .addComponent(JTFNombreCompleto)
+                            .addComponent(JTFDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(JCBServiciosAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel12)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(JTFCostoTotalAgregarReparacion))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(JCBRepuestosAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(JCBServiciosAgregarReparacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel12)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JTFCostoTotalAgregarReparacion))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(JCBRepuestosAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(6, 6, 6)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addComponent(JTFCantRepuestoAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(JBAgregarRepuestoAgregarReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(JBLimpiarAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JBGuardarAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(4, 4, 4)
-                                .addComponent(JTFCostoServicioAgregarReparacion)))))
+                                .addComponent(JTFCostoServicioAgregarReparacion))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(JBLimpiarAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JBGuardarAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel9)
+                            .addComponent(JCBBicicletasAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JBCalcularCostoAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -240,7 +318,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JCBBicicletasAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -262,8 +340,9 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(JCBServiciosAgregarReparacion)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JCBServiciosAgregarReparacion))
                     .addComponent(JTFCostoServicioAgregarReparacion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel11)
@@ -274,9 +353,11 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
                         .addComponent(JTFCantRepuestoAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6))
                     .addComponent(JBAgregarRepuestoAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGap(5, 5, 5)
+                .addComponent(JBCalcularCostoAgregarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JBGuardarAgregarReparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -288,14 +369,12 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JCBBicicletasAgregarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBBicicletasAgregarReparacionActionPerformed
-        /*   if (JCBClientesBorrarCliente.getSelectedIndex() >= 0) {
-            JCBClientesBorrarCliente.setSelectedIndex(JCBClientesBorrarCliente.getSelectedIndex());
-            JTFNombreCompleto.setText(cd.obtenerClientes().get(JCBClientesBorrarCliente.getSelectedIndex()).getNombre());
-            JTFTelefono.setText(cd.obtenerClientes().get(JCBClientesBorrarCliente.getSelectedIndex()).getApellido());
-            JTFDomicilio.setText(cd.obtenerClientes().get(JCBClientesBorrarCliente.getSelectedIndex()).getDomicilio());
-            JTFTelefono.setText(String.valueOf(cd.obtenerClientes().get(JCBClientesBorrarCliente.getSelectedIndex()).getTelefono()));
-            JTFDNI.setText(String.valueOf(cd.obtenerClientes().get(JCBClientesBorrarCliente.getSelectedIndex()).getDni()));
-        }*/
+        if (JCBBicicletasAgregarReparacion.getSelectedIndex() >= 0) {
+            JCBBicicletasAgregarReparacion.setSelectedIndex(JCBBicicletasAgregarReparacion.getSelectedIndex());
+            JTFNombreCompleto.setText(bd.obtenerBicicletas().get(JCBBicicletasAgregarReparacion.getSelectedIndex()).getDueño().getNombre() + " " + bd.obtenerBicicletas().get(JCBBicicletasAgregarReparacion.getSelectedIndex()).getDueño().getApellido());
+            JTFTelefono.setText(String.valueOf(bd.obtenerBicicletas().get(JCBBicicletasAgregarReparacion.getSelectedIndex()).getDueño().getTelefono()));
+            JTFDNI.setText(String.valueOf(bd.obtenerBicicletas().get(JCBBicicletasAgregarReparacion.getSelectedIndex()).getDueño().getDni()));
+        }
     }//GEN-LAST:event_JCBBicicletasAgregarReparacionActionPerformed
 
     private void JTFDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFDNIActionPerformed
@@ -307,7 +386,10 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
     }//GEN-LAST:event_JTFNombreCompletoActionPerformed
 
     private void JCBServiciosAgregarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBServiciosAgregarReparacionActionPerformed
-        // TODO add your handling code here:
+        if (JCBServiciosAgregarReparacion.getSelectedIndex() >= 0) {
+            JCBServiciosAgregarReparacion.setSelectedIndex(JCBServiciosAgregarReparacion.getSelectedIndex());
+            JTFCostoServicioAgregarReparacion.setText(String.valueOf(sd.obtenerServicios().get(JCBServiciosAgregarReparacion.getSelectedIndex()).getPrecio()));
+        }
     }//GEN-LAST:event_JCBServiciosAgregarReparacionActionPerformed
 
     private void JCBRepuestosAgregarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBRepuestosAgregarReparacionActionPerformed
@@ -337,9 +419,14 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_JBLimpiarAgregarReparacionActionPerformed
 
+    private void JBCalcularCostoAgregarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCalcularCostoAgregarReparacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBCalcularCostoAgregarReparacionActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button JBAgregarRepuestoAgregarReparacion;
+    private java.awt.Button JBCalcularCostoAgregarReparacion;
     private java.awt.Button JBGuardarAgregarReparacion;
     private java.awt.Button JBLimpiarAgregarReparacion;
     private javax.swing.JComboBox<String> JCBBicicletasAgregarReparacion;
@@ -351,6 +438,7 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
     private javax.swing.JTextField JTFDNI;
     private javax.swing.JTextField JTFNombreCompleto;
     private javax.swing.JTextField JTFTelefono;
+    private javax.swing.JTable JTItemRepuestoAgregarReparacion;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -364,6 +452,5 @@ public class Reparacion_Agregar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
