@@ -169,50 +169,52 @@ public class Reparacion_Quitar extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JTFEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4))
-                                .addComponent(jLabel6))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(JTFEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel9))
-                                .addGap(7, 7, 7))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JTFID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel4))
+                                        .addComponent(jLabel6))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel9))
+                                        .addGap(7, 7, 7))
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JTFCosto)
-                                    .addComponent(JTFTelefono)
-                                    .addComponent(JTFFecha)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(JTFIDBicicleta, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
-                                        .addComponent(JTFServicio)
-                                        .addComponent(JTFDueño))))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JTFID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(JTFCosto)
+                                            .addComponent(JTFTelefono)
+                                            .addComponent(JTFFecha)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(JTFIDBicicleta, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                                                .addComponent(JTFServicio)
+                                                .addComponent(JTFDueño))))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(JBLimpiarBorrarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JBBorrarBorrarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(JCBReparacionesBorrarReparacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JCBReparacionesBorrarReparacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JBLimpiarBorrarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JBBorrarBorrarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -220,13 +222,13 @@ public class Reparacion_Quitar extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addComponent(JCBReparacionesBorrarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(JTFID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,11 +262,11 @@ public class Reparacion_Quitar extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JTFEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(JBBorrarBorrarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBLimpiarBorrarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -303,15 +305,18 @@ public class Reparacion_Quitar extends javax.swing.JPanel {
     }//GEN-LAST:event_JTFIDBicicletaActionPerformed
 
     private void JCBReparacionesBorrarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBReparacionesBorrarReparacionActionPerformed
+
         if (JCBReparacionesBorrarReparacion.getSelectedIndex() >= 0) {
-            JCBReparacionesBorrarReparacion.setSelectedIndex(JCBReparacionesBorrarReparacion.getSelectedIndex());
-            JTFID.setText(String.valueOf(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getIdReparacion()));
-            JTFIDBicicleta.setText(String.valueOf(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getBicicleta().getNumSerie()));
-//            JTFServicio.setText(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getServicio().getDescripcion());
-            //      JTFDueño.setText(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getBicicleta().getDueño().getNombre() + " " + repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getBicicleta().getDueño().getApellido() + " DNI: " + repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getBicicleta().getDueño().getDni());
-            //     JTFTelefono.setText(String.valueOf(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getBicicleta().getDueño().getTelefono()));
-            //    JTFFecha.setText(String.valueOf(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getFechaEntrada()));
-            //    JTFCosto.setText(String.valueOf(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getCostoFinal()));
+            //      JCBReparacionesBorrarReparacion.setSelectedIndex(JCBReparacionesBorrarReparacion.getSelectedIndex());
+            int id = repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getIdReparacion();
+            JTFID.setText(String.valueOf(id));
+            JTFIDBicicleta.setText(String.valueOf(repad.obtenerReparacionPorId(id).getBicicleta().getNumSerie()));
+            JTFServicio.setText(repad.obtenerReparacionPorId(id).getServicio().getDescripcion());
+
+            JTFDueño.setText(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getBicicleta().getDueño().getNombre() + " " + repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getBicicleta().getDueño().getApellido() + " DNI: " + repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getBicicleta().getDueño().getDni());
+            JTFTelefono.setText(String.valueOf(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getBicicleta().getDueño().getTelefono()));
+            JTFFecha.setText(String.valueOf(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getFechaEntrada()));
+            JTFCosto.setText(String.valueOf(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getCostoFinal()));
             if (repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).isEstado()) {
                 JTFEstado.setText("Finalizada");
             } else {
