@@ -27,9 +27,7 @@ import Vistas.Repuesto.Repuesto_Quitar;
 import Vistas.Servicio.Servicio_Agregar;
 import Vistas.Servicio.Servicio_BuscarPorID;
 import Vistas.Servicio.Servicio_Listar_Todos;
-import Vistas.Servicio.Servicio_Quitar;
 import java.awt.BorderLayout;
-import javax.swing.ImageIcon;
 
 public class JFIndex extends javax.swing.JFrame {
 
@@ -290,7 +288,7 @@ public class JFIndex extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Bicicleta", new javax.swing.ImageIcon(getClass().getResource("/Vistas/Iconos/bicicleta.png")), JPBicicleta); // NOI18N
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 6, 545, -1));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 545, -1));
 
         jTabbedPane2.setBackground(java.awt.Color.gray);
         jTabbedPane2.setToolTipText("");
@@ -590,11 +588,11 @@ public class JFIndex extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Reparación", new javax.swing.ImageIcon(getClass().getResource("/Vistas/Iconos/personafuerta.png")), JPReparacion); // NOI18N
 
-        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 6, 544, -1));
+        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, 544, -1));
 
         Background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Iconos/Fondo2.jpg"))); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 710));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1180, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
