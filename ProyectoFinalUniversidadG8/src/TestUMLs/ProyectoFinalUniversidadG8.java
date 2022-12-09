@@ -4,7 +4,6 @@
  */
 package TestUMLs;
 
-import Entidades.Reparacion;
 import Persistencia.BicicletaData;
 import Persistencia.ClienteData;
 import Persistencia.ItemRepuestoData;
@@ -12,7 +11,6 @@ import Persistencia.ReparacionData;
 import Persistencia.RepuestoData;
 import Persistencia.ServicioData;
 import Vistas.JFIndex;
-import java.util.ArrayList;
 
 public class ProyectoFinalUniversidadG8 {
 
