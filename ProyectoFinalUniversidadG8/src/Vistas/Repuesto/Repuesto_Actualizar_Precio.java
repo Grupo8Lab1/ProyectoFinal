@@ -165,7 +165,20 @@ public class Repuesto_Actualizar_Precio extends javax.swing.JPanel {
     }//GEN-LAST:event_JBLimpiarActualizarClienteActionPerformed
 
     private void JBBuscarActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscarActualizarClienteActionPerformed
-
+        if (JCBRepuestosActualizarPrecio.getSelectedIndex() >= 0) {
+            JOptionPane.showMessageDialog(null, "Seleccione una opcion por favor");
+        } else {
+            try {
+                Repuesto aux = repud.(Integer.parseInt(JTFPrecioNuevo.getText()));
+                JTFNombre.setText(aux.getNombre());
+                JTFPrecioActual.setText(aux.getApellido());
+                JTFDNI.setText(String.valueOf(aux.getDni()));
+                JTFPrecioNuevo.setText(aux.getDomicilio());
+                JTFTelefono.setText(String.valueOf(aux.getTelefono()));
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Error, DNI invalido.");
+            }
+        }
     }//GEN-LAST:event_JBBuscarActualizarClienteActionPerformed
 
     private void JCBRepuestosActualizarPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBRepuestosActualizarPrecioActionPerformed
