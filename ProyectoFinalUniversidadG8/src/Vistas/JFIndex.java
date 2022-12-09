@@ -82,8 +82,10 @@ public class JFIndex extends javax.swing.JFrame {
         BBuscarPorIDReparacion = new java.awt.Button();
         BBuscarPorFechaReparacion = new java.awt.Button();
         jPanelReparacion = new javax.swing.JPanel();
+        Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setBackground(java.awt.Color.gray);
 
@@ -138,7 +140,7 @@ public class JFIndex extends javax.swing.JFrame {
         );
         jPanelClienteLayout.setVerticalGroup(
             jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 602, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout JPClienteLayout = new javax.swing.GroupLayout(JPCliente);
@@ -162,7 +164,7 @@ public class JFIndex extends javax.swing.JFrame {
             .addGroup(JPClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
                     .addGroup(JPClienteLayout.createSequentialGroup()
                         .addComponent(BAgregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -173,7 +175,7 @@ public class JFIndex extends javax.swing.JFrame {
                         .addComponent(BBuscarPorIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BMostrarTodosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 265, Short.MAX_VALUE)))
+                        .addGap(0, 271, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -233,8 +235,9 @@ public class JFIndex extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        BBuscarPorClienteBicicleta.setActionCommand("Buscar (Nombre)");
         BBuscarPorClienteBicicleta.setBackground(java.awt.Color.gray);
-        BBuscarPorClienteBicicleta.setLabel("Buscar (ID)");
+        BBuscarPorClienteBicicleta.setLabel("Buscar (Nombre)");
         BBuscarPorClienteBicicleta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BBuscarPorClienteBicicletaActionPerformed(evt);
@@ -268,7 +271,7 @@ public class JFIndex extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPBicicletaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JPBicicletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanelBicicleta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelBicicleta, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
                     .addGroup(JPBicicletaLayout.createSequentialGroup()
                         .addComponent(BAgregarBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -281,11 +284,13 @@ public class JFIndex extends javax.swing.JFrame {
                         .addComponent(BBuscarPorClienteBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BMostrarTodosBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 196, Short.MAX_VALUE)))
+                        .addGap(0, 202, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Bicicleta", new javax.swing.ImageIcon(getClass().getResource("/Vistas/Iconos/bicicleta.png")), JPBicicleta); // NOI18N
+
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 6, 545, -1));
 
         jTabbedPane2.setBackground(java.awt.Color.gray);
         jTabbedPane2.setToolTipText("");
@@ -340,7 +345,7 @@ public class JFIndex extends javax.swing.JFrame {
         );
         jPanelRepuestoLayout.setVerticalGroup(
             jPanelRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 596, Short.MAX_VALUE)
+            .addGap(0, 602, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout JPRepuestoLayout = new javax.swing.GroupLayout(JPRepuesto);
@@ -423,7 +428,7 @@ public class JFIndex extends javax.swing.JFrame {
         );
         jPanelServicioLayout.setVerticalGroup(
             jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 596, Short.MAX_VALUE)
+            .addGap(0, 602, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout JPServicioLayout = new javax.swing.GroupLayout(JPServicio);
@@ -535,7 +540,7 @@ public class JFIndex extends javax.swing.JFrame {
         );
         jPanelReparacionLayout.setVerticalGroup(
             jPanelReparacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 596, Short.MAX_VALUE)
+            .addGap(0, 602, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout JPReparacionLayout = new javax.swing.GroupLayout(JPReparacion);
@@ -585,26 +590,11 @@ public class JFIndex extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Reparación", new javax.swing.ImageIcon(getClass().getResource("/Vistas/Iconos/personafuerta.png")), JPReparacion); // NOI18N
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane2)
-                    .addComponent(jTabbedPane1))
-                .addContainerGap())
-        );
+        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 6, 544, -1));
+
+        Background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Iconos/Fondo2.jpg"))); // NOI18N
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -857,6 +847,7 @@ public class JFIndex extends javax.swing.JFrame {
     private java.awt.Button BQuitarReparacion;
     private java.awt.Button BQuitarRepuesto;
     private java.awt.Button BQuitarServicio;
+    private javax.swing.JLabel Background;
     private javax.swing.JPanel JPBicicleta;
     private javax.swing.JPanel JPCliente;
     private javax.swing.JPanel JPReparacion;

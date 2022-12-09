@@ -35,6 +35,7 @@ public class Bicicleta_Actualizar extends javax.swing.JPanel {
 
         jPanel1.setMaximumSize(new java.awt.Dimension(398, 600));
         jPanel1.setMinimumSize(new java.awt.Dimension(398, 600));
+        jPanel1.setName(""); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(398, 600));
 
         JTFDNIDueño.addActionListener(new java.awt.event.ActionListener() {

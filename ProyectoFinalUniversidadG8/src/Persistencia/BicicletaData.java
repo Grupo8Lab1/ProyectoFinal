@@ -84,7 +84,42 @@ public class BicicletaData {
         }
         return listaTemp;
     }
+    
+    public Bicicleta obtenerBicicletaPorDueño(int dni_dueño) {
+        String sql = "SELECT * FROM bicicleta WHERE activo = 1 AND dni_dueño = ?";
+        Bicicleta b = new Bicicleta();
+        ClienteData c = new ClienteData();
+        try {
 
+            PreparedStatement ps = con.prepareStatement(sql);
+            if (obtenerBicicletaConEstado0(dni_dueño).getTipo() != null) {
+                JOptionPane.showMessageDialog(null, "Este n° de serie pertenece a una bicicleta previamente borrada, perteneciente a: " + obtenerBicicletaConEstado0(dni_dueño).getDueño().getNombre() + " " + obtenerBicicletaConEstado0(dni_dueño).getDueño().getApellido());
+                if (JOptionPane.showConfirmDialog(null, "¿Desea recuperar los datos de esta bicicleta?") == 0) {
+                    Bicicleta aux = obtenerBicicletaConEstado0(dni_dueño);
+                    aux.setActivo(true);
+                    actualizarBicicleta(aux, dni_dueño);
+                }
+            }
+            ps.setInt(1, dni_dueño);
+            ResultSet rs = ps.executeQuery(); //Select
+
+            if (rs.next()) {
+                b.setNumSerie(rs.getInt("num_serie"));
+                b.setTipo(rs.getString("tipo"));
+                b.setColor(rs.getString("color"));
+                b.setDueño(c.obtenerClientePorDni(rs.getInt("dni_dueño")));
+                b.setActivo(rs.getBoolean("activo"));
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-obtenerBicicletaPorDueño");
+        }
+        return b;
+    }
+    
+    
     public Bicicleta obtenerBicicletaPorId(int numSerie) {
         String sql = "SELECT * FROM bicicleta WHERE activo = 1 AND num_serie = ?";
         Bicicleta b = new Bicicleta();
@@ -114,7 +149,7 @@ public class BicicletaData {
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-obtenerBicicletaBorrada");
+            JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-obtenerBicicletaPorId");
         }
         return b;
     }

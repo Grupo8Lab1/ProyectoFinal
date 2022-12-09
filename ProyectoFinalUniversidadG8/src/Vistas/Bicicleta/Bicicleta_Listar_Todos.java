@@ -79,6 +79,7 @@ public class Bicicleta_Listar_Todos extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        JTBicicleasListar.setPreferredSize(new java.awt.Dimension(398, 600));
         jScrollPane1.setViewportView(JTBicicleasListar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

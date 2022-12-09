@@ -35,7 +35,7 @@ public class Bicicleta_BuscarPorID extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(398, 600));
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
-        jLabel1.setText("Buscar Bicicleta");
+        jLabel1.setText("Buscar Bicicleta Por ID");
 
         jLabel3.setText("Num. Serie:");
 
@@ -96,7 +96,7 @@ public class Bicicleta_BuscarPorID extends javax.swing.JPanel {
                         .addComponent(JTFNumSerie))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 207, Short.MAX_VALUE))
+                        .addGap(0, 126, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
