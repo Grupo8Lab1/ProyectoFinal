@@ -25,6 +25,7 @@ public class Repuesto_Actualizar_Precio extends javax.swing.JPanel {
         actualizarLista();
         JTFPrecioActual.setEnabled(false);
     }
+
     private void actualizarLista() {
         JCBRepuestosActualizarPrecio.removeAllItems();
         for (Servicio lista : sd.obtenerServicios()) {
@@ -152,7 +153,7 @@ public class Repuesto_Actualizar_Precio extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBActualizarActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBActualizarActualizarClienteActionPerformed
-         if (JCBRepuestosActualizarPrecio.getSelectedIndex() >= 0) {
+        if (JCBRepuestosActualizarPrecio.getSelectedIndex() >= 0) {
             Servicio aux = sd.obtenerServicios().get(JCBRepuestosActualizarPrecio.getSelectedIndex());
             JCBRepuestosActualizarPrecio.setSelectedIndex(JCBRepuestosActualizarPrecio.getSelectedIndex());
             JTFPrecioActual.setText(String.valueOf(aux.getPrecio()));
@@ -169,13 +170,13 @@ public class Repuesto_Actualizar_Precio extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Seleccione una opcion por favor");
         } else {
             try {
-                Repuesto aux = repud.(Integer.parseInt(JTFPrecioNuevo.getText()));
+                /*        Repuesto aux = repud(Integer.parseInt(JTFPrecioNuevo.getText()));
                 JTFNombre.setText(aux.getNombre());
                 JTFPrecioActual.setText(aux.getApellido());
                 JTFDNI.setText(String.valueOf(aux.getDni()));
                 JTFPrecioNuevo.setText(aux.getDomicilio());
                 JTFTelefono.setText(String.valueOf(aux.getTelefono()));
-            } catch (NumberFormatException ex) {
+                 */            } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Error, DNI invalido.");
             }
         }
