@@ -27,6 +27,7 @@ import Vistas.Repuesto.Repuesto_Quitar;
 import Vistas.Servicio.Servicio_Agregar;
 import Vistas.Servicio.Servicio_BuscarPorID;
 import Vistas.Servicio.Servicio_Listar_Todos;
+import Vistas.Servicio.Servicio_Quitar;
 import java.awt.BorderLayout;
 
 public class JFIndex extends javax.swing.JFrame {
