@@ -13,16 +13,17 @@ import Persistencia.ServicioData;
 import Vistas.JFIndex;
 
 public class ProyectoFinalUniversidadG8 {
-
+    
     public static ClienteData cd = new ClienteData();
     public static BicicletaData bd = new BicicletaData();
     public static RepuestoData repud = new RepuestoData();
     public static ServicioData sd = new ServicioData();
     public static ItemRepuestoData irepud = new ItemRepuestoData();
     public static ReparacionData repad = new ReparacionData();
-
+    
     public static void main(String[] args) {
         JFIndex jf = new JFIndex();
+        jf.setResizable(false);
         jf.setVisible(true);
 
         /* for (int i = 0; i < 100; i++) {
@@ -30,7 +31,6 @@ public class ProyectoFinalUniversidadG8 {
             System.out.println(repad.obtenerTodasLasReparaciones());
             System.out.println(c);
         }*/
-
         //NOTA: AGREGAR LA LIBRERIA DE mariadb-java-client.2.3.0.jar
         /*   LocalDate fecha = LocalDate.now();
         System.out.println(repad.obtenerReparacionesPorFecha(fecha.minusDays(5), fecha));
