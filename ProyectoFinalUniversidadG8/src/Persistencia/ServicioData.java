@@ -11,13 +11,15 @@ import javax.swing.JOptionPane;
 
 public class ServicioData {
 
-    private Connection con;
+    Connection con;
 
     public ServicioData() {
-        this.con = Conexion.getConexion();
+
     }
 
     public void guardarServicio(Servicio serv) {
+        con = Conexion.conectar();
+
         String sql = "INSERT INTO servicio (codigo, descripcion, precio, activo) VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, RETURN_GENERATED_KEYS);
@@ -38,12 +40,15 @@ public class ServicioData {
             }
             JOptionPane.showMessageDialog(null, aviso);
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ServicioData Sentencia SQL erronea-guardarServicio");
         }
     }
 
     public ArrayList<Servicio> obtenerServicios() {
+        con = Conexion.conectar();
 
         ArrayList<Servicio> listaTemp = new ArrayList();
 
@@ -67,6 +72,8 @@ public class ServicioData {
             }
 
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ServicioData Sentencia SQL erronea-ObtenerServicios");
@@ -75,6 +82,8 @@ public class ServicioData {
     }
 
     public Servicio obtenerServicioPorId(int codigo) {
+        con = Conexion.conectar();
+
         String sql = "SELECT * FROM servicio WHERE activo = 1 AND codigo = ?";
         Servicio s = new Servicio();
         try {
@@ -91,6 +100,8 @@ public class ServicioData {
             }
 
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ServicioData Sentencia SQL erronea-obtenerServicioPorId");
@@ -99,6 +110,8 @@ public class ServicioData {
     }
 
     public void borrarServicio(int codigo) {
+        con = Conexion.conectar();
+
         String sql = "UPDATE servicio SET activo = 0 WHERE codigo = ?;";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -114,12 +127,16 @@ public class ServicioData {
 
             ps.close();
 
+            Conexion.cerrarConexion(con);
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ServicioData Sentencia SQL erronea-borrarServicio");
         }
     }
 
     public void actualizaServicio(Servicio serv, int codigo) {
+        con = Conexion.conectar();
+
         String sql = "UPDATE servicio SET codigo=?, descripcion=?, precio=?, activo=? WHERE codigo=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -138,6 +155,8 @@ public class ServicioData {
             JOptionPane.showMessageDialog(null, aviso);
 
             ps.close();
+
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ServicioData Sentencia SQL erronea-actualizarServicio");

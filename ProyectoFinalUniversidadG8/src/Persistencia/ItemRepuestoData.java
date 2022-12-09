@@ -11,13 +11,15 @@ import javax.swing.JOptionPane;
 
 public class ItemRepuestoData {
 
-    private Connection con;
+    Connection con;
 
     public ItemRepuestoData() {
-        this.con = Conexion.getConexion();
+
     }
 
     public void guardarItemRepuesto(ItemRepuesto irep) {
+        con = Conexion.conectar();
+
         String sql = "INSERT INTO itemrepuesto (id_itemrepuesto, num_serie, id_reparacion, cantidad, precio_item, activo) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, RETURN_GENERATED_KEYS);
@@ -40,12 +42,16 @@ public class ItemRepuestoData {
             }
             JOptionPane.showMessageDialog(null, aviso);
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ItemRepuestoData Sentencia SQL erronea-guardarItemRepuesto");
         }
     }
 
     public ArrayList<ItemRepuesto> obtenerItemRepuestos() {
+        con = Conexion.conectar();
 
         ArrayList<ItemRepuesto> listaTemp = new ArrayList();
         RepuestoData rsd = new RepuestoData();
@@ -72,6 +78,8 @@ public class ItemRepuestoData {
             }
 
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ItemRepuestoData Sentencia SQL erronea-ObtenerItemRepuestos");
@@ -80,6 +88,8 @@ public class ItemRepuestoData {
     }
 
     public ItemRepuesto obtenerItemRepuestoPorId(int id) {
+        con = Conexion.conectar();
+
         String sql = "SELECT * FROM itemrepuesto WHERE activo = 1 AND id_itemrepuesto = ?";
         ItemRepuesto ir = new ItemRepuesto();
         RepuestoData rsd = new RepuestoData();
@@ -100,6 +110,8 @@ public class ItemRepuestoData {
             }
 
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ItemRepuestoData Sentencia SQL erronea-obtenerItemRepuestoPorId");
@@ -108,6 +120,8 @@ public class ItemRepuestoData {
     }
 
     public void borrarItemRepuesto(int idItemRepuesto) {
+        con = Conexion.conectar();
+
         String sql = "UPDATE itemrepuesto SET activo = 0 WHERE id_itemrepuesto = ?;";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -123,12 +137,16 @@ public class ItemRepuestoData {
 
             ps.close();
 
+            Conexion.cerrarConexion(con);
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ItemRepuestoData Sentencia SQL erronea-borrarItemRepuesto");
         }
     }
 
     public void actualizaItemRepuesto(ItemRepuesto irep, int id) {
+        con = Conexion.conectar();
+
         String sql = "UPDATE itemrepuesto SET id_itemrepuesto=?, num_serie=?, id_reparacion=?, cantidad =?, precio_item = ?, activo = ? WHERE id_itemrepuesto=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -150,6 +168,8 @@ public class ItemRepuestoData {
             JOptionPane.showMessageDialog(null, aviso);
 
             ps.close();
+
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ItemRepuestoData Sentencia SQL erronea-actualizarItemRepuesto");

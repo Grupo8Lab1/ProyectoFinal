@@ -7,6 +7,7 @@ package Vistas.Reparacion;
 import Entidades.Reparacion;
 import static TestUMLs.ProyectoFinalUniversidadG8.repad;
 import Vistas.Cliente.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,8 @@ public class Reparacion_Quitar extends javax.swing.JPanel {
     /**
      * Creates new form Cliente_Quitar
      */
+    int c = 0;
+
     public Reparacion_Quitar() {
         initComponents();
         actualizarLista();
@@ -36,6 +39,7 @@ public class Reparacion_Quitar extends javax.swing.JPanel {
         for (Reparacion lista : repad.obtenerTodasLasReparaciones()) {
             JCBReparacionesBorrarReparacion.addItem(lista.getServicio().getDescripcion() + " a " + lista.getBicicleta().getTipo() + " " + lista.getBicicleta().getColor() + " n°" + lista.getBicicleta().getNumSerie() + " Fecha: " + lista.getFechaEntrada());
         }
+
     }
 
     /**
@@ -307,21 +311,26 @@ public class Reparacion_Quitar extends javax.swing.JPanel {
     private void JCBReparacionesBorrarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBReparacionesBorrarReparacionActionPerformed
 
         if (JCBReparacionesBorrarReparacion.getSelectedIndex() >= 0) {
-            //      JCBReparacionesBorrarReparacion.setSelectedIndex(JCBReparacionesBorrarReparacion.getSelectedIndex());
-            int id = repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getIdReparacion();
-            JTFID.setText(String.valueOf(id));
-            JTFIDBicicleta.setText(String.valueOf(repad.obtenerReparacionPorId(id).getBicicleta().getNumSerie()));
-            JTFServicio.setText(repad.obtenerReparacionPorId(id).getServicio().getDescripcion());
+            c++;
+            System.out.println(c);
+            Reparacion aux = repad.obtenerReparacionPorId(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getIdReparacion());
+            JCBReparacionesBorrarReparacion.setSelectedIndex(JCBReparacionesBorrarReparacion.getSelectedIndex());
+            System.out.println(aux);
+            JTFID.setText(String.valueOf(aux.getIdReparacion()));
+            JTFIDBicicleta.setText(String.valueOf(aux.getBicicleta().getNumSerie()));
+            JTFServicio.setText(aux.getServicio().getDescripcion());
 
-            JTFDueño.setText(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getBicicleta().getDueño().getNombre() + " " + repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getBicicleta().getDueño().getApellido() + " DNI: " + repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getBicicleta().getDueño().getDni());
-            JTFTelefono.setText(String.valueOf(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getBicicleta().getDueño().getTelefono()));
-            JTFFecha.setText(String.valueOf(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getFechaEntrada()));
-            JTFCosto.setText(String.valueOf(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getCostoFinal()));
-            if (repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).isEstado()) {
+            JTFDueño.setText(aux.getBicicleta().getDueño().getNombre() + " " + aux.getBicicleta().getDueño().getApellido() + " DNI: " + aux.getBicicleta().getDueño().getDni());
+            JTFTelefono.setText(String.valueOf(aux.getBicicleta().getDueño().getTelefono()));
+            JTFFecha.setText(String.valueOf(aux.getFechaEntrada()));
+            JTFCosto.setText(String.valueOf(aux.getCostoFinal()));
+
+            if (aux.isEstado()) {
                 JTFEstado.setText("Finalizada");
             } else {
                 JTFEstado.setText("Pendiente");
             }
+
         }
     }//GEN-LAST:event_JCBReparacionesBorrarReparacionActionPerformed
 

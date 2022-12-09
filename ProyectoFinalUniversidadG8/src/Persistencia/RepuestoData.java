@@ -14,10 +14,12 @@ public class RepuestoData {
     private Connection con;
 
     public RepuestoData() {
-        this.con = Conexion.getConexion();
+        this.con = Conexion.conectar();
     }
 
     public void guardarRepuesto(Repuesto rep) {
+        con = Conexion.conectar();
+
         String sql = "INSERT INTO repuesto (num_serie, descripcion, precio, activo) VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, RETURN_GENERATED_KEYS);
@@ -39,12 +41,16 @@ public class RepuestoData {
             }
             JOptionPane.showMessageDialog(null, aviso);
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "RepuestoData Sentencia SQL erronea-guardarRepuesto");
         }
     }
 
     public ArrayList<Repuesto> obtenerRepuestos() {
+        con = Conexion.conectar();
 
         ArrayList<Repuesto> listaTemp = new ArrayList();
 
@@ -68,6 +74,8 @@ public class RepuestoData {
             }
 
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "RepuestoData Sentencia SQL erronea-ObtenerRepuestos");
@@ -76,6 +84,8 @@ public class RepuestoData {
     }
 
     public Repuesto obtenerRepuestoPorId(int numSerie) {
+        con = Conexion.conectar();
+
         String sql = "SELECT * FROM repuesto WHERE activo = 1 AND num_serie = ?";
         Repuesto rep = new Repuesto();
         try {
@@ -92,6 +102,8 @@ public class RepuestoData {
             }
 
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "RepuestoData Sentencia SQL erronea-obtenerRepuestoPorId");
@@ -100,6 +112,8 @@ public class RepuestoData {
     }
 
     public ArrayList<Repuesto> obtenerRepuestoPorDescripcion(String descripcion) {
+        con = Conexion.conectar();
+
         String sql = "SELECT * FROM repuesto WHERE activo = 1 AND descripcion LIKE ?";
         ArrayList<Repuesto> listaTemp = new ArrayList();
         try {
@@ -115,6 +129,9 @@ public class RepuestoData {
                 listaTemp.add(rep);
             }
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "RepuestoData Sentencia SQL erronea-obtenerRepuestoPorDescripcion");
         }
@@ -122,6 +139,8 @@ public class RepuestoData {
     }
 
     public void borrarRepuesto(int numSerie) {
+        con = Conexion.conectar();
+
         String sql = "UPDATE repuesto SET activo = 0 WHERE num_serie = ?;";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -137,12 +156,16 @@ public class RepuestoData {
 
             ps.close();
 
+            Conexion.cerrarConexion(con);
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "RepuestoData Sentencia SQL erronea-borrarRepuesto");
         }
     }
 
     public void actualizaRepuesto(Repuesto rep, int numSerie) {
+        con = Conexion.conectar();
+
         String sql = "UPDATE repuesto SET num_serie=?, descripcion=?, precio=?, activo=? WHERE num_serie=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -161,6 +184,8 @@ public class RepuestoData {
             JOptionPane.showMessageDialog(null, aviso);
 
             ps.close();
+
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "RepuestoData Sentencia SQL erronea-actualizarRepuesto");

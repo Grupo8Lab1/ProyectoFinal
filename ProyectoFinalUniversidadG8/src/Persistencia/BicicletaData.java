@@ -12,13 +12,15 @@ import javax.swing.JOptionPane;
 
 public class BicicletaData {
 
-    private Connection con;
+    Connection con;
 
     public BicicletaData() {
-        this.con = Conexion.getConexion();
+
     }
 
     public void guardarBicicleta(Bicicleta bici) {
+        con = Conexion.conectar();
+
         String sql = "INSERT INTO bicicleta (num_serie, tipo, color, dni_dueño, activo) VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, RETURN_GENERATED_KEYS);
@@ -43,6 +45,8 @@ public class BicicletaData {
             }
             JOptionPane.showMessageDialog(null, aviso);
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
         } catch (SQLException ex) {
             if (ex.getLocalizedMessage().contains("Duplicate entry") && ex.getLocalizedMessage().contains("for key 'PRIMARY'")) {
                 JOptionPane.showMessageDialog(null, "Error: Ya hay otra bicicleta registrada bajo este n° de serie.");
@@ -54,6 +58,7 @@ public class BicicletaData {
     }
 
     public ArrayList<Bicicleta> obtenerBicicletas() {
+        con = Conexion.conectar();
 
         ArrayList<Bicicleta> listaTemp = new ArrayList();
 
@@ -78,14 +83,18 @@ public class BicicletaData {
             }
 
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-ObtenerBicicletas");
         }
         return listaTemp;
     }
-    
+
     public Bicicleta obtenerBicicletaPorDueño(int dni_dueño) {
+        con = Conexion.conectar();
+
         String sql = "SELECT * FROM bicicleta WHERE activo = 1 AND dni_dueño = ?";
         Bicicleta b = new Bicicleta();
         ClienteData c = new ClienteData();
@@ -112,15 +121,18 @@ public class BicicletaData {
             }
 
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-obtenerBicicletaPorDueño");
         }
         return b;
     }
-    
-    
+
     public Bicicleta obtenerBicicletaPorId(int numSerie) {
+        con = Conexion.conectar();
+
         String sql = "SELECT * FROM bicicleta WHERE activo = 1 AND num_serie = ?";
         Bicicleta b = new Bicicleta();
         ClienteData c = new ClienteData();
@@ -147,6 +159,8 @@ public class BicicletaData {
             }
 
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-obtenerBicicletaPorId");
@@ -155,6 +169,8 @@ public class BicicletaData {
     }
 
     public Bicicleta obtenerBicicletaConEstado0(int numSerie) {
+        con = Conexion.conectar();
+
         String sql = "SELECT * FROM bicicleta WHERE activo = 0 AND num_serie = ?";
         Bicicleta b = new Bicicleta();
         ClienteData c = new ClienteData();
@@ -171,9 +187,9 @@ public class BicicletaData {
                 b.setDueño(c.obtenerClientePorDni(rs.getInt("dni_dueño")));
                 b.setActivo(rs.getBoolean("activo"));
             }
-
             ps.close();
-
+            rs.close();
+            Conexion.cerrarConexion(con);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-obtenerBicicletaEstado0");
         }
@@ -181,6 +197,8 @@ public class BicicletaData {
     }
 
     public ArrayList<Bicicleta> obtenerBicicletasPorCliente(Cliente dueño) {
+        con = Conexion.conectar();
+
         String sql = "SELECT * FROM bicicleta WHERE activo = 1 AND dni_dueño = ?";
 
         ArrayList<Bicicleta> listaTemp = new ArrayList();
@@ -199,6 +217,8 @@ public class BicicletaData {
             }
 
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-obtenerBicicletaPorId");
@@ -207,6 +227,8 @@ public class BicicletaData {
     }
 
     public void borrarBicicleta(int numSerie) {
+        con = Conexion.conectar();
+
         String sql = "UPDATE bicicleta SET activo = 0 WHERE num_serie = ?;";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -219,15 +241,17 @@ public class BicicletaData {
                 aviso = "No se pudo eliminar la bicicleta";
             }
             JOptionPane.showMessageDialog(null, aviso);
-
             ps.close();
 
+            Conexion.cerrarConexion(con);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-borrarBicicleta");
         }
     }
 
     public void actualizarBicicleta(Bicicleta b, int numSerie) {
+        con = Conexion.conectar();
+
         String sql = "UPDATE bicicleta SET num_serie=?, tipo=?, color=?, dni_dueño=?, activo=? WHERE num_serie=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -250,6 +274,7 @@ public class BicicletaData {
 
             ps.close();
 
+            Conexion.cerrarConexion(con);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-actualizarBicicleta");
         }

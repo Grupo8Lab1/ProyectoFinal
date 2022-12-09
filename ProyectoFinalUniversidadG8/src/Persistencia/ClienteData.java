@@ -11,15 +11,14 @@ import javax.swing.JOptionPane;
 
 public class ClienteData {
 
-    private Connection con;
+    Connection con;
 
     public ClienteData() {
-        this.con = Conexion.getConexion();
     }
 
     public void guardarCliente(Cliente cliente) {
         String sql = "INSERT INTO cliente (dni, nombre, apellido, domicilio, telefono, activo) VALUES (?, ?, ?, ?, ?, ?)";
-
+        con = Conexion.conectar();
         try {
             PreparedStatement ps = con.prepareStatement(sql, RETURN_GENERATED_KEYS);
             ps.setInt(1, cliente.getDni());
@@ -42,6 +41,8 @@ public class ClienteData {
             }
             JOptionPane.showMessageDialog(null, aviso);
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
         } catch (SQLException ex) {
             if (ex.getLocalizedMessage().contains("Duplicate entry") && ex.getLocalizedMessage().contains("for key 'PRIMARY'")) {
                 JOptionPane.showMessageDialog(null, "Error: Ya hay otro cliente registrado con este DNI.");
@@ -49,14 +50,13 @@ public class ClienteData {
             } else {
                 JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-guardarCliente");
             }
-
         }
     }
 
     public ArrayList<Cliente> obtenerClientes() {
 
         ArrayList<Cliente> listaTemp = new ArrayList();
-
+        con = Conexion.conectar();
         String sql = "SELECT * FROM cliente WHERE activo= 1";
 
         try {
@@ -77,9 +77,9 @@ public class ClienteData {
 
                 listaTemp.add(c);
             }
-
             ps.close();
-
+            rs.close();
+            Conexion.cerrarConexion(con);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-ObtenerClientes");
         }
@@ -89,6 +89,7 @@ public class ClienteData {
     public Cliente obtenerClientePorDni(int dni) {
         String sql = "SELECT * FROM cliente WHERE activo= 1 AND dni = ?";
         Cliente c = new Cliente();
+        con = Conexion.conectar();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             if (obtenerClienteConEstado0(dni).getNombre() != null) {
@@ -112,6 +113,8 @@ public class ClienteData {
             }
 
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-obtenerClientePorDni");
@@ -122,6 +125,7 @@ public class ClienteData {
     public Cliente obtenerClienteConEstado0(int dni) {
         String sql = "SELECT * FROM cliente WHERE activo= 0 AND dni = ?";
         Cliente c = new Cliente();
+        con = Conexion.conectar();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, dni);
@@ -135,8 +139,9 @@ public class ClienteData {
                 c.setTelefono(rs.getInt("telefono"));
                 c.setActivo(rs.getBoolean("activo"));
             }
-
             ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-obtenerClienteBorrado");
@@ -146,6 +151,7 @@ public class ClienteData {
 
     public void borrarCliente(int dni) {
         String sql = "UPDATE cliente SET activo = 0 WHERE dni = ?;";
+        con = Conexion.conectar();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, dni);
@@ -157,8 +163,9 @@ public class ClienteData {
                 aviso = "No se pudo eliminar el cliente";
             }
             JOptionPane.showMessageDialog(null, aviso);
-
             ps.close();
+
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-borrarCliente");
@@ -167,6 +174,7 @@ public class ClienteData {
 
     public void actualizarCliente(Cliente cliente, int dni) {
         String sql = "UPDATE cliente SET dni=?, nombre=?, apellido=?, domicilio=?, telefono=?, activo=? WHERE dni=?";
+        con = Conexion.conectar();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, cliente.getDni());
@@ -184,8 +192,8 @@ public class ClienteData {
                 aviso = "No se pudo actualizar el cliente";
             }
             JOptionPane.showMessageDialog(null, aviso);
-
             ps.close();
+            Conexion.cerrarConexion(con);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-actualizarCliente");

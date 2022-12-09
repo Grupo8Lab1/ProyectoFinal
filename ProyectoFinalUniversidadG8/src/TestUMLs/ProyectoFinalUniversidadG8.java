@@ -4,6 +4,7 @@
  */
 package TestUMLs;
 
+import Entidades.Reparacion;
 import Persistencia.BicicletaData;
 import Persistencia.ClienteData;
 import Persistencia.ItemRepuestoData;
@@ -11,6 +12,7 @@ import Persistencia.ReparacionData;
 import Persistencia.RepuestoData;
 import Persistencia.ServicioData;
 import Vistas.JFIndex;
+import java.util.ArrayList;
 
 public class ProyectoFinalUniversidadG8 {
 
@@ -24,6 +26,12 @@ public class ProyectoFinalUniversidadG8 {
     public static void main(String[] args) {
         JFIndex jf = new JFIndex();
         jf.setVisible(true);
+        int c = 0;
+        /* for (int i = 0; i < 100; i++) {
+            c++;
+            System.out.println(repad.obtenerTodasLasReparaciones());
+            System.out.println(c);
+        }*/
 
         //NOTA: AGREGAR LA LIBRERIA DE mariadb-java-client.2.3.0.jar
         /*   LocalDate fecha = LocalDate.now();
