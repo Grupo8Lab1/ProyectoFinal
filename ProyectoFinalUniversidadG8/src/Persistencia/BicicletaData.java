@@ -92,11 +92,11 @@ public class BicicletaData {
         return listaTemp;
     }
 
-    public Bicicleta obtenerBicicletaPorDueño(int dni_dueño) {
+    public ArrayList<Bicicleta> obtenerBicicletaPorDueño(int dni_dueño) {
         con = Conexion.conectar();
-
+        ArrayList<Bicicleta> listaTemp = new ArrayList();
         String sql = "SELECT * FROM bicicleta WHERE activo = 1 AND dni_dueño = ?";
-        Bicicleta b = new Bicicleta();
+
         ClienteData c = new ClienteData();
         try {
 
@@ -112,12 +112,14 @@ public class BicicletaData {
             ps.setInt(1, dni_dueño);
             ResultSet rs = ps.executeQuery(); //Select
 
-            if (rs.next()) {
+            while (rs.next()) {
+                Bicicleta b = new Bicicleta();
                 b.setNumSerie(rs.getInt("num_serie"));
                 b.setTipo(rs.getString("tipo"));
                 b.setColor(rs.getString("color"));
                 b.setDueño(c.obtenerClientePorDni(rs.getInt("dni_dueño")));
                 b.setActivo(rs.getBoolean("activo"));
+                listaTemp.add(b);
             }
 
             ps.close();
@@ -127,7 +129,7 @@ public class BicicletaData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "BicicletaData Sentencia SQL erronea-obtenerBicicletaPorDueño");
         }
-        return b;
+        return listaTemp;
     }
 
     public Bicicleta obtenerBicicletaPorId(int numSerie) {
