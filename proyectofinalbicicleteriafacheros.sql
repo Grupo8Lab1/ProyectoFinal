@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-12-2022 a las 01:23:26
+-- Tiempo de generación: 09-12-2022 a las 22:11:38
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -41,7 +41,8 @@ CREATE TABLE `bicicleta` (
 
 INSERT INTO `bicicleta` (`num_serie`, `tipo`, `color`, `dni_dueño`, `activo`) VALUES
 (2, 'MTB', 'Rojo', 40000, 1),
-(3, 'Playera', 'Negro', 40000, 1);
+(3, 'Playera', 'Negro', 40000, 1),
+(131325, 'BMX', 'Azul', 11223355, 1);
 
 -- --------------------------------------------------------
 
@@ -63,7 +64,8 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`dni`, `nombre`, `apellido`, `domicilio`, `telefono`, `activo`) VALUES
-(40000, 'Satiago', 'Lucero', 'B Cerro de la Cruz', 41111, 1);
+(40000, 'Santiago', 'Lucero', 'B Cerro de la Cruz', 41111, 1),
+(11223355, 'Cosme', 'Fulano', 'Av. Siempreviva 777', 266499999, 1);
 
 -- --------------------------------------------------------
 
@@ -111,7 +113,9 @@ CREATE TABLE `reparación` (
 INSERT INTO `reparación` (`id_reparacion`, `id_servicio`, `id_bicicleta`, `fecha_entrada`, `costo_final`, `estado`, `activo`) VALUES
 (1, 4, 2, '2022-12-01', 3000, 1, 1),
 (6, 4, 2, '2022-12-01', 450, 1, 1),
-(7, 4, 2, '2022-12-01', 800, 1, 1);
+(7, 4, 2, '2022-12-01', 800, 1, 1),
+(8, 5, 131325, '2022-11-25', 5000, 0, 1),
+(9, 0, 2, '2022-12-08', 330, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -132,6 +136,9 @@ CREATE TABLE `repuesto` (
 
 INSERT INTO `repuesto` (`num_serie`, `descripcion`, `precio`, `activo`) VALUES
 (3, 'Tornillo 10', 30, 1),
+(94, 'Tornillo philips 10', 15, 1),
+(95, 'Tornillo plano 10', 14, 1),
+(96, 'Tornillo philips 15', 20, 1),
 (364, 'Aceite de maquina', 200, 1),
 (457, 'Clavito', 10, 0);
 
@@ -217,7 +224,7 @@ ALTER TABLE `itemrepuesto`
 -- AUTO_INCREMENT de la tabla `reparación`
 --
 ALTER TABLE `reparación`
-  MODIFY `id_reparacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_reparacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `servicio`
