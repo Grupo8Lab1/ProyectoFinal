@@ -4,7 +4,12 @@
  */
 package Vistas.Repuesto;
 
+import Entidades.Repuesto;
+import Entidades.Servicio;
+import static TestUMLs.ProyectoFinalUniversidadG8.repud;
+import static TestUMLs.ProyectoFinalUniversidadG8.sd;
 import Vistas.Cliente.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,6 +22,14 @@ public class Repuesto_Actualizar_Precio extends javax.swing.JPanel {
      */
     public Repuesto_Actualizar_Precio() {
         initComponents();
+        actualizarLista();
+        JTFPrecioActual.setEnabled(false);
+    }
+    private void actualizarLista() {
+        JCBRepuestosActualizarPrecio.removeAllItems();
+        for (Servicio lista : sd.obtenerServicios()) {
+            JCBRepuestosActualizarPrecio.addItem(lista.getDescripcion());
+        }
     }
 
     /**
@@ -28,23 +41,148 @@ public class Repuesto_Actualizar_Precio extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JBActualizarActualizarCliente = new java.awt.Button();
+        JBLimpiarActualizarCliente = new java.awt.Button();
+        JTFPrecioNuevo = new javax.swing.JTextField();
+        JTFPrecioActual = new javax.swing.JTextField();
+        JBBuscarActualizarCliente = new java.awt.Button();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        JCBRepuestosActualizarPrecio = new javax.swing.JComboBox<>();
+
         setMaximumSize(new java.awt.Dimension(398, 600));
         setMinimumSize(new java.awt.Dimension(398, 600));
         setPreferredSize(new java.awt.Dimension(398, 600));
+
+        JBActualizarActualizarCliente.setActionCommand("Actualizar");
+        JBActualizarActualizarCliente.setLabel("Actualizar");
+        JBActualizarActualizarCliente.setName(""); // NOI18N
+        JBActualizarActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBActualizarActualizarClienteActionPerformed(evt);
+            }
+        });
+
+        JBLimpiarActualizarCliente.setLabel("Limpiar");
+        JBLimpiarActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBLimpiarActualizarClienteActionPerformed(evt);
+            }
+        });
+
+        JBBuscarActualizarCliente.setActionCommand("Buscar");
+        JBBuscarActualizarCliente.setLabel("Buscar");
+        JBBuscarActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBBuscarActualizarClienteActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Precio actual :");
+
+        jLabel6.setText("Precio Nuevo :");
+
+        jLabel3.setText("Repuesto:");
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
+        jLabel1.setText("Actualizar Precio Repuesto");
+
+        JCBRepuestosActualizarPrecio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JCBRepuestosActualizarPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBRepuestosActualizarPrecioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(JBLimpiarActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(19, 19, 19)
+                            .addComponent(JBActualizarActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel6)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                            .addComponent(JTFPrecioNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(JBBuscarActualizarCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JCBRepuestosActualizarPrecio, 0, 292, Short.MAX_VALUE)
+                                .addComponent(JTFPrecioActual, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(JCBRepuestosActualizarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBBuscarActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(JTFPrecioActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(JTFPrecioNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(JBActualizarActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBLimpiarActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JBActualizarActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBActualizarActualizarClienteActionPerformed
+         if (JCBRepuestosActualizarPrecio.getSelectedIndex() >= 0) {
+            Servicio aux = sd.obtenerServicios().get(JCBRepuestosActualizarPrecio.getSelectedIndex());
+            JCBRepuestosActualizarPrecio.setSelectedIndex(JCBRepuestosActualizarPrecio.getSelectedIndex());
+            JTFPrecioActual.setText(String.valueOf(aux.getPrecio()));
+        }
+    }//GEN-LAST:event_JBActualizarActualizarClienteActionPerformed
+
+    private void JBLimpiarActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarActualizarClienteActionPerformed
+        JTFPrecioActual.setText("");
+        JTFPrecioNuevo.setText("");
+    }//GEN-LAST:event_JBLimpiarActualizarClienteActionPerformed
+
+    private void JBBuscarActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscarActualizarClienteActionPerformed
+
+    }//GEN-LAST:event_JBBuscarActualizarClienteActionPerformed
+
+    private void JCBRepuestosActualizarPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBRepuestosActualizarPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCBRepuestosActualizarPrecioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button JBActualizarActualizarCliente;
+    private java.awt.Button JBBuscarActualizarCliente;
+    private java.awt.Button JBLimpiarActualizarCliente;
+    private javax.swing.JComboBox<String> JCBRepuestosActualizarPrecio;
+    private javax.swing.JTextField JTFPrecioActual;
+    private javax.swing.JTextField JTFPrecioNuevo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }
