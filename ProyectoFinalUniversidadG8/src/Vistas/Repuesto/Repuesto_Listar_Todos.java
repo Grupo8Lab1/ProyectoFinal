@@ -29,7 +29,7 @@ public class Repuesto_Listar_Todos extends javax.swing.JPanel {
             }
         };
         armarCabeceraTabla();
-        cargarBicicletas();
+        cargarRepuestos();
     }
 
     private void armarCabeceraTabla() {
@@ -52,12 +52,13 @@ public class Repuesto_Listar_Todos extends javax.swing.JPanel {
         }
     }
 
-    private void cargarBicicletas() {
+    private void cargarRepuestos() {
         borrarFilasTabla();
         for (Repuesto aux : repud.obtenerRepuestos()) {
             modelo.addRow(new Object[]{aux.getNumSerie(), aux.getDescripcion(), aux.getPrecio()});
         }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

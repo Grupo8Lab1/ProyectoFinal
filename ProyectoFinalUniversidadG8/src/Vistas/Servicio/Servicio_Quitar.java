@@ -188,16 +188,17 @@ public class Servicio_Quitar extends javax.swing.JPanel {
             JTFPrecio.setText("");
             actualizarLista();
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null, "Error eliminando el cliente.");
+            JOptionPane.showMessageDialog(null, "Error eliminando el servicio.");
         }
     }//GEN-LAST:event_JBBorrarBorrarServicioActionPerformed
 
     private void JCBServiciosBorrarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBServiciosBorrarServicioActionPerformed
         if (JCBServiciosBorrarServicio.getSelectedIndex() >= 0) {
+            Servicio aux = sd.obtenerServicios().get(JCBServiciosBorrarServicio.getSelectedIndex());
             JCBServiciosBorrarServicio.setSelectedIndex(JCBServiciosBorrarServicio.getSelectedIndex());
-            JTFDescripcion.setText(sd.obtenerServicios().get(JCBServiciosBorrarServicio.getSelectedIndex()).getDescripcion());
-            JTFPrecio.setText(String.valueOf(sd.obtenerServicios().get(JCBServiciosBorrarServicio.getSelectedIndex()).getPrecio()));
-            JTFCodigo.setText(String.valueOf(sd.obtenerServicios().get(JCBServiciosBorrarServicio.getSelectedIndex()).getCodigo()));
+            JTFDescripcion.setText(aux.getDescripcion());
+            JTFPrecio.setText(String.valueOf(aux.getPrecio()));
+            JTFCodigo.setText(String.valueOf(aux.getCodigo()));
         }
     }//GEN-LAST:event_JCBServiciosBorrarServicioActionPerformed
 

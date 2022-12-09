@@ -140,14 +140,14 @@ public class Servicio_BuscarPorID extends javax.swing.JPanel {
 
     private void JBBuscarBuscarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscarBuscarServicioActionPerformed
         if (JTFCodigo.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese un N° DNI por favor");
+            JOptionPane.showMessageDialog(null, "Ingrese un N° Codigo por favor");
         } else {
             try {
                 Servicio aux = sd.obtenerServicioPorId(Integer.parseInt(JTFCodigo.getText()));
                 JTFDescripcion.setText(aux.getDescripcion());
                 JTFPrecio.setText(String.valueOf(aux.getPrecio()));
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Error, DNI invalido.");
+                JOptionPane.showMessageDialog(null, "Error, Codigo invalido.");
             }
         }
     }//GEN-LAST:event_JBBuscarBuscarServicioActionPerformed

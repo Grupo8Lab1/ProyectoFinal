@@ -149,11 +149,11 @@ public class Servicio_Agregar extends javax.swing.JPanel {
     }//GEN-LAST:event_JTFPrecioActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
-        if (JTFDescripcion.getText().isEmpty() || JTFCodigo.getText().isEmpty()|| JTFPrecio.getText().isEmpty()) {
+        if (JTFDescripcion.getText().isEmpty() || JTFCodigo.getText().isEmpty() || JTFPrecio.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Llene todos los campos por favor");
         } else {
             try {
-                sd.guardarServicio(new Servicio(Integer.parseInt(JTFCodigo.getText()), JTFDescripcion.getText(),Integer.parseInt(JTFPrecio.getText()), true));
+                sd.guardarServicio(new Servicio(Integer.parseInt(JTFCodigo.getText()), JTFDescripcion.getText(), Integer.parseInt(JTFPrecio.getText()), true));
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Error, verifique haber ingresado todos los datos correctamente.");
             }
@@ -161,7 +161,9 @@ public class Servicio_Agregar extends javax.swing.JPanel {
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
-        // TODO add your handling code here:
+        JTFCodigo.setText("");
+        JTFDescripcion.setText("");
+        JTFPrecio.setText("");
     }//GEN-LAST:event_LimpiarActionPerformed
 
 

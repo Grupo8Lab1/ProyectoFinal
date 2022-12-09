@@ -16,7 +16,6 @@ public class Repuesto_Quitar extends javax.swing.JPanel {
         JTFNumeroDeSerie.setEnabled(false);
         JTFDescripcion.setEnabled(false);
         JTFPrecio.setEnabled(false);
-
     }
 
     private void actualizarLista() {
@@ -151,10 +150,11 @@ public class Repuesto_Quitar extends javax.swing.JPanel {
 
     private void JCBRepuestosBorrarRepuestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBRepuestosBorrarRepuestosActionPerformed
         if (JCBRepuestosBorrarRepuestos.getSelectedIndex() >= 0) {
+            Repuesto aux = repud.obtenerRepuestos().get(JCBRepuestosBorrarRepuestos.getSelectedIndex());
             JCBRepuestosBorrarRepuestos.setSelectedIndex(JCBRepuestosBorrarRepuestos.getSelectedIndex());
-            JTFDescripcion.setText(repud.obtenerRepuestos().get(JCBRepuestosBorrarRepuestos.getSelectedIndex()).getDescripcion());
-            JTFPrecio.setText(String.valueOf(repud.obtenerRepuestos().get(JCBRepuestosBorrarRepuestos.getSelectedIndex()).getPrecio()));
-            JTFNumeroDeSerie.setText(String.valueOf(repud.obtenerRepuestos().get(JCBRepuestosBorrarRepuestos.getSelectedIndex()).getNumSerie()));
+            JTFDescripcion.setText(aux.getDescripcion());
+            JTFPrecio.setText(String.valueOf(aux.getPrecio()));
+            JTFNumeroDeSerie.setText(String.valueOf(aux.getNumSerie()));
         }
     }//GEN-LAST:event_JCBRepuestosBorrarRepuestosActionPerformed
 
@@ -166,7 +166,7 @@ public class Repuesto_Quitar extends javax.swing.JPanel {
             JTFPrecio.setText("");
             actualizarLista();
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null, "Error eliminando el cliente.");
+            JOptionPane.showMessageDialog(null, "Error eliminando el repuesto.");
         }
     }//GEN-LAST:event_JBBorrarBorrarRepuestoActionPerformed
 

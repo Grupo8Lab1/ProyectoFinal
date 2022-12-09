@@ -26,7 +26,7 @@ public class Servicio_Listar_Todos extends javax.swing.JPanel {
             }
         };
         armarCabeceraTabla();
-        cargarBicicletas();
+        cargarServicios();
     }
 
     private void armarCabeceraTabla() {
@@ -49,12 +49,13 @@ public class Servicio_Listar_Todos extends javax.swing.JPanel {
         }
     }
 
-    private void cargarBicicletas() {
+    private void cargarServicios() {
         borrarFilasTabla();
         for (Servicio aux : sd.obtenerServicios()) {
             modelo.addRow(new Object[]{aux.getCodigo(), aux.getDescripcion(), aux.getPrecio()});
         }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

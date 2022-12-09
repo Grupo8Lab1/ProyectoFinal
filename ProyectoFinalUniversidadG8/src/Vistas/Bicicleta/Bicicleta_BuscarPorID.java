@@ -151,15 +151,15 @@ public class Bicicleta_BuscarPorID extends javax.swing.JPanel {
 
     private void JBBuscarBuscarBicicletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscarBuscarBicicletaActionPerformed
         if (JTFNumSerie.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese un N° DNI por favor");
+            JOptionPane.showMessageDialog(null, "Ingrese un N° Serie por favor");
         } else {
             try {
                 Bicicleta aux = bd.obtenerBicicletaPorId(Integer.parseInt(JTFNumSerie.getText()));
                 JTFTipo.setText(aux.getTipo());
                 JTFColor.setText(aux.getColor());
-                JTFDNIDueño.setText(String.valueOf(aux.getDueño()));
+                JTFDNIDueño.setText(String.valueOf(aux.getDueño().getDni()));
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Error, DNI invalido.");
+                JOptionPane.showMessageDialog(null, "Error, N° Serie invalido.");
             }
         }
     }//GEN-LAST:event_JBBuscarBuscarBicicletaActionPerformed
@@ -172,6 +172,7 @@ public class Bicicleta_BuscarPorID extends javax.swing.JPanel {
         JTFTipo.setText("");
         JTFColor.setText("");
         JTFNumSerie.setText("");
+        JTFDNIDueño.setText("");
     }//GEN-LAST:event_JBLimpiarBuscarRepuestoActionPerformed
 
 

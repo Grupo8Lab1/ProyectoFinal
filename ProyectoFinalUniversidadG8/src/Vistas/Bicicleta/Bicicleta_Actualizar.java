@@ -10,11 +10,11 @@ import static TestUMLs.ProyectoFinalUniversidadG8.cd;
 import javax.swing.JOptionPane;
 
 public class Bicicleta_Actualizar extends javax.swing.JPanel {
-
+    
     public Bicicleta_Actualizar() {
         initComponents();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -183,7 +183,7 @@ public class Bicicleta_Actualizar extends javax.swing.JPanel {
 
     private void JBBuscarActualizarBicicletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscarActualizarBicicletaActionPerformed
         if (JTFNumSerie.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese un N° DNI por favor");
+            JOptionPane.showMessageDialog(null, "Ingrese un N° Serie por favor");
         } else {
             try {
                 Bicicleta aux = bd.obtenerBicicletaPorId(Integer.parseInt(JTFNumSerie.getText()));
@@ -191,7 +191,7 @@ public class Bicicleta_Actualizar extends javax.swing.JPanel {
                 JTFColor.setText(aux.getColor());
                 JTFDNIDueño.setText(String.valueOf(aux.getDueño()));
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Error, DNI invalido.");
+                JOptionPane.showMessageDialog(null, "Error, Nº Serie invalido.");
             }
         }
     }//GEN-LAST:event_JBBuscarActualizarBicicletaActionPerformed
@@ -208,10 +208,11 @@ public class Bicicleta_Actualizar extends javax.swing.JPanel {
         JTFTipo.setText("");
         JTFColor.setText("");
         JTFDNIDueño.setText("");
+        JTFNumSerie.setText("");
     }//GEN-LAST:event_JBLimpiarActualizarBicicletaActionPerformed
 
     private void JBActualizarActualizarBicicletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBActualizarActualizarBicicletaActionPerformed
-        if (JTFTipo.getText().isEmpty() || JTFColor.getText().isEmpty() || JTFDNIDueño.getText().isEmpty()) {
+        if (JTFTipo.getText().isEmpty() || JTFColor.getText().isEmpty() || JTFDNIDueño.getText().isEmpty() || JTFNumSerie.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Llene todos los campos por favor");
         } else {
             try {
@@ -219,6 +220,7 @@ public class Bicicleta_Actualizar extends javax.swing.JPanel {
                 aux.setTipo(JTFTipo.getText());
                 aux.setColor(JTFColor.getText());
                 aux.setDueño(cd.obtenerClientePorDni(Integer.getInteger(JTFDNIDueño.getText())));
+                aux.setNumSerie(Integer.parseInt(JTFNumSerie.getText()));
                 bd.actualizarBicicleta(aux, Integer.parseInt(JTFNumSerie.getText()));
                 JBLimpiarActualizarBicicletaActionPerformed(evt);
             } catch (NumberFormatException ex) {

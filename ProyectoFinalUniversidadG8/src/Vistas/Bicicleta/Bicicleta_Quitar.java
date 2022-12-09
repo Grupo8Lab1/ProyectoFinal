@@ -17,6 +17,7 @@ public class Bicicleta_Quitar extends javax.swing.JPanel {
         JTFColor.setEnabled(false);
         JTFNumSerie.setEnabled(false);
         JTFTipo.setEnabled(false);
+        JTFDueño.setEnabled(false);
     }
 
     private void actualizarLista() {
@@ -172,16 +173,18 @@ public class Bicicleta_Quitar extends javax.swing.JPanel {
             JTFNumSerie.setText("");
             JTFTipo.setText("");
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null, "Error eliminando el cliente.");
+            JOptionPane.showMessageDialog(null, "Error eliminando bicicleta.");
         }
     }//GEN-LAST:event_JBBorrarBorrarBicicletaActionPerformed
 
     private void JCBBicicleasBorrarBicicletasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBBicicleasBorrarBicicletasActionPerformed
         if (JCBBicicleasBorrarBicicletas.getSelectedIndex() >= 0) {
+            Bicicleta aux = bd.obtenerBicicletas().get(JCBBicicleasBorrarBicicletas.getSelectedIndex());
             JCBBicicleasBorrarBicicletas.setSelectedIndex(JCBBicicleasBorrarBicicletas.getSelectedIndex());
-            JTFTipo.setText(bd.obtenerBicicletas().get(JCBBicicleasBorrarBicicletas.getSelectedIndex()).getTipo());
-            JTFColor.setText(bd.obtenerBicicletas().get(JCBBicicleasBorrarBicicletas.getSelectedIndex()).getColor());
-            JTFTipo.setText(String.valueOf(bd.obtenerBicicletas().get(JCBBicicleasBorrarBicicletas.getSelectedIndex()).getDueño()));
+            JTFTipo.setText(aux.getTipo());
+            JTFColor.setText(aux.getColor());
+            JTFNumSerie.setText(String.valueOf(aux.getNumSerie()));
+            JTFDueño.setText(aux.getDueño().getNombre() + " " + aux.getDueño().getApellido());
         }
     }//GEN-LAST:event_JCBBicicleasBorrarBicicletasActionPerformed
 

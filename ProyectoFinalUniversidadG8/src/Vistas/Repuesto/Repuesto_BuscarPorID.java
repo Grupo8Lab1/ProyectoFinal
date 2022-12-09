@@ -131,14 +131,14 @@ public class Repuesto_BuscarPorID extends javax.swing.JPanel {
 
     private void JBBuscarBuscarRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscarBuscarRepuestoActionPerformed
         if (JTFNumSerie.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese un N° DNI por favor");
+            JOptionPane.showMessageDialog(null, "Ingrese un N° Serie por favor");
         } else {
             try {
                 Repuesto aux = repud.obtenerRepuestoPorId(Integer.parseInt(JTFNumSerie.getText()));
                 JTFDescripcion.setText(aux.getDescripcion());
                 JTFPrecio.setText(String.valueOf(aux.getPrecio()));
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Error, DNI invalido.");
+                JOptionPane.showMessageDialog(null, "Error, N° Serie invalido.");
             }
         }
     }//GEN-LAST:event_JBBuscarBuscarRepuestoActionPerformed
@@ -150,6 +150,7 @@ public class Repuesto_BuscarPorID extends javax.swing.JPanel {
     private void JBLimpiarBuscarRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarBuscarRepuestoActionPerformed
         JTFDescripcion.setText("");
         JTFPrecio.setText("");
+        JTFNumSerie.setText("");
     }//GEN-LAST:event_JBLimpiarBuscarRepuestoActionPerformed
 
 
