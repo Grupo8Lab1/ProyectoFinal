@@ -86,8 +86,6 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="JBLimpiarBorrarReparacion" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="JBBorrarBorrarReparacion" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -150,12 +148,9 @@
                   <Component id="JTFEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="JBBorrarBorrarReparacion" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBLimpiarBorrarReparacion" alignment="1" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="97" max="32767" attributes="0"/>
+              <EmptySpace pref="134" max="32767" attributes="0"/>
+              <Component id="JBBorrarBorrarReparacion" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -206,14 +201,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="ID:"/>
       </Properties>
-    </Component>
-    <Component class="java.awt.Button" name="JBLimpiarBorrarReparacion">
-      <Properties>
-        <Property name="label" type="java.lang.String" value="Limpiar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBLimpiarBorrarReparacionActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>

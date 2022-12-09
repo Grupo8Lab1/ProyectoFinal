@@ -52,7 +52,6 @@ public class Cliente_Quitar extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         JBBorrarBorrarCliente = new java.awt.Button();
         jLabel3 = new javax.swing.JLabel();
-        JBLimpiarBorrarCliente = new java.awt.Button();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -105,13 +104,6 @@ public class Cliente_Quitar extends javax.swing.JPanel {
 
         jLabel3.setText("DNI :");
 
-        JBLimpiarBorrarCliente.setLabel("Limpiar");
-        JBLimpiarBorrarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBLimpiarBorrarClienteActionPerformed(evt);
-            }
-        });
-
         jLabel4.setText("Nombre :");
 
         jLabel5.setText("Apellido :");
@@ -138,11 +130,6 @@ public class Cliente_Quitar extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(JBLimpiarBorrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JBBorrarBorrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(14, 14, 14)
@@ -167,7 +154,10 @@ public class Cliente_Quitar extends javax.swing.JPanel {
                                     .addComponent(JTFApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
                                     .addComponent(JTFNombre)
                                     .addComponent(JTFDNI))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(JBBorrarBorrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -201,11 +191,9 @@ public class Cliente_Quitar extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(JTFTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(JBBorrarBorrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBLimpiarBorrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
+                .addComponent(JBBorrarBorrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -224,22 +212,17 @@ public class Cliente_Quitar extends javax.swing.JPanel {
     private void JBBorrarBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBorrarBorrarClienteActionPerformed
         try {
             cd.borrarCliente(Integer.parseInt(JTFDNI.getText()));
-            JBLimpiarBorrarClienteActionPerformed(evt);
+            JTFNombre.setText("");
+            JTFDomicilio.setText("");
+            JTFDNI.setText("");
+            JTFApellido.setText("");
+            JTFTelefono.setText("");
             actualizarLista();
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Error eliminando el cliente.");
         }
 
     }//GEN-LAST:event_JBBorrarBorrarClienteActionPerformed
-
-    private void JBLimpiarBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarBorrarClienteActionPerformed
-        JTFNombre.setText("");
-        JTFApellido.setText("");
-        JTFDNI.setText("");
-        JTFDomicilio.setText("");
-        JTFTelefono.setText("");
-        actualizarLista();
-    }//GEN-LAST:event_JBLimpiarBorrarClienteActionPerformed
 
     private void JCBClientesBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBClientesBorrarClienteActionPerformed
         if (JCBClientesBorrarCliente.getSelectedIndex() >= 0) {
@@ -259,7 +242,6 @@ public class Cliente_Quitar extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button JBBorrarBorrarCliente;
-    private java.awt.Button JBLimpiarBorrarCliente;
     private javax.swing.JComboBox<String> JCBClientesBorrarCliente;
     private javax.swing.JTextField JTFApellido;
     private javax.swing.JTextField JTFDNI;

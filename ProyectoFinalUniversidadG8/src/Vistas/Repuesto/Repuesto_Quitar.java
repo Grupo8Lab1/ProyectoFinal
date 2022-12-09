@@ -8,7 +8,6 @@ import Entidades.Repuesto;
 import static TestUMLs.ProyectoFinalUniversidadG8.repud;
 import javax.swing.JOptionPane;
 
-
 public class Repuesto_Quitar extends javax.swing.JPanel {
 
     public Repuesto_Quitar() {
@@ -17,7 +16,7 @@ public class Repuesto_Quitar extends javax.swing.JPanel {
         JTFNumeroDeSerie.setEnabled(false);
         JTFDescripcion.setEnabled(false);
         JTFPrecio.setEnabled(false);
-       
+
     }
 
     private void actualizarLista() {
@@ -34,7 +33,6 @@ public class Repuesto_Quitar extends javax.swing.JPanel {
         JTFPrecio = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         JBBorrarBorrarRepuesto = new java.awt.Button();
-        JBLimpiarBorrarRepuesto = new java.awt.Button();
         JCBRepuestosBorrarRepuestos = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -57,13 +55,6 @@ public class Repuesto_Quitar extends javax.swing.JPanel {
         JBBorrarBorrarRepuesto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBBorrarBorrarRepuestoActionPerformed(evt);
-            }
-        });
-
-        JBLimpiarBorrarRepuesto.setLabel("Limpiar");
-        JBLimpiarBorrarRepuesto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBLimpiarBorrarRepuestoActionPerformed(evt);
             }
         });
 
@@ -126,8 +117,6 @@ public class Repuesto_Quitar extends javax.swing.JPanel {
                             .addComponent(JTFPrecio)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(JBLimpiarBorrarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
                         .addComponent(JBBorrarBorrarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -154,11 +143,9 @@ public class Repuesto_Quitar extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JTFPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JBLimpiarBorrarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBBorrarBorrarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
+                .addComponent(JBBorrarBorrarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -171,17 +158,12 @@ public class Repuesto_Quitar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_JCBRepuestosBorrarRepuestosActionPerformed
 
-    private void JBLimpiarBorrarRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarBorrarRepuestoActionPerformed
-        JTFDescripcion.setText("");
-        JTFPrecio.setText("");
-        JTFNumeroDeSerie.setText("");
-        actualizarLista();
-    }//GEN-LAST:event_JBLimpiarBorrarRepuestoActionPerformed
-
     private void JBBorrarBorrarRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBorrarBorrarRepuestoActionPerformed
         try {
             repud.borrarRepuesto(Integer.parseInt(JTFNumeroDeSerie.getText()));
-            JBLimpiarBorrarRepuestoActionPerformed(evt);
+            JTFNumeroDeSerie.setText("");
+            JTFDescripcion.setText("");
+            JTFPrecio.setText("");
             actualizarLista();
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Error eliminando el cliente.");
@@ -199,7 +181,6 @@ public class Repuesto_Quitar extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button JBBorrarBorrarRepuesto;
-    private java.awt.Button JBLimpiarBorrarRepuesto;
     private javax.swing.JComboBox<String> JCBRepuestosBorrarRepuestos;
     private javax.swing.JTextField JTFDescripcion;
     private javax.swing.JTextField JTFNumeroDeSerie;

@@ -37,7 +37,6 @@ public class Servicio_Quitar extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         JBBorrarBorrarServicio = new java.awt.Button();
         jLabel3 = new javax.swing.JLabel();
-        JBLimpiarBorrarServicio = new java.awt.Button();
         jLabel4 = new javax.swing.JLabel();
         JCBServiciosBorrarServicio = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
@@ -84,13 +83,6 @@ public class Servicio_Quitar extends javax.swing.JPanel {
 
         jLabel3.setText("Codigo:");
 
-        JBLimpiarBorrarServicio.setLabel("Limpiar");
-        JBLimpiarBorrarServicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBLimpiarBorrarServicioActionPerformed(evt);
-            }
-        });
-
         jLabel4.setText("Descripcion:");
 
         JCBServiciosBorrarServicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -124,13 +116,11 @@ public class Servicio_Quitar extends javax.swing.JPanel {
                             .addComponent(jLabel3))
                         .addGap(22, 22, 22)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(JTFDescripcion, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JTFDescripcion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                             .addComponent(JTFCodigo)
                             .addComponent(JTFPrecio, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 280, Short.MAX_VALUE)
-                        .addComponent(JBLimpiarBorrarServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(JBBorrarBorrarServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -158,9 +148,7 @@ public class Servicio_Quitar extends javax.swing.JPanel {
                     .addComponent(jLabel7)
                     .addComponent(JTFPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 257, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JBBorrarBorrarServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBLimpiarBorrarServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(JBBorrarBorrarServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -195,19 +183,14 @@ public class Servicio_Quitar extends javax.swing.JPanel {
     private void JBBorrarBorrarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBorrarBorrarServicioActionPerformed
         try {
             sd.borrarServicio(Integer.parseInt(JTFCodigo.getText()));
-            JBLimpiarBorrarServicioActionPerformed(evt);
+            JTFCodigo.setText("");
+            JTFDescripcion.setText("");
+            JTFPrecio.setText("");
             actualizarLista();
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Error eliminando el cliente.");
         }
     }//GEN-LAST:event_JBBorrarBorrarServicioActionPerformed
-
-    private void JBLimpiarBorrarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarBorrarServicioActionPerformed
-        JTFDescripcion.setText("");
-        JTFCodigo.setText("");
-        JTFPrecio.setText("");
-        actualizarLista();
-    }//GEN-LAST:event_JBLimpiarBorrarServicioActionPerformed
 
     private void JCBServiciosBorrarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBServiciosBorrarServicioActionPerformed
         if (JCBServiciosBorrarServicio.getSelectedIndex() >= 0) {
@@ -221,7 +204,6 @@ public class Servicio_Quitar extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button JBBorrarBorrarServicio;
-    private java.awt.Button JBLimpiarBorrarServicio;
     private javax.swing.JComboBox<String> JCBServiciosBorrarServicio;
     private javax.swing.JTextField JTFCodigo;
     private javax.swing.JTextField JTFDescripcion;

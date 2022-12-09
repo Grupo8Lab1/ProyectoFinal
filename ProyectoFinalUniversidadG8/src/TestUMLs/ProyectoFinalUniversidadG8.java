@@ -24,7 +24,7 @@ public class ProyectoFinalUniversidadG8 {
     public static void main(String[] args) {
         JFIndex jf = new JFIndex();
         jf.setVisible(true);
-        int c = 0;
+
         /* for (int i = 0; i < 100; i++) {
             c++;
             System.out.println(repad.obtenerTodasLasReparaciones());

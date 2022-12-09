@@ -58,7 +58,6 @@ public class Reparacion_Quitar extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         JBBorrarBorrarReparacion = new java.awt.Button();
         jLabel3 = new javax.swing.JLabel();
-        JBLimpiarBorrarReparacion = new java.awt.Button();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -103,13 +102,6 @@ public class Reparacion_Quitar extends javax.swing.JPanel {
         });
 
         jLabel3.setText("ID:");
-
-        JBLimpiarBorrarReparacion.setLabel("Limpiar");
-        JBLimpiarBorrarReparacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBLimpiarBorrarReparacionActionPerformed(evt);
-            }
-        });
 
         jLabel4.setText("ID Bicicleta:");
 
@@ -216,8 +208,6 @@ public class Reparacion_Quitar extends javax.swing.JPanel {
                                     .addComponent(JCBReparacionesBorrarReparacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JBLimpiarBorrarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JBBorrarBorrarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -266,11 +256,9 @@ public class Reparacion_Quitar extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JTFEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(JBBorrarBorrarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBLimpiarBorrarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addComponent(JBBorrarBorrarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -281,24 +269,19 @@ public class Reparacion_Quitar extends javax.swing.JPanel {
     private void JBBorrarBorrarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBorrarBorrarReparacionActionPerformed
         try {
             repad.borrarReparacion(Integer.parseInt(JTFID.getText()));
-            JBLimpiarBorrarReparacionActionPerformed(evt);
+            JTFIDBicicleta.setText("");
+            JTFServicio.setText("");
+            JTFID.setText("");
+            JTFDueño.setText("");
+            JTFTelefono.setText("");
+            JTFCosto.setText("");
+            JTFFecha.setText("");
+            JTFEstado.setText("");
             actualizarLista();
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Error eliminando la reparacion.");
         }
     }//GEN-LAST:event_JBBorrarBorrarReparacionActionPerformed
-
-    private void JBLimpiarBorrarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarBorrarReparacionActionPerformed
-        JTFIDBicicleta.setText("");
-        JTFServicio.setText("");
-        JTFID.setText("");
-        JTFDueño.setText("");
-        JTFTelefono.setText("");
-        JTFCosto.setText("");
-        JTFFecha.setText("");
-        JTFEstado.setText("");
-        actualizarLista();
-    }//GEN-LAST:event_JBLimpiarBorrarReparacionActionPerformed
 
     private void JTFIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFIDActionPerformed
         // TODO add your handling code here:
@@ -353,7 +336,6 @@ public class Reparacion_Quitar extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button JBBorrarBorrarReparacion;
-    private java.awt.Button JBLimpiarBorrarReparacion;
     private javax.swing.JComboBox<String> JCBReparacionesBorrarReparacion;
     private javax.swing.JTextField JTFCosto;
     private javax.swing.JTextField JTFDueño;
