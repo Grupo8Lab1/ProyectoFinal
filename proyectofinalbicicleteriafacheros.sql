@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-12-2022 a las 22:11:38
+-- Tiempo de generación: 10-12-2022 a las 02:18:35
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -42,6 +42,7 @@ CREATE TABLE `bicicleta` (
 INSERT INTO `bicicleta` (`num_serie`, `tipo`, `color`, `dni_dueño`, `activo`) VALUES
 (2, 'MTB', 'Rojo', 40000, 1),
 (3, 'Playera', 'Negro', 40000, 1),
+(3564, 'de Ruta', 'Purpura', 11223355, 1),
 (131325, 'BMX', 'Azul', 11223355, 1);
 
 -- --------------------------------------------------------
