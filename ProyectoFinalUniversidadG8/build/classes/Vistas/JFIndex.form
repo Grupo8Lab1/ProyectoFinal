@@ -372,14 +372,15 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanelRepuesto" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="BMostrarTodosRepuesto" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
-                          <Component id="BAgregarRepuesto" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
-                          <Component id="BBuscarPorIDRepuesto" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
-                          <Component id="BQuitarRepuesto" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="BAgregarRepuesto" alignment="0" max="32767" attributes="0"/>
+                          <Component id="BBuscarPorIDRepuesto" alignment="0" max="32767" attributes="0"/>
+                          <Component id="BQuitarRepuesto" alignment="0" max="32767" attributes="0"/>
                           <Component id="BActualizarRepuesto" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                          <Component id="BMostrarTodosRepuesto" max="32767" attributes="0"/>
+                          <Component id="BBuscarPorDescripcion" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="616" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -397,6 +398,8 @@
                               <Component id="BActualizarRepuesto" min="-2" pref="59" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="BBuscarPorIDRepuesto" min="-2" pref="59" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="BBuscarPorDescripcion" min="-2" pref="59" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="BMostrarTodosRepuesto" min="-2" pref="59" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -485,6 +488,20 @@
                 </DimensionLayout>
               </Layout>
             </Container>
+            <Component class="java.awt.Button" name="BBuscarPorDescripcion">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
+                </Property>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor Por defecto"/>
+                </Property>
+                <Property name="label" type="java.lang.String" value="Buscar (Descrip)"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BBuscarPorDescripcionActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="JPServicio">
