@@ -296,7 +296,6 @@ public class Reparacion_Quitar extends javax.swing.JPanel {
         if (JCBReparacionesBorrarReparacion.getSelectedIndex() >= 0) {
             Reparacion aux = repad.obtenerReparacionPorId(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getIdReparacion());
             JCBReparacionesBorrarReparacion.setSelectedIndex(JCBReparacionesBorrarReparacion.getSelectedIndex());
-            System.out.println(aux);
             JTFID.setText(String.valueOf(aux.getIdReparacion()));
             JTFIDBicicleta.setText(String.valueOf(aux.getBicicleta().getNumSerie()));
             JTFServicio.setText(aux.getServicio().getDescripcion());
