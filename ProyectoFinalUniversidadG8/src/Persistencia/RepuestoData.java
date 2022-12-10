@@ -110,6 +110,34 @@ public class RepuestoData {
         }
         return rep;
     }
+    
+    public Repuesto obtenerRepuestoPorDescripcion1(String descripcion) {
+        con = Conexion.conectar();
+
+        String sql = "SELECT * FROM repuesto WHERE activo = 1 AND descripcion LIKE ?";
+        Repuesto rep = new Repuesto();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, "%" + descripcion + "%");
+            ResultSet rs = ps.executeQuery(); //Select
+
+            if (rs.next()) {
+
+                rep.setDescripcion(descripcion);
+                rep.setNumSerie(rs.getInt("num_serie"));
+                rep.setPrecio(rs.getFloat("precio"));
+                rep.setActivo(rs.getBoolean("activo"));
+            }
+
+            ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "RepuestoData Sentencia SQL erronea-obtenerRepuestoPorId");
+        }
+        return rep;
+    }
 
     public ArrayList<Repuesto> obtenerRepuestoPorDescripcion(String descripcion) {
         con = Conexion.conectar();
