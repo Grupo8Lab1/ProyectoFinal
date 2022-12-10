@@ -21,6 +21,7 @@ import Vistas.Reparacion.Reparacion_Listar_Todos;
 import Vistas.Reparacion.Reparacion_Quitar;
 import Vistas.Repuesto.Repuesto_Actualizar_Precio;
 import Vistas.Repuesto.Repuesto_Agregar;
+import Vistas.Repuesto.Repuesto_BuscarPorDescripcion;
 import Vistas.Repuesto.Repuesto_BuscarPorID;
 import Vistas.Repuesto.Repuesto_Listar_Todos;
 import Vistas.Repuesto.Repuesto_Quitar;
@@ -66,6 +67,7 @@ public class JFIndex extends javax.swing.JFrame {
         BActualizarRepuesto = new java.awt.Button();
         BQuitarRepuesto = new java.awt.Button();
         jPanelRepuesto = new javax.swing.JPanel();
+        BBuscarPorDescripcion = new java.awt.Button();
         JPServicio = new javax.swing.JPanel();
         BMostrarTodosServicio = new java.awt.Button();
         BAgregarServicio = new java.awt.Button();
@@ -348,6 +350,15 @@ public class JFIndex extends javax.swing.JFrame {
             .addGap(0, 602, Short.MAX_VALUE)
         );
 
+        BBuscarPorDescripcion.setBackground(java.awt.Color.gray);
+        BBuscarPorDescripcion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BBuscarPorDescripcion.setLabel("Buscar (Descrip)");
+        BBuscarPorDescripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BBuscarPorDescripcionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPRepuestoLayout = new javax.swing.GroupLayout(JPRepuesto);
         JPRepuesto.setLayout(JPRepuestoLayout);
         JPRepuestoLayout.setHorizontalGroup(
@@ -356,13 +367,14 @@ public class JFIndex extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanelRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(JPRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BMostrarTodosRepuesto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BAgregarRepuesto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BBuscarPorIDRepuesto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BQuitarRepuesto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BActualizarRepuesto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(616, 616, 616))
+                .addGroup(JPRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BAgregarRepuesto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BBuscarPorIDRepuesto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BQuitarRepuesto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BActualizarRepuesto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BMostrarTodosRepuesto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BBuscarPorDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         JPRepuestoLayout.setVerticalGroup(
             JPRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -378,6 +390,8 @@ public class JFIndex extends javax.swing.JFrame {
                         .addComponent(BActualizarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BBuscarPorIDRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BBuscarPorDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BMostrarTodosRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -739,6 +753,11 @@ public class JFIndex extends javax.swing.JFrame {
         presentarVistasBicicleta(p);
     }//GEN-LAST:event_BBuscarPorClienteBicicletaActionPerformed
 
+    private void BBuscarPorDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBuscarPorDescripcionActionPerformed
+        Repuesto_BuscarPorDescripcion p = new Repuesto_BuscarPorDescripcion();
+        presentarVistasRepuestos(p);
+    }//GEN-LAST:event_BBuscarPorDescripcionActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -831,6 +850,7 @@ public class JFIndex extends javax.swing.JFrame {
     private java.awt.Button BBuscarPorBicicletaReparacion;
     private java.awt.Button BBuscarPorClienteBicicleta;
     private java.awt.Button BBuscarPorClienteReparacion;
+    private java.awt.Button BBuscarPorDescripcion;
     private java.awt.Button BBuscarPorFechaReparacion;
     private java.awt.Button BBuscarPorIDBicicleta;
     private java.awt.Button BBuscarPorIDCliente;
