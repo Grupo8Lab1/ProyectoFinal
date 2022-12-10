@@ -4,7 +4,10 @@
  */
 package Vistas.Reparacion;
 
+import Entidades.Reparacion;
+import static TestUMLs.ProyectoFinalUniversidadG8.repad;
 import Vistas.Cliente.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,6 +20,12 @@ public class Reparacion_BuscarPorID extends javax.swing.JPanel {
      */
     public Reparacion_BuscarPorID() {
         initComponents();
+        JTFBicicleta.setEnabled(false);
+        JTFServicio.setEnabled(false);
+        JTFFecha.setEnabled(false);
+        JTFDueño.setEnabled(false);
+        JTFCosto.setEnabled(false);
+        JTFEstado.setEnabled(false);
     }
 
     /**
@@ -28,23 +37,241 @@ public class Reparacion_BuscarPorID extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JBBuscarBuscarRepID = new java.awt.Button();
+        JTFDueño = new javax.swing.JTextField();
+        JTFFecha = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        JTFID = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        JTFServicio = new javax.swing.JTextField();
+        JTFBicicleta = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        JBLimpiarBuscarRepId = new java.awt.Button();
+        jLabel8 = new javax.swing.JLabel();
+        JTFCosto = new javax.swing.JTextField();
+        JTFEstado = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+
         setMaximumSize(new java.awt.Dimension(398, 600));
         setMinimumSize(new java.awt.Dimension(398, 600));
         setPreferredSize(new java.awt.Dimension(398, 600));
+
+        JBBuscarBuscarRepID.setActionCommand("Buscar");
+        JBBuscarBuscarRepID.setLabel("Buscar");
+        JBBuscarBuscarRepID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBBuscarBuscarRepIDActionPerformed(evt);
+            }
+        });
+
+        JTFFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFFechaActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("ID :");
+
+        jLabel4.setText("Servicio:");
+
+        jLabel7.setText("Fecha:");
+        jLabel7.setMaximumSize(new java.awt.Dimension(43, 15));
+        jLabel7.setMinimumSize(new java.awt.Dimension(43, 15));
+        jLabel7.setPreferredSize(new java.awt.Dimension(43, 15));
+
+        jLabel5.setText("Bicicleta:");
+
+        JTFID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFIDActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Dueño:");
+        jLabel6.setMaximumSize(new java.awt.Dimension(43, 15));
+        jLabel6.setMinimumSize(new java.awt.Dimension(43, 15));
+        jLabel6.setPreferredSize(new java.awt.Dimension(43, 15));
+
+        JTFServicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFServicioActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
+        jLabel1.setText("Buscar Reparacion");
+
+        JBLimpiarBuscarRepId.setLabel("Limpiar");
+        JBLimpiarBuscarRepId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBLimpiarBuscarRepIdActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Estado:");
+        jLabel8.setMaximumSize(new java.awt.Dimension(43, 15));
+        jLabel8.setMinimumSize(new java.awt.Dimension(43, 15));
+        jLabel8.setPreferredSize(new java.awt.Dimension(43, 15));
+
+        JTFCosto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFCostoActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("Costo:");
+        jLabel10.setMaximumSize(new java.awt.Dimension(43, 15));
+        jLabel10.setMinimumSize(new java.awt.Dimension(43, 15));
+        jLabel10.setPreferredSize(new java.awt.Dimension(43, 15));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(JBBuscarBuscarRepID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addGap(44, 44, 44)
+                            .addComponent(JTFID, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JTFCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JTFEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JBLimpiarBuscarRepId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JTFServicio, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                            .addComponent(JTFBicicleta)
+                            .addComponent(JTFDueño)
+                            .addComponent(JTFFecha))))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(JTFID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addComponent(JBBuscarBuscarRepID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(JTFServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(JTFBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTFDueño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTFFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTFCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTFEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
+                .addComponent(JBLimpiarBuscarRepId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JBBuscarBuscarRepIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscarBuscarRepIDActionPerformed
+        if (JTFID.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingrese un N° ID por favor");
+        } else {
+            try {
+                Reparacion aux = repad.obtenerReparacionPorId(Integer.parseInt(JTFID.getText()));
+                JTFServicio.setText(aux.getServicio().getDescripcion());
+                JTFBicicleta.setText(aux.getBicicleta().getTipo() + "N° " + aux.getBicicleta().getNumSerie());
+                JTFDueño.setText(aux.getBicicleta().getDueño().getNombre() + " " + aux.getBicicleta().getDueño().getApellido());
+                JTFFecha.setText(String.valueOf(aux.getFechaEntrada()));
+                JTFCosto.setText(String.valueOf(aux.getCostoFinal()));
+                if (aux.isEstado()) {
+                    JTFEstado.setText("Finalizada");
+                } else {
+                    JTFEstado.setText("Pendiente");
+                }
+            } catch (NumberFormatException | NullPointerException ex) {
+                JOptionPane.showMessageDialog(null, "ID invalido o inexistente.");
+            }
+        }
+    }//GEN-LAST:event_JBBuscarBuscarRepIDActionPerformed
+
+    private void JTFFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFFechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFFechaActionPerformed
+
+    private void JTFIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFIDActionPerformed
+
+    private void JTFServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFServicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFServicioActionPerformed
+
+    private void JBLimpiarBuscarRepIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarBuscarRepIdActionPerformed
+        JTFBicicleta.setText("");  // TODO add your handling code here:
+        JTFCosto.setText("");  // TODO add your handling code here:
+        JTFDueño.setText("");  // TODO add your handling code here:
+        JTFFecha.setText("");  // TODO add your handling code here:
+        JTFEstado.setText("");  // TODO add your handling code here:
+        JTFID.setText("");  // TODO add your handling code here:
+        JTFServicio.setText("");  // TODO add your handling code here:
+    }//GEN-LAST:event_JBLimpiarBuscarRepIdActionPerformed
+
+    private void JTFCostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFCostoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFCostoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button JBBuscarBuscarRepID;
+    private java.awt.Button JBLimpiarBuscarRepId;
+    private javax.swing.JTextField JTFBicicleta;
+    private javax.swing.JTextField JTFCosto;
+    private javax.swing.JTextField JTFDueño;
+    private javax.swing.JTextField JTFEstado;
+    private javax.swing.JTextField JTFFecha;
+    private javax.swing.JTextField JTFID;
+    private javax.swing.JTextField JTFServicio;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }
