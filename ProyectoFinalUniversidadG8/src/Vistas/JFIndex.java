@@ -291,7 +291,7 @@ public class JFIndex extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Bicicleta", new javax.swing.ImageIcon(getClass().getResource("/Vistas/Iconos/bicicleta.png")), JPBicicleta); // NOI18N
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 545, -1));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 545, -1));
 
         jTabbedPane2.setBackground(java.awt.Color.gray);
         jTabbedPane2.setToolTipText("");
@@ -603,11 +603,11 @@ public class JFIndex extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Reparación", new javax.swing.ImageIcon(getClass().getResource("/Vistas/Iconos/personafuerta.png")), JPReparacion); // NOI18N
 
-        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, 544, -1));
+        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 50, 544, -1));
 
         Background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Iconos/Fondo2.jpg"))); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1180, 750));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1340, 820));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
