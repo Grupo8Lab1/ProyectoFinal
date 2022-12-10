@@ -294,8 +294,6 @@ public class Reparacion_Quitar extends javax.swing.JPanel {
     private void JCBReparacionesBorrarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBReparacionesBorrarReparacionActionPerformed
 
         if (JCBReparacionesBorrarReparacion.getSelectedIndex() >= 0) {
-            c++;
-            System.out.println(c);
             Reparacion aux = repad.obtenerReparacionPorId(repad.obtenerTodasLasReparaciones().get(JCBReparacionesBorrarReparacion.getSelectedIndex()).getIdReparacion());
             JCBReparacionesBorrarReparacion.setSelectedIndex(JCBReparacionesBorrarReparacion.getSelectedIndex());
             System.out.println(aux);

@@ -23,7 +23,7 @@ public class Reparacion_BuscarPorBicicleta extends javax.swing.JPanel {
      * Creates new form Cliente_BuscarClientePorID
      */
     private final DefaultTableModel modelo;
-    
+
     public Reparacion_BuscarPorBicicleta() {
         initComponents();
         this.modelo = new DefaultTableModel() {
@@ -34,7 +34,7 @@ public class Reparacion_BuscarPorBicicleta extends javax.swing.JPanel {
         };
         armarCabeceraTabla();
     }
-    
+
     private void armarCabeceraTabla() {
         ArrayList<Object> columnas = new ArrayList<>();
         columnas.add("ID");
@@ -48,7 +48,7 @@ public class Reparacion_BuscarPorBicicleta extends javax.swing.JPanel {
         }
         JTReparacionesPorBicicleta.setModel(modelo);
     }
-    
+
     private void borrarFilasTabla() {
         if (modelo != null) {
             int a = modelo.getRowCount() - 1;
@@ -57,7 +57,7 @@ public class Reparacion_BuscarPorBicicleta extends javax.swing.JPanel {
             }
         }
     }
-    
+
     private void cargarReparaciones(int NSerie) {
         borrarFilasTabla();
         for (Reparacion aux : repad.obtenerReparacionesPorBicicleta(NSerie)) {

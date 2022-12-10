@@ -5,8 +5,11 @@
 package Vistas.Reparacion;
 
 import Entidades.Reparacion;
+import static TestUMLs.ProyectoFinalUniversidadG8.bd;
 import static TestUMLs.ProyectoFinalUniversidadG8.repad;
-import Vistas.Cliente.*;
+import static TestUMLs.ProyectoFinalUniversidadG8.sd;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,254 +34,268 @@ public class Reparacion_Actualizar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        JTFDomicilio = new javax.swing.JTextField();
-        JTFTelefono = new javax.swing.JTextField();
-        JBActualizarActualizarCliente = new java.awt.Button();
         jLabel3 = new javax.swing.JLabel();
-        JBLimpiarActualizarCliente = new java.awt.Button();
+        JBLimpiarActualizarReparacion = new java.awt.Button();
+        JTFID = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        JBActualizarActualizarReparacion = new java.awt.Button();
+        JBBuscarActualizarReparacion = new java.awt.Button();
+        jLabel10 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        JTFFecha = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        JTFDNI = new javax.swing.JTextField();
-        JTFNombre = new javax.swing.JTextField();
-        JTFApellido = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        JBBuscarActualizarCliente = new java.awt.Button();
+        JTFServicio = new javax.swing.JTextField();
+        JTFIDBicicleta = new javax.swing.JTextField();
+        JTFEstado = new javax.swing.JTextField();
+        JTFCosto = new javax.swing.JTextField();
 
         setMaximumSize(new java.awt.Dimension(398, 600));
         setMinimumSize(new java.awt.Dimension(398, 600));
         setPreferredSize(new java.awt.Dimension(398, 600));
 
-        jPanel1.setMinimumSize(new java.awt.Dimension(398, 600));
+        jLabel3.setText("ID:");
 
-        JTFTelefono.addActionListener(new java.awt.event.ActionListener() {
+        JBLimpiarActualizarReparacion.setLabel("Limpiar");
+        JBLimpiarActualizarReparacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFTelefonoActionPerformed(evt);
+                JBLimpiarActualizarReparacionActionPerformed(evt);
             }
         });
 
-        JBActualizarActualizarCliente.setActionCommand("Actualizar");
-        JBActualizarActualizarCliente.setLabel("Actualizar");
-        JBActualizarActualizarCliente.setName(""); // NOI18N
-        JBActualizarActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
+        JTFID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBActualizarActualizarClienteActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("DNI :");
-
-        JBLimpiarActualizarCliente.setLabel("Limpiar");
-        JBLimpiarActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBLimpiarActualizarClienteActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("A");
-
-        jLabel5.setText("A");
-
-        jLabel6.setText("A");
-
-        jLabel7.setText("A");
-
-        JTFDNI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFDNIActionPerformed(evt);
-            }
-        });
-
-        JTFNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFNombreActionPerformed(evt);
+                JTFIDActionPerformed(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
         jLabel1.setText("Actualizar Reparacion");
 
-        JBBuscarActualizarCliente.setActionCommand("Buscar");
-        JBBuscarActualizarCliente.setLabel("Buscar");
-        JBBuscarActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
+        JBActualizarActualizarReparacion.setActionCommand("Actualizar");
+        JBActualizarActualizarReparacion.setLabel("Actualizar");
+        JBActualizarActualizarReparacion.setName(""); // NOI18N
+        JBActualizarActualizarReparacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBBuscarActualizarClienteActionPerformed(evt);
+                JBActualizarActualizarReparacionActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(JBLimpiarActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JBActualizarActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(JBBuscarActualizarCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(JTFTelefono))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel6))
-                                    .addGap(22, 22, 22)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(JTFDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(JTFNombre)
-                                            .addComponent(JTFApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JTFDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 35, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(JTFDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addComponent(JBBuscarActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(JBActualizarActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(JTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(JTFApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(JTFDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(JTFTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addComponent(JBLimpiarActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        JBBuscarActualizarReparacion.setActionCommand("Buscar");
+        JBBuscarActualizarReparacion.setLabel("Buscar");
+        JBBuscarActualizarReparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBBuscarActualizarReparacionActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("Fecha:");
+
+        jLabel4.setText("ID Bicicleta:");
+
+        JTFFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFFechaActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Estado:");
+
+        jLabel5.setText("ID Servicio:");
+
+        jLabel6.setText("Costo :");
+
+        JTFIDBicicleta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFIDBicicletaActionPerformed(evt);
+            }
+        });
+
+        JTFEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFEstadoActionPerformed(evt);
+            }
+        });
+
+        JTFCosto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFCostoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 406, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4))
+                                .addComponent(jLabel6))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel10))
+                                .addGap(7, 7, 7)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JTFEstado)
+                            .addComponent(JTFFecha)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(JTFIDBicicleta)
+                                .addComponent(JTFServicio)
+                                .addComponent(JTFCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(JBBuscarActualizarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(JBLimpiarActualizarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JBActualizarActualizarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(JTFID, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(JTFID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(JBBuscarActualizarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JTFIDBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JTFServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JTFCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(JTFEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JTFFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)))
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JBActualizarActualizarReparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBLimpiarActualizarReparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JTFTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFTelefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFTelefonoActionPerformed
+    private void JBLimpiarActualizarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarActualizarReparacionActionPerformed
+        JTFIDBicicleta.setText("");
+        JTFServicio.setText("");
+        JTFID.setText("");
+        JTFEstado.setText("");
+        JTFCosto.setText("");
+        JTFFecha.setText("");
+    }//GEN-LAST:event_JBLimpiarActualizarReparacionActionPerformed
 
-    private void JBActualizarActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBActualizarActualizarClienteActionPerformed
-        if (JTFNombre.getText().isEmpty() || JTFApellido.getText().isEmpty() || JTFDNI.getText().isEmpty() || JTFDomicilio.getText().isEmpty() || JTFTelefono.getText().isEmpty()) {
+    private void JTFIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFIDActionPerformed
+
+    private void JBActualizarActualizarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBActualizarActualizarReparacionActionPerformed
+        if (JTFIDBicicleta.getText().isEmpty() || JTFServicio.getText().isEmpty() || JTFID.getText().isEmpty() || JTFEstado.getText().isEmpty() || JTFCosto.getText().isEmpty() || JTFFecha.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Llene todos los campos por favor");
         } else {
             try {
-                Reparacion aux = repad.obtenerReparacionPorId(Integer.parseInt(JTFDNI.getText()));
-                /*       aux.setNombre(JTFNombre.getText());
-                aux.setApellido(JTFApellido.getText());
-                aux.setDomicilio(JTFDomicilio.getText());
-                aux.setDni(Integer.parseInt(JTFDNI.getText()));
-                aux.setTelefono(Integer.parseInt(JTFTelefono.getText()));
-                 */ repad.actualizarReparacion(aux, Integer.parseInt(JTFDNI.getText()));
-                JBLimpiarActualizarClienteActionPerformed(evt);
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Error, verifique haber ingresado todos los datos correctamente.");
+                Reparacion aux = repad.obtenerReparacionPorId(Integer.valueOf(JTFID.getText()));
+
+                aux.setBicicleta(bd.obtenerBicicletaPorId(Integer.valueOf(JTFIDBicicleta.getText())));
+
+                aux.setServicio(sd.obtenerServicioPorId(Integer.valueOf(JTFServicio.getText())));
+
+                aux.setCostoFinal(Float.valueOf(JTFCosto.getText()));
+
+                aux.setFechaEntrada(LocalDate.parse(JTFFecha.getText()));
+
+                aux.setEstado(Boolean.valueOf(JTFEstado.getText()));
+                System.out.println(aux);
+                repad.actualizarReparacion(aux, Integer.valueOf(JTFID.getText()));
+                JBLimpiarActualizarReparacionActionPerformed(evt);
+            } catch (NumberFormatException | DateTimeParseException ex) {
+                JOptionPane.showMessageDialog(null, "Error, verifique haber ingresado todos los datos correctamente.\n Por favor, respete el formato de fechas dispuesto por el programa, así como el estado (true/false)");
             }
         }
-    }//GEN-LAST:event_JBActualizarActualizarClienteActionPerformed
+    }//GEN-LAST:event_JBActualizarActualizarReparacionActionPerformed
 
-    private void JBLimpiarActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarActualizarClienteActionPerformed
-        JTFNombre.setText("");
-        JTFApellido.setText("");
-        JTFDNI.setText("");
-        JTFDomicilio.setText("");
-        JTFTelefono.setText("");
-    }//GEN-LAST:event_JBLimpiarActualizarClienteActionPerformed
-
-    private void JTFDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFDNIActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFDNIActionPerformed
-
-    private void JTFNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFNombreActionPerformed
-
-    private void JBBuscarActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscarActualizarClienteActionPerformed
-        if (JTFDNI.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese un N° DNI por favor");
+    private void JBBuscarActualizarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscarActualizarReparacionActionPerformed
+        if (JTFID.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingrese un N° ID por favor");
         } else {
             try {
-                /*     Cliente aux = cd.obtenerClientePorDni(Integer.parseInt(JTFDNI.getText()));
-                JTFNombre.setText(aux.getNombre());
-                JTFApellido.setText(aux.getApellido());
-                JTFDNI.setText(String.valueOf(aux.getDni()));
-                JTFDomicilio.setText(aux.getDomicilio());
-                JTFTelefono.setText(String.valueOf(aux.getTelefono()));
-                 */
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Error, DNI invalido.");
+                Reparacion aux = repad.obtenerReparacionPorId(Integer.parseInt(JTFID.getText()));
+                JTFServicio.setText(String.valueOf(aux.getServicio().getCodigo()));
+                JTFIDBicicleta.setText(String.valueOf(aux.getBicicleta().getNumSerie()));
+                JTFFecha.setText(String.valueOf(aux.getFechaEntrada()));
+                JTFCosto.setText(String.valueOf(aux.getCostoFinal()));
+                JTFEstado.setText(String.valueOf(aux.isEstado()));
+            } catch (NumberFormatException | NullPointerException ex) {
+                JOptionPane.showMessageDialog(null, "ID invalido o inexistente.");
             }
         }
-    }//GEN-LAST:event_JBBuscarActualizarClienteActionPerformed
+    }//GEN-LAST:event_JBBuscarActualizarReparacionActionPerformed
+
+    private void JTFFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFFechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFFechaActionPerformed
+
+    private void JTFIDBicicletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFIDBicicletaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFIDBicicletaActionPerformed
+
+    private void JTFEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFEstadoActionPerformed
+
+    private void JTFCostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFCostoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFCostoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button JBActualizarActualizarCliente;
-    private java.awt.Button JBBuscarActualizarCliente;
-    private java.awt.Button JBLimpiarActualizarCliente;
-    private javax.swing.JTextField JTFApellido;
-    private javax.swing.JTextField JTFDNI;
-    private javax.swing.JTextField JTFDomicilio;
-    private javax.swing.JTextField JTFNombre;
-    private javax.swing.JTextField JTFTelefono;
+    private java.awt.Button JBActualizarActualizarReparacion;
+    private java.awt.Button JBBuscarActualizarReparacion;
+    private java.awt.Button JBLimpiarActualizarReparacion;
+    private javax.swing.JTextField JTFCosto;
+    private javax.swing.JTextField JTFEstado;
+    private javax.swing.JTextField JTFFecha;
+    private javax.swing.JTextField JTFID;
+    private javax.swing.JTextField JTFIDBicicleta;
+    private javax.swing.JTextField JTFServicio;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
