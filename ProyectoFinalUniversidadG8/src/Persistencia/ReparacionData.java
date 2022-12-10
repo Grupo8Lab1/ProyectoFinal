@@ -1,6 +1,8 @@
 package Persistencia;
 
 import Entidades.Reparacion;
+import static TestUMLs.ProyectoFinalUniversidadG8.bd;
+import static TestUMLs.ProyectoFinalUniversidadG8.sd;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -12,18 +14,18 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class ReparacionData {
-
+    
     Connection con;
-
+    
     public ReparacionData() {
     }
-
+    
     public void guardarReparacion(Reparacion reparacion) {
         String sql = "INSERT INTO reparación (id_reparacion, id_servicio, id_bicicleta, fecha_entrada, costo_final, estado, activo) VALUES (?, ?, ?, ?, ?, ?, ?)";
         con = Conexion.conectar();
         try {
             PreparedStatement ps = con.prepareStatement(sql, RETURN_GENERATED_KEYS);
-
+            
             ps.setInt(1, reparacion.getIdReparacion());
             ps.setInt(2, reparacion.getServicio().getCodigo());
             ps.setInt(3, reparacion.getBicicleta().getNumSerie());
@@ -31,12 +33,12 @@ public class ReparacionData {
             ps.setFloat(5, reparacion.getCostoFinal());
             ps.setBoolean(6, reparacion.isEstado());
             ps.setBoolean(7, reparacion.isActivo());
-
+            
             int agrego = ps.executeUpdate();//insert, update, delete
             String aviso;
-
+            
             ResultSet rs = ps.getGeneratedKeys();
-
+            
             if (rs.next()) {
                 reparacion.setIdReparacion(rs.getInt(1));
             }
@@ -53,23 +55,23 @@ public class ReparacionData {
             JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-guardarReparacion");
         }
     }
-
+    
     public ArrayList<Reparacion> obtenerReparacionesConEstado1() {
-
+        
         ArrayList<Reparacion> listaTemp = new ArrayList();
         con = Conexion.conectar();
         String sql = "SELECT * FROM reparación WHERE activo= 1 AND estado = 1";
-
+        
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-
+            
             ResultSet rs = ps.executeQuery();//select
 
             while (rs.next()) {
-
+                
                 BicicletaData bd = new BicicletaData();
                 ServicioData sd = new ServicioData();
-
+                
                 Reparacion r = new Reparacion();
                 r.setIdReparacion(rs.getInt("id_reparacion"));
                 r.setServicio(sd.obtenerServicioPorId(rs.getInt("id_servicio")));
@@ -78,10 +80,10 @@ public class ReparacionData {
                 r.setCostoFinal(rs.getInt("costo_final"));
                 r.setEstado(rs.getBoolean("estado"));
                 r.setActivo(rs.getBoolean("activo"));
-
+                
                 listaTemp.add(r);
             }
-
+            
             ps.close();
             rs.close();
             Conexion.cerrarConexion(con);
@@ -90,23 +92,23 @@ public class ReparacionData {
         }
         return listaTemp;
     }
-
+    
     public ArrayList<Reparacion> obtenerReparacionesConEstado0() {
-
+        
         ArrayList<Reparacion> listaTemp = new ArrayList();
         con = Conexion.conectar();
         String sql = "SELECT * FROM reparación WHERE activo= 1 AND estado = 0";
-
+        
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-
+            
             ResultSet rs = ps.executeQuery();//select
 
             while (rs.next()) {
-
+                
                 BicicletaData bd = new BicicletaData();
                 ServicioData sd = new ServicioData();
-
+                
                 Reparacion r = new Reparacion();
                 r.setIdReparacion(rs.getInt("id_reparacion"));
                 r.setServicio(sd.obtenerServicioPorId(rs.getInt("id_servicio")));
@@ -115,7 +117,7 @@ public class ReparacionData {
                 r.setCostoFinal(rs.getInt("costo_final"));
                 r.setEstado(rs.getBoolean("estado"));
                 r.setActivo(rs.getBoolean("activo"));
-
+                
                 listaTemp.add(r);
             }
             ps.close();
@@ -126,23 +128,23 @@ public class ReparacionData {
         }
         return listaTemp;
     }
-
+    
     public ArrayList<Reparacion> obtenerTodasLasReparaciones() {
-
+        
         ArrayList<Reparacion> listaTemp = new ArrayList();
         con = Conexion.conectar();
         String sql = "SELECT * FROM reparación WHERE activo= 1";
-
+        
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-
+            
             ResultSet rs = ps.executeQuery();//select
 
             while (rs.next()) {
-
+                
                 BicicletaData bd = new BicicletaData();
                 ServicioData sd = new ServicioData();
-
+                
                 Reparacion r = new Reparacion();
                 r.setIdReparacion(rs.getInt("id_reparacion"));
                 r.setServicio(sd.obtenerServicioPorId(rs.getInt("id_servicio")));
@@ -151,7 +153,7 @@ public class ReparacionData {
                 r.setCostoFinal(rs.getInt("costo_final"));
                 r.setEstado(rs.getBoolean("estado"));
                 r.setActivo(rs.getBoolean("activo"));
-
+                
                 listaTemp.add(r);
             }
             ps.close();
@@ -162,13 +164,12 @@ public class ReparacionData {
         }
         return listaTemp;
     }
-
+    
     public Reparacion obtenerReparacionPorId(int id) {
         String sql = "SELECT * FROM reparación WHERE activo= 1 AND id_reparacion = ?";
         con = Conexion.conectar();
         Reparacion r = new Reparacion();
-        BicicletaData bd = new BicicletaData();
-        ServicioData sd = new ServicioData();
+        
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
@@ -183,7 +184,7 @@ public class ReparacionData {
                 r.setEstado(rs.getBoolean("estado"));
                 r.setActivo(rs.getBoolean("activo"));
             }
-
+            
             ps.close();
             rs.close();
             Conexion.cerrarConexion(con);
@@ -192,7 +193,40 @@ public class ReparacionData {
         }
         return r;
     }
+    
+    public ArrayList<Reparacion> obtenerReparacionesPorBicicleta(int NSerie) {
+        String sql = "SELECT * FROM reparación WHERE activo= 1 AND id_bicicleta = ?";
+        con = Conexion.conectar();
+        ArrayList<Reparacion> listaTemp = new ArrayList();
+        BicicletaData bd = new BicicletaData();
+        ServicioData sd = new ServicioData();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, NSerie);
+            ResultSet rs = ps.executeQuery();//select
 
+            while (rs.next()) {
+                
+                Reparacion r = new Reparacion();
+                r.setIdReparacion(rs.getInt("id_reparacion"));
+                r.setServicio(sd.obtenerServicioPorId(rs.getInt("id_servicio")));
+                r.setBicicleta(bd.obtenerBicicletaPorId(rs.getInt("id_bicicleta")));
+                r.setFechaEntrada(rs.getDate("fecha_entrada").toLocalDate());
+                r.setCostoFinal(rs.getInt("costo_final"));
+                r.setEstado(rs.getBoolean("estado"));
+                r.setActivo(rs.getBoolean("activo"));
+                
+                listaTemp.add(r);
+            }
+            ps.close();
+            rs.close();
+            Conexion.cerrarConexion(con);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-ObtenerReparacionesPorBicicleta");
+        }
+        return listaTemp;
+    }
+    
     public ArrayList<Reparacion> obtenerReparacionesPorFecha(LocalDate fecha1, LocalDate fecha2) {
         con = Conexion.conectar();
         String sql = "SELECT * FROM reparación WHERE activo= 1 AND (fecha_entrada BETWEEN ? AND ?);";
@@ -225,7 +259,7 @@ public class ReparacionData {
         }
         return listaTemp;
     }
-
+    
     public void borrarReparacion(int idReparacion) {
         con = Conexion.conectar();
         String sql = "UPDATE reparación SET activo = 0 WHERE id_reparacion = ?;";
@@ -240,15 +274,15 @@ public class ReparacionData {
                 aviso = "No se pudo eliminar la reparacion";
             }
             JOptionPane.showMessageDialog(null, aviso);
-
+            
             ps.close();
-
+            
             Conexion.cerrarConexion(con);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-borrarReparacion");
         }
     }
-
+    
     public void actualizarReparacion(Reparacion reparacion, int id) {
         con = Conexion.conectar();
         String sql = "UPDATE reparación SET id_reparacion=?, id_servicio=?, id_bicicleta=?, fecha_entrada=?, costo_final=?, estado=?, activo=? WHERE id_reparacion=?";
@@ -271,11 +305,11 @@ public class ReparacionData {
             }
             JOptionPane.showMessageDialog(null, aviso);
             ps.close();
-
+            
             Conexion.cerrarConexion(con);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ReparacionData Sentencia SQL erronea-actualizarReparacion");
         }
     }
-
+    
 }

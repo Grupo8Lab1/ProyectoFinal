@@ -4,7 +4,14 @@
  */
 package Vistas.Reparacion;
 
+import Entidades.Bicicleta;
+import Entidades.Reparacion;
+import static TestUMLs.ProyectoFinalUniversidadG8.bd;
+import static TestUMLs.ProyectoFinalUniversidadG8.repad;
 import Vistas.Cliente.*;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,8 +22,53 @@ public class Reparacion_BuscarPorBicicleta extends javax.swing.JPanel {
     /**
      * Creates new form Cliente_BuscarClientePorID
      */
+    private final DefaultTableModel modelo;
+    
     public Reparacion_BuscarPorBicicleta() {
         initComponents();
+        this.modelo = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        armarCabeceraTabla();
+    }
+    
+    private void armarCabeceraTabla() {
+        ArrayList<Object> columnas = new ArrayList<>();
+        columnas.add("ID");
+        columnas.add("Servicio");
+        columnas.add("Cliente");
+        columnas.add("Fecha");
+        columnas.add("Costo");
+        columnas.add("Estado");
+        for (Object it : columnas) {
+            modelo.addColumn(it);
+        }
+        JTReparacionesPorBicicleta.setModel(modelo);
+    }
+    
+    private void borrarFilasTabla() {
+        if (modelo != null) {
+            int a = modelo.getRowCount() - 1;
+            for (int i = a; i >= 0; i--) {
+                modelo.removeRow(i);
+            }
+        }
+    }
+    
+    private void cargarReparaciones(int NSerie) {
+        borrarFilasTabla();
+        for (Reparacion aux : repad.obtenerReparacionesPorBicicleta(NSerie)) {
+            String estado;
+            if (aux.isEstado()) {
+                estado = "Finalizado";
+            } else {
+                estado = "Pendiente";
+            }
+            modelo.addRow(new Object[]{aux.getIdReparacion(), aux.getServicio().getDescripcion(), (aux.getBicicleta().getDueño().getNombre() + " " + aux.getBicicleta().getDueño().getApellido()), aux.getFechaEntrada(), aux.getCostoFinal(), estado});
+        }
     }
 
     /**
@@ -28,23 +80,141 @@ public class Reparacion_BuscarPorBicicleta extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JTFNSerie = new javax.swing.JTextField();
+        JBBuscarBuscarRepPorBici = new java.awt.Button();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTReparacionesPorBicicleta = new javax.swing.JTable();
+        JBLimpiarBuscarRepPorBicicleta = new java.awt.Button();
+
         setMaximumSize(new java.awt.Dimension(398, 600));
         setMinimumSize(new java.awt.Dimension(398, 600));
         setPreferredSize(new java.awt.Dimension(398, 600));
+
+        JTFNSerie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFNSerieActionPerformed(evt);
+            }
+        });
+
+        JBBuscarBuscarRepPorBici.setActionCommand("Buscar");
+        JBBuscarBuscarRepPorBici.setLabel("Buscar");
+        JBBuscarBuscarRepPorBici.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBBuscarBuscarRepPorBiciActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 0, 24)); // NOI18N
+        jLabel1.setText("Buscar Reparacion");
+
+        jLabel3.setText("N°Serie");
+
+        jLabel9.setFont(new java.awt.Font("Yu Gothic Medium", 0, 14)); // NOI18N
+        jLabel9.setText("(Bicicleta)");
+
+        JTReparacionesPorBicicleta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        JTReparacionesPorBicicleta.setPreferredSize(new java.awt.Dimension(398, 600));
+        jScrollPane1.setViewportView(JTReparacionesPorBicicleta);
+
+        JBLimpiarBuscarRepPorBicicleta.setActionCommand("Limpiar");
+        JBLimpiarBuscarRepPorBicicleta.setLabel("Limpiar");
+        JBLimpiarBuscarRepPorBicicleta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBLimpiarBuscarRepPorBicicletaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(JTFNSerie, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JBLimpiarBuscarRepPorBicicleta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JBBuscarBuscarRepPorBici, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(JTFNSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBBuscarBuscarRepPorBici, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                .addComponent(JBLimpiarBuscarRepPorBicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JTFNSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNSerieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFNSerieActionPerformed
+
+    private void JBBuscarBuscarRepPorBiciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscarBuscarRepPorBiciActionPerformed
+        if (JTFNSerie.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingrese un N° Serie por favor");
+        } else {
+            try {
+                cargarReparaciones(Integer.valueOf(JTFNSerie.getText()));
+            } catch (NumberFormatException | NullPointerException ex) {
+                JOptionPane.showMessageDialog(null, "N°Serie invalido o inexistente.");
+            }
+        }
+    }//GEN-LAST:event_JBBuscarBuscarRepPorBiciActionPerformed
+
+    private void JBLimpiarBuscarRepPorBicicletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarBuscarRepPorBicicletaActionPerformed
+        borrarFilasTabla();
+        JTFNSerie.setText("");
+    }//GEN-LAST:event_JBLimpiarBuscarRepPorBicicletaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button JBBuscarBuscarRepPorBici;
+    private java.awt.Button JBLimpiarBuscarRepPorBicicleta;
+    private javax.swing.JTextField JTFNSerie;
+    private javax.swing.JTable JTReparacionesPorBicicleta;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

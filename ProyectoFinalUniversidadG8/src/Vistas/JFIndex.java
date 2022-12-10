@@ -35,6 +35,7 @@ public class JFIndex extends javax.swing.JFrame {
 
     public JFIndex() {
         initComponents();
+        
         //    setIconImage(new ImageIcon(getClass().getResource("/Vistas.Iconos/bicicleteriaicono.png")).getImage());
     }
 
@@ -238,7 +239,7 @@ public class JFIndex extends javax.swing.JFrame {
 
         BBuscarPorClienteBicicleta.setActionCommand("Buscar (Nombre)");
         BBuscarPorClienteBicicleta.setBackground(java.awt.Color.gray);
-        BBuscarPorClienteBicicleta.setLabel("Buscar (Nombre)");
+        BBuscarPorClienteBicicleta.setLabel("Buscar (Dueño)");
         BBuscarPorClienteBicicleta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BBuscarPorClienteBicicletaActionPerformed(evt);

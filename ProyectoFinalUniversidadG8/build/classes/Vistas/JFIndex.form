@@ -328,7 +328,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
                 </Property>
-                <Property name="label" type="java.lang.String" value="Buscar (Nombre)"/>
+                <Property name="label" type="java.lang.String" value="Buscar (Due&#xf1;o)"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BBuscarPorClienteBicicletaActionPerformed"/>
