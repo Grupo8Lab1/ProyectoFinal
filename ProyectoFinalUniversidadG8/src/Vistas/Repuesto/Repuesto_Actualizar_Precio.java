@@ -1,4 +1,3 @@
-
 package Vistas.Repuesto;
 
 import Entidades.Repuesto;
@@ -6,25 +5,26 @@ import static TestUMLs.ProyectoFinalUniversidadG8.repud;
 import javax.swing.JOptionPane;
 
 public class Repuesto_Actualizar_Precio extends javax.swing.JPanel {
-
+    
     public Repuesto_Actualizar_Precio() {
         initComponents();
         actualizarLista();
         JTFPrecioActual.setEnabled(false);
     }
+    
     private void actualizarLista() {
         JCBRepuestosActualizarPrecio.removeAllItems();
         for (Repuesto lista : repud.obtenerRepuestos()) {
             JCBRepuestosActualizarPrecio.addItem(lista.getDescripcion());
         }
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         JBActualizarActualizarRepuesto = new java.awt.Button();
-        JBLimpiarActualizarCliente = new java.awt.Button();
+        JBLimpiarActualizarRepuesto = new java.awt.Button();
         JTFPrecioNuevo = new javax.swing.JTextField();
         JTFPrecioActual = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -47,10 +47,10 @@ public class Repuesto_Actualizar_Precio extends javax.swing.JPanel {
             }
         });
 
-        JBLimpiarActualizarCliente.setLabel("Limpiar");
-        JBLimpiarActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
+        JBLimpiarActualizarRepuesto.setLabel("Limpiar");
+        JBLimpiarActualizarRepuesto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBLimpiarActualizarClienteActionPerformed(evt);
+                JBLimpiarActualizarRepuestoActionPerformed(evt);
             }
         });
 
@@ -78,30 +78,34 @@ public class Repuesto_Actualizar_Precio extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JBLimpiarActualizarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBActualizarActualizarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JCBRepuestosActualizarPrecio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(JBLimpiarActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(19, 19, 19)
-                                    .addComponent(JBActualizarActualizarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(JTFPrecioNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel2))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(JTFPrecioActual, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel4))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 92, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JCBRepuestosActualizarPrecio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(JTFPrecioNuevo))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(JTFPrecioActual)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,31 +126,32 @@ public class Repuesto_Actualizar_Precio extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(JTFPrecioNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JBActualizarActualizarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBLimpiarActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(225, Short.MAX_VALUE))
+                    .addComponent(JBLimpiarActualizarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBActualizarActualizarRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBActualizarActualizarRepuestoActionPerformed
-         try {
+        try {
             Repuesto aux = repud.obtenerRepuestos().get(JCBRepuestosActualizarPrecio.getSelectedIndex());
-            repud.actualizaRepuesto(aux,aux.getNumSerie());
+            aux.setPrecio(Float.valueOf(JTFPrecioNuevo.getText()));
+            repud.actualizaRepuesto(aux, aux.getNumSerie());
             actualizarLista();
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null, "Error eliminando el servicio.");
+            JOptionPane.showMessageDialog(null, "Error actualizando precio.");
         }
     }//GEN-LAST:event_JBActualizarActualizarRepuestoActionPerformed
 
-    private void JBLimpiarActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarActualizarClienteActionPerformed
+    private void JBLimpiarActualizarRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarActualizarRepuestoActionPerformed
         JTFPrecioActual.setText("");
         JTFPrecioNuevo.setText("");
-    }//GEN-LAST:event_JBLimpiarActualizarClienteActionPerformed
+    }//GEN-LAST:event_JBLimpiarActualizarRepuestoActionPerformed
 
     private void JCBRepuestosActualizarPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBRepuestosActualizarPrecioActionPerformed
-             if (JCBRepuestosActualizarPrecio.getSelectedIndex() >= 0) {
+        if (JCBRepuestosActualizarPrecio.getSelectedIndex() >= 0) {
             Repuesto aux = repud.obtenerRepuestos().get(JCBRepuestosActualizarPrecio.getSelectedIndex());
             JCBRepuestosActualizarPrecio.setSelectedIndex(JCBRepuestosActualizarPrecio.getSelectedIndex());
             JTFPrecioActual.setText(String.valueOf(aux.getPrecio()));
@@ -155,7 +160,7 @@ public class Repuesto_Actualizar_Precio extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button JBActualizarActualizarRepuesto;
-    private java.awt.Button JBLimpiarActualizarCliente;
+    private java.awt.Button JBLimpiarActualizarRepuesto;
     private javax.swing.JComboBox<String> JCBRepuestosActualizarPrecio;
     private javax.swing.JTextField JTFPrecioActual;
     private javax.swing.JTextField JTFPrecioNuevo;
