@@ -14,7 +14,6 @@ import Vistas.Cliente.Cliente_Quitar;
 import Vistas.Reparacion.Reparacion_Actualizar;
 import Vistas.Reparacion.Reparacion_Agregar;
 import Vistas.Reparacion.Reparacion_BuscarPorBicicleta;
-import Vistas.Reparacion.Reparacion_BuscarPorCliente;
 import Vistas.Reparacion.Reparacion_BuscarPorFecha;
 import Vistas.Reparacion.Reparacion_BuscarPorID;
 import Vistas.Reparacion.Reparacion_Listar_Todos;
@@ -77,7 +76,6 @@ public class JFIndex extends javax.swing.JFrame {
         JPReparacion = new javax.swing.JPanel();
         BMostrarTodosReparacion = new java.awt.Button();
         BAgregarReparacion = new java.awt.Button();
-        BBuscarPorClienteReparacion = new java.awt.Button();
         BActualizarReparacion = new java.awt.Button();
         BQuitarReparacion = new java.awt.Button();
         BBuscarPorBicicletaReparacion = new java.awt.Button();
@@ -496,14 +494,6 @@ public class JFIndex extends javax.swing.JFrame {
             }
         });
 
-        BBuscarPorClienteReparacion.setBackground(java.awt.Color.gray);
-        BBuscarPorClienteReparacion.setLabel("Buscar (Cliente)");
-        BBuscarPorClienteReparacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BBuscarPorClienteReparacionActionPerformed(evt);
-            }
-        });
-
         BActualizarReparacion.setBackground(java.awt.Color.gray);
         BActualizarReparacion.setLabel("Actualizar ");
         BActualizarReparacion.addActionListener(new java.awt.event.ActionListener() {
@@ -571,7 +561,6 @@ public class JFIndex extends javax.swing.JFrame {
                     .addComponent(BAgregarReparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BQuitarReparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BActualizarReparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BBuscarPorClienteReparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BBuscarPorBicicletaReparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BBuscarPorFechaReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -590,8 +579,6 @@ public class JFIndex extends javax.swing.JFrame {
                         .addComponent(BActualizarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BBuscarPorIDReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BBuscarPorClienteReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BBuscarPorBicicletaReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -728,11 +715,6 @@ public class JFIndex extends javax.swing.JFrame {
         presentarVistasReparacion(p);
     }//GEN-LAST:event_BBuscarPorIDReparacionActionPerformed
 
-    private void BBuscarPorClienteReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBuscarPorClienteReparacionActionPerformed
-        Reparacion_BuscarPorCliente p = new Reparacion_BuscarPorCliente();
-        presentarVistasReparacion(p);
-    }//GEN-LAST:event_BBuscarPorClienteReparacionActionPerformed
-
     private void BBuscarPorBicicletaReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBuscarPorBicicletaReparacionActionPerformed
         Reparacion_BuscarPorBicicleta p = new Reparacion_BuscarPorBicicleta();
         presentarVistasReparacion(p);
@@ -849,7 +831,6 @@ public class JFIndex extends javax.swing.JFrame {
     private java.awt.Button BAgregarServicio;
     private java.awt.Button BBuscarPorBicicletaReparacion;
     private java.awt.Button BBuscarPorClienteBicicleta;
-    private java.awt.Button BBuscarPorClienteReparacion;
     private java.awt.Button BBuscarPorDescripcion;
     private java.awt.Button BBuscarPorFechaReparacion;
     private java.awt.Button BBuscarPorIDBicicleta;

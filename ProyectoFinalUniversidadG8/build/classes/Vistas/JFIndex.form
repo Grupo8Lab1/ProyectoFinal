@@ -649,7 +649,6 @@
                           <Component id="BAgregarReparacion" alignment="1" max="32767" attributes="0"/>
                           <Component id="BQuitarReparacion" alignment="1" max="32767" attributes="0"/>
                           <Component id="BActualizarReparacion" alignment="1" max="32767" attributes="0"/>
-                          <Component id="BBuscarPorClienteReparacion" alignment="1" max="32767" attributes="0"/>
                           <Component id="BBuscarPorBicicletaReparacion" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
                           <Component id="BBuscarPorFechaReparacion" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                       </Group>
@@ -671,8 +670,6 @@
                               <Component id="BActualizarReparacion" min="-2" pref="59" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="BBuscarPorIDReparacion" min="-2" pref="59" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="BBuscarPorClienteReparacion" min="-2" pref="59" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="BBuscarPorBicicletaReparacion" min="-2" pref="59" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -708,17 +705,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BAgregarReparacionActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="java.awt.Button" name="BBuscarPorClienteReparacion">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
-                </Property>
-                <Property name="label" type="java.lang.String" value="Buscar (Cliente)"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BBuscarPorClienteReparacionActionPerformed"/>
               </Events>
             </Component>
             <Component class="java.awt.Button" name="BActualizarReparacion">
