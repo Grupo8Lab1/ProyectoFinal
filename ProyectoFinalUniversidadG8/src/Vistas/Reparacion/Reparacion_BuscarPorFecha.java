@@ -219,6 +219,8 @@ public class Reparacion_BuscarPorFecha extends javax.swing.JPanel {
 
     private void JBLimpiarBuscarRepPorFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarBuscarRepPorFechaActionPerformed
         borrarFilasTabla();
+        JDCBuscarRepPorFecha1.setDate(null);
+        JDCBuscarRepPorFecha2.setDate(null);
     }//GEN-LAST:event_JBLimpiarBuscarRepPorFechaActionPerformed
 
 

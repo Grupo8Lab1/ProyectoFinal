@@ -6,14 +6,51 @@ package Vistas.Repuesto;
 
 import Entidades.Repuesto;
 import static TestUMLs.ProyectoFinalUniversidadG8.repud;
-import Vistas.Cliente.*;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class Repuesto_BuscarPorDescripcion extends javax.swing.JPanel {
 
+    private final DefaultTableModel modelo;
 
     public Repuesto_BuscarPorDescripcion() {
         initComponents();
+        this.modelo = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        armarCabeceraTabla();
+    }
+
+    private void armarCabeceraTabla() {
+        ArrayList<Object> columnas = new ArrayList<>();
+        columnas.add("Numero De Serie");
+        columnas.add("Descripcion");
+        columnas.add("Precio");
+        for (Object it : columnas) {
+            modelo.addColumn(it);
+        }
+        JTRepuestosListar.setModel(modelo);
+    }
+
+    private void borrarFilasTabla() {
+        if (modelo != null) {
+            int a = modelo.getRowCount() - 1;
+            for (int i = a; i >= 0; i--) {
+                modelo.removeRow(i);
+            }
+        }
+    }
+
+    private void cargarRepuestos(String descripcion) {
+        borrarFilasTabla();
+        for (Repuesto aux : repud.obtenerRepuestosPorDescripcion(descripcion)) {
+            modelo.addRow(new Object[]{aux.getNumSerie(), aux.getDescripcion(), aux.getPrecio()});
+        }
     }
 
     /**
@@ -29,11 +66,9 @@ public class Repuesto_BuscarPorDescripcion extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         JTFDescripcion = new javax.swing.JTextField();
         JBBuscarBuscarRepuesto = new java.awt.Button();
-        jLabel4 = new javax.swing.JLabel();
-        JTFNumSerie = new javax.swing.JTextField();
-        JTFPrecio = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         JBLimpiarBuscarRepuesto = new java.awt.Button();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTRepuestosListar = new javax.swing.JTable();
 
         setMaximumSize(new java.awt.Dimension(398, 600));
         setMinimumSize(new java.awt.Dimension(398, 600));
@@ -58,28 +93,26 @@ public class Repuesto_BuscarPorDescripcion extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setText("Num.Serie :");
-
-        JTFNumSerie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFNumSerieActionPerformed(evt);
-            }
-        });
-
-        JTFPrecio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFPrecioActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setText("Precio :");
-
         JBLimpiarBuscarRepuesto.setLabel("Limpiar");
         JBLimpiarBuscarRepuesto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBLimpiarBuscarRepuestoActionPerformed(evt);
             }
         });
+
+        JTRepuestosListar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        JTRepuestosListar.setPreferredSize(new java.awt.Dimension(398, 600));
+        jScrollPane1.setViewportView(JTRepuestosListar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -89,18 +122,16 @@ public class Repuesto_BuscarPorDescripcion extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(JBLimpiarBuscarRepuesto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel3))
+                        .addComponent(jLabel3)
                         .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(JTFNumSerie, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
-                            .addComponent(JTFPrecio)
-                            .addComponent(JTFDescripcion, javax.swing.GroupLayout.Alignment.LEADING)))
-                    .addComponent(JBBuscarBuscarRepuesto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JTFDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JBLimpiarBuscarRepuesto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JBBuscarBuscarRepuesto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -112,19 +143,13 @@ public class Repuesto_BuscarPorDescripcion extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(JTFDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(22, 22, 22)
                 .addComponent(JBBuscarBuscarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(JTFNumSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTFPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(JBLimpiarBuscarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(336, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -137,27 +162,16 @@ public class Repuesto_BuscarPorDescripcion extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Ingrese una Descripcion por favor");
         } else {
             try {
-                Repuesto aux = repud.obtenerRepuestoPorDescripcion1(JTFDescripcion.getText());
-                JTFNumSerie.setText(aux.getDescripcion());
-                JTFPrecio.setText(String.valueOf(aux.getPrecio()));
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Error, N° Serie invalido.");
+                cargarRepuestos(JTFDescripcion.getText());
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error, verifique el ingreso de datos");
             }
         }
     }//GEN-LAST:event_JBBuscarBuscarRepuestoActionPerformed
 
-    private void JTFNumSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNumSerieActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFNumSerieActionPerformed
-
-    private void JTFPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFPrecioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFPrecioActionPerformed
-
     private void JBLimpiarBuscarRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimpiarBuscarRepuestoActionPerformed
-        JTFNumSerie.setText("");
-        JTFPrecio.setText("");
         JTFDescripcion.setText("");
+        borrarFilasTabla();
     }//GEN-LAST:event_JBLimpiarBuscarRepuestoActionPerformed
 
 
@@ -165,11 +179,9 @@ public class Repuesto_BuscarPorDescripcion extends javax.swing.JPanel {
     private java.awt.Button JBBuscarBuscarRepuesto;
     private java.awt.Button JBLimpiarBuscarRepuesto;
     private javax.swing.JTextField JTFDescripcion;
-    private javax.swing.JTextField JTFNumSerie;
-    private javax.swing.JTextField JTFPrecio;
+    private javax.swing.JTable JTRepuestosListar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
